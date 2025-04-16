@@ -68,6 +68,13 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 120px;
+    }
     @media screen and (max-width: 480px) {
       .hero-overlay {
         padding: 0 10px;
@@ -113,6 +120,37 @@
     </select>
   </div>
   <script>
+    const translations = {};
+    function setLang(lang) {
+      const t = translations[lang];
+      if (!t) return;
+      for (const key in t) {
+        const el = document.getElementById(key);
+        if (el) el.innerText = t[key];
+      }
+      const legal = document.getElementById("legal-link");
+      const privacy = document.getElementById("privacy-link");
+      if (legal && privacy) {
+        if (lang === 'kr') {
+          legal.href = 'legal_ko.html';
+          privacy.href = 'privacy_ko.html';
+        } else {
+          legal.href = 'legal_en.html';
+          privacy.href = 'privacy_en.html';
+        }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const langSelect = document.querySelector('#lang-selector');
+      if (langSelect) {
+        langSelect.addEventListener('change', function () {
+          setLang(this.value);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
 <!-- About Section -->
 <section id="about">
   <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
