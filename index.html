@@ -5,233 +5,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JeongSang Law Office</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f9f9f9;
-      color: #333;
     }
-    a.nav-link {
+    .hero {
+      position: relative;
+      height: 400px;
+      background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+    .nav {
+      margin-top: 20px;
+    }
+    .nav a {
       color: white;
       border: 1px solid white;
       padding: 10px 20px;
+      margin: 5px;
       border-radius: 40px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease;
     }
-    a.nav-link:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.3);
     }
-
+    .tab-section {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+    .active {
+      display: block;
+    }
     .service-box {
-      width: 300px;
       background: white;
       padding: 20px;
+      margin: 20px auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
       transition: transform 0.3s ease;
+      max-width: 500px;
     }
-
     .service-box:hover {
-      transform: scale(1.1);
+      transform: scale(1.03);
     }
 
     .graph-container {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 40px;
       flex-wrap: wrap;
-    }
-    .graph-item {
-      text-align: center;
-      position: relative;
+      margin-top: 40px;
     }
     .graph-bar {
       width: 100px;
-      transition: height 0.5s ease;
-      background-color: #4CAF50;
-      margin: 0 auto;
-      border-radius: 6px 6px 0 0;
-      position: relative;
+      height: 100px;
+      background-color: #ccc;
+      transition: height 0.3s ease, background-color 0.3s ease;
+      margin-bottom: 10px;
     }
-    .status-label {
-      margin-top: 10px;
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+    .label {
       font-weight: bold;
     }
-    .value-label {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #222;
-      color: white;
-      padding: 4px 8px;
-      font-size: 12px;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .graph-item:hover .value-label {
-      opacity: 1;
-    }
 
-    .bar1 { height: 200px; }
-    .bar2 { height: 200px; }
-    .bar3 { height: 150px; }
-    .bar4 { height: 120px; }
-    .bar5 { height: 160px; }
-
-    .bar1:hover { height: 20px; }
-    .bar2:hover { height: 20px; }
-    .bar3:hover { height: 60px; }
-    .bar4:hover { height: 60px; }
-    .bar5:hover { height: 96px; }
-
-    @media screen and (max-width: 768px) {
-      .graph-bar {
-        width: 80px;
+    @media (max-width: 768px) {
+      .nav a {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
       }
       .service-box {
         width: 90%;
       }
-      a.nav-link {
-        display: inline-block;
-        margin-bottom: 10px;
-      }
-      h1 {
-        font-size: 24px;
-      }
     }
   </style>
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.tab-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function setGraphShrink() {
+      const bars = document.querySelectorAll('.graph-bar');
+      const values = [90, 90, 60, 50, 40];
+      bars.forEach((bar, index) => {
+        bar.addEventListener('mouseenter', () => {
+          bar.style.height = (100 - values[index]) + "px";
+        });
+        bar.addEventListener('mouseleave', () => {
+          bar.style.height = "100px";
+        });
+      });
+    }
+
+    window.onload = () => {
+      showSection('about');
+      setGraphShrink();
+    }
+  </script>
 </head>
 <body>
 
-<!-- Language Toggle -->
-<div style="text-align: right; margin: 10px 20px;">
-  <button onclick="setLanguage('en')">English</button>
-  <button onclick="setLanguage('ko')">한국어</button>
-</div>
-
 <!-- Hero Banner -->
-<div style="position: relative; height: 500px;">
-  <img src="https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png"
-       alt="Banner"
-       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
-  <div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.4);display: flex;flex-direction: column;align-items: center;justify-content: center;color: white;text-align: center; z-index: 1;">
-    <h1 style="color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px;">JeongSang Law Office</h1>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-      <a href="#about" class="nav-link">About</a>
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#contact" class="nav-link">Contact</a>
-      <a href="#form" class="nav-link">Message</a>
-      <a href="#status" class="nav-link">Status</a>
-    </div>
+<div class="hero">
+  <h1>JeongSang Law Office</h1>
+  <div class="nav">
+    <a href="javascript:void(0)" onclick="showSection('about')">About</a>
+    <a href="javascript:void(0)" onclick="showSection('services')">Services</a>
+    <a href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
+    <a href="javascript:void(0)" onclick="showSection('form')">Message</a>
+    <a href="javascript:void(0)" onclick="showSection('graph')">Status</a>
   </div>
 </div>
 
-<!-- About -->
-<section id="about" style="padding: 60px 20px;text-align: center;">
-  <h2 id="about-title" style="font-size: 28px;">Your Trusted IP Law Partner in Korea</h2>
-  <p style="max-width: 600px;margin: auto;">
-    <strong>JeongSang Law Office</strong> specializes in intellectual property protection, helping global clients address trademark and copyright violations in South Korea.<br />
-    We serve foreign clients with fast, efficient, and cost-free initial legal actions.
-  </p>
+<!-- Sections -->
+<section id="about" class="tab-section">
+  <h2>Your Trusted IP Law Partner in Korea</h2>
+  <p><strong>JeongSang Law Office</strong> specializes in intellectual property protection, helping global clients address trademark and copyright violations in South Korea.<br>We serve foreign clients with fast, efficient, and cost-free initial legal actions.</p>
 </section>
 
-<!-- Services -->
-<section id="services" style="padding: 60px 20px;background-color: #f8f8f8;">
-  <h2 id="services-title" style="text-align: center;">Our Key Services</h2>
-  <div style="display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;margin-top: 40px;">
-    <div class="service-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png" alt="Trademark Icon" style="width: 50px; margin-bottom: 10px;">
-      <h3>Trademark Infringement Response</h3>
-      <p>We help you stop trademark violations on Korean e-commerce platforms, including emergency takedown requests.</p>
-    </div>
-    <div class="service-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Copyright Icon" style="width: 50px; margin-bottom: 10px;">
-      <h3>Copyright Protection</h3>
-      <p>From illegal copying to unauthorized online use — we protect your digital content rights swiftly and decisively.</p>
-    </div>
-    <div class="service-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png" alt="No Fee Icon" style="width: 50px; margin-bottom: 10px;">
-      <h3>No Legal Fees Charged</h3>
-      <p>We take immediate action without charging any legal fees. If successful, we may recover legal costs from the infringers.</p>
-    </div>
+<section id="services" class="tab-section">
+  <h2>Our Key Services</h2>
+  <div class="service-box">
+    <h3>Trademark Infringement Response</h3>
+    <p>We help you stop trademark violations on Korean e-commerce platforms.</p>
+  </div>
+  <div class="service-box">
+    <h3>Copyright Protection</h3>
+    <p>From illegal copying to unauthorized online use — we protect your rights.</p>
+  </div>
+  <div class="service-box">
+    <h3>No Legal Fees Charged</h3>
+    <p>We take immediate action without charging legal fees. Costs are recovered from infringers.</p>
   </div>
 </section>
 
-<!-- Status Graphs -->
-<section id="status" style="text-align: center; padding: 60px 20px;">
-  <h2>Status Overview</h2>
-  <p>Hover over each bar to see reduction percentages.</p>
-  <div class="graph-container">
-    <div class="graph-item">
-      <div class="value-label">-90%</div>
-      <div class="graph-bar bar1"></div>
-      <div class="status-label">ECCO</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-90%</div>
-      <div class="graph-bar bar2"></div>
-      <div class="status-label">DAIWA</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-60%</div>
-      <div class="graph-bar bar3"></div>
-      <div class="status-label">ARCTERYX</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-50%</div>
-      <div class="graph-bar bar4"></div>
-      <div class="status-label">MARK & LONA</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-40%</div>
-      <div class="graph-bar bar5"></div>
-      <div class="status-label">ETC</div>
-    </div>
-  </div>
+<section id="contact" class="tab-section">
+  <h2>Contact Information</h2>
+  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+  <p><strong>Email:</strong> ykselove@nate.com</p>
 </section>
 
-<!-- Contact Form -->
-<section id="form" style="padding: 60px 20px;text-align: center;">
-  <h2 id="contact-title">Contact Form</h2>
-  <form action="https://formspree.io/f/xqkrgpez" method="POST" style="max-width: 400px; margin: 0 auto;">
-    <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px;"><br><br>
-    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px;"><br><br>
-    <textarea name="message" placeholder="Your Message" required style="width: 100%; padding: 10px; height: 120px;"></textarea><br><br>
-    <button type="submit" style="padding: 10px 20px;">Send Message</button>
+<section id="form" class="tab-section">
+  <h2>Leave a Message</h2>
+  <form action="https://formspree.io/f/xqkrgpez" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+    <button type="submit">Send Message</button>
   </form>
 </section>
 
-<!-- Footer -->
-<footer id="contact" style="background-color: #222;color: white;padding: 30px 20px;text-align: center;">
-  <h2>Contact Us</h2>
-  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-  <p><strong>Email:</strong> ykselove@nate.com</p>
-  <p>© 2025 <strong>JeongSang Law Office</strong>. All rights reserved.</p>
-</footer>
-
-<script>
-  const langText = {
-    en: {
-      about: "Your Trusted IP Law Partner in Korea",
-      services: "Our Key Services",
-      contact: "Contact Form"
-    },
-    ko: {
-      about: "신뢰받는 지식재산권 전문 법률사무소",
-      services: "주요 서비스",
-      contact: "문의하기"
-    }
-  };
-  function setLanguage(lang) {
-    document.getElementById("about-title").innerText = langText[lang].about;
-    document.getElementById("services-title").innerText = langText[lang].services;
-    document.getElementById("contact-title").innerText = langText[lang].contact;
-  }
-</script>
+<section id="graph" class="tab-section">
+  <h2>Status Overview</h2>
+  <p>Hover over each bar to view activity difference</p>
+  <div class="graph-container">
+    <div>
+      <div class="graph-bar"></div>
+      <div class="label">ECCO</div>
+    </div>
+    <div>
+      <div class="graph-bar"></div>
+      <div class="label">DAIWA</div>
+    </div>
+    <div>
+      <div class="graph-bar"></div>
+      <div class="label">ARCTERYX</div>
+    </div>
+    <div>
+      <div class="graph-bar"></div>
+      <div class="label">MARK & LONA</div>
+    </div>
+    <div>
+      <div class="graph-bar"></div>
+      <div class="label">ETC</div>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
