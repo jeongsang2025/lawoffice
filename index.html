@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +12,13 @@
       color: #333;
       scroll-behavior: smooth;
     }
+
     .hero {
       position: relative;
       height: 500px;
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
     }
+
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -32,6 +33,7 @@
       color: white;
       text-align: center;
     }
+
     .nav-link {
       color: white;
       border: 1px solid white;
@@ -41,9 +43,11 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
+
     .nav-link:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
+
     section {
       padding: 60px 20px;
       text-align: center;
@@ -51,6 +55,7 @@
       margin: auto;
       scroll-margin-top: 120px;
     }
+
     .service-box {
       width: 300px;
       background: white;
@@ -58,15 +63,17 @@
       margin: 20px auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
-      text-align: center;
     }
+
     .service-box:hover {
       transform: scale(1.05);
     }
+
     .service-box img {
       width: 50px;
       margin-bottom: 10px;
     }
+
     .graph-container {
       display: flex;
       justify-content: center;
@@ -74,9 +81,11 @@
       flex-wrap: wrap;
       margin-top: 40px;
     }
+
     .graph-item {
       text-align: center;
     }
+
     .graph-bar {
       width: 100px;
       height: 200px;
@@ -84,31 +93,36 @@
       transition: height 0.4s ease, background-color 0.4s ease;
       margin: auto;
       border-radius: 6px;
+      position: relative;
     }
-    .graph-bar:hover {
-      background-color: #4CAF50;
-    }
-    .bar1:hover { height: 20px; }
-    .bar2:hover { height: 20px; }
-    .bar3:hover { height: 60px; }
-    .bar4:hover { height: 60px; }
-    .bar5:hover { height: 96px; }
+
+    .graph-item:hover .bar1 { height: 20px; background-color: #4CAF50; }
+    .graph-item:hover .bar2 { height: 20px; background-color: #4CAF50; }
+    .graph-item:hover .bar3 { height: 60px; background-color: #4CAF50; }
+    .graph-item:hover .bar4 { height: 60px; background-color: #4CAF50; }
+    .graph-item:hover .bar5 { height: 96px; background-color: #4CAF50; }
 
     .label {
       font-weight: bold;
       margin-top: 10px;
     }
+
+    .value-label {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: white;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
     @media (max-width: 768px) {
-      .nav-link {
-        display: inline-block;
-        margin-bottom: 10px;
-      }
-      .service-box {
-        width: 90%;
-      }
-      .graph-bar {
-        width: 80px;
-      }
+      .nav-link { display: block; margin: 10px auto; }
+      .service-box { width: 90%; }
+      .graph-bar { width: 80px; }
     }
   </style>
 </head>
@@ -154,35 +168,40 @@
   </div>
 </section>
 
-<!-- Graph -->
+<!-- Status -->
 <section id="status">
   <h2>Status Overview</h2>
-  <p>Hover over each bar to see activity difference</p>
+  <p>Hover over each bar to see reduction percentages.</p>
   <div class="graph-container">
     <div class="graph-item">
+      <div class="value-label">-90%</div>
       <div class="graph-bar bar1"></div>
       <div class="label">ECCO</div>
     </div>
     <div class="graph-item">
+      <div class="value-label">-90%</div>
       <div class="graph-bar bar2"></div>
       <div class="label">DAIWA</div>
     </div>
     <div class="graph-item">
+      <div class="value-label">-60%</div>
       <div class="graph-bar bar3"></div>
       <div class="label">ARCTERYX</div>
     </div>
     <div class="graph-item">
+      <div class="value-label">-50%</div>
       <div class="graph-bar bar4"></div>
       <div class="label">MARK & LONA</div>
     </div>
     <div class="graph-item">
+      <div class="value-label">-40%</div>
       <div class="graph-bar bar5"></div>
       <div class="label">ETC</div>
     </div>
   </div>
 </section>
 
-<!-- Form -->
+<!-- Message Form -->
 <section id="form">
   <h2>Leave a Message</h2>
   <form action="https://formspree.io/f/xqkrgpez" method="POST">
@@ -193,7 +212,7 @@
   </form>
 </section>
 
-<!-- Contact -->
+<!-- Contact Info -->
 <section id="contact">
   <h2>Contact Information</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
