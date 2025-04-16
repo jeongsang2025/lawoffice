@@ -12,71 +12,88 @@
       color: #333;
       scroll-behavior: smooth;
     }
+
     .hero {
       position: relative;
       height: 500px;
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
     }
+
     .hero-overlay {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.4);
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
     }
-    h1 {
+
+    .hero-overlay h1 {
       color: white;
       font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
+
     nav {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
       justify-content: center;
-      margin-top: 20px;
+      margin-bottom: 10px;
     }
+
     .nav-link {
-      border: 1px solid white;
       color: white;
+      border: 1px solid white;
       padding: 10px 20px;
       border-radius: 40px;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
-    .lang-select {
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #language-select {
       position: absolute;
-      top: 20px;
       right: 20px;
-      z-index: 5;
+      top: 520px;
     }
-    .lang-select select {
-      padding: 5px;
-      border-radius: 20px;
-      font-weight: bold;
-    }
+
     section {
       padding: 60px 20px;
       text-align: center;
       max-width: 900px;
       margin: auto;
+      scroll-margin-top: 120px;
     }
-    #services-section {
-      background-color: #f8f8f8;
+
+    .services-section {
+      background-color: #f0f0f0;
     }
+
     .service-box {
+      width: 300px;
       background: white;
       padding: 20px;
       margin: 20px auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      max-width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
+
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+
     .service-box img {
       width: 50px;
       margin-bottom: 10px;
     }
+
     .graph-container {
       display: flex;
       justify-content: center;
@@ -84,109 +101,129 @@
       flex-wrap: wrap;
       margin-top: 40px;
     }
+
     .graph-item {
       text-align: center;
       position: relative;
     }
+
     .graph-bar {
       width: 100px;
       height: 200px;
-      background: #ccc;
-      transition: height 0.4s ease;
+      background-color: #ccc;
+      transition: height 0.4s ease, background-color 0.4s ease;
       border-radius: 6px;
     }
-    .bar1:hover { height: 20px; background: #4CAF50; }
-    .bar2:hover { height: 20px; background: #4CAF50; }
-    .bar3:hover { height: 60px; background: #4CAF50; }
-    .bar4:hover { height: 60px; background: #4CAF50; }
-    .bar5:hover { height: 96px; background: #4CAF50; }
+
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+
+    .bar1:hover { height: 20px; }
+    .bar2:hover { height: 20px; }
+    .bar3:hover { height: 60px; }
+    .bar4:hover { height: 60px; }
+    .bar5:hover { height: 96px; }
+
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
     .value-label {
       position: absolute;
       top: -25px;
       left: 50%;
       transform: translateX(-50%);
-      background: #222;
+      background: #000;
       color: white;
-      padding: 3px 6px;
       font-size: 12px;
+      padding: 3px 6px;
       border-radius: 4px;
     }
+
     footer {
-      background: #222;
+      background-color: #222;
       color: white;
-      padding: 40px 20px;
+      padding: 30px 20px;
       text-align: center;
     }
-    form {
-      max-width: 400px;
-      margin: auto;
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-    }
+
     @media (max-width: 768px) {
       nav {
-        flex-wrap: nowrap;
         flex-direction: row;
-        overflow-x: auto;
+      }
+      .nav-link {
+        font-size: 14px;
+        padding: 8px 14px;
+      }
+      #language-select {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 10px;
       }
     }
   </style>
 </head>
 <body>
 
+<!-- Hero Section -->
 <div class="hero">
   <div class="hero-overlay">
     <h1 id="title">JeongSang Law Office</h1>
     <nav>
       <a href="#about" class="nav-link" id="nav-about">About</a>
-      <a href="#services-section" class="nav-link" id="nav-services">Services</a>
+      <a href="#services" class="nav-link" id="nav-services">Services</a>
       <a href="#status" class="nav-link" id="nav-status">Status</a>
       <a href="#form" class="nav-link" id="nav-message">Message</a>
       <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
     </nav>
   </div>
-  <div class="lang-select">
-    <select onchange="setLang(this.value)">
-      <option value="en">English</option>
-      <option value="ko">한국어</option>
-      <option value="jp">日本語</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="zh">中文</option>
-    </select>
-  </div>
 </div>
 
+<!-- Language Dropdown -->
+<div id="language-select">
+  <select onchange="setLang(this.value)">
+    <option value="en">English</option>
+    <option value="kr">한국어</option>
+    <option value="jp">日本語</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="zh">中文</option>
+  </select>
+</div>
+
+<!-- About -->
 <section id="about">
   <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
   <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
 </section>
 
-<section id="services-section">
+<!-- Services -->
+<section id="services" class="services-section">
   <h2 id="services-title">Our Key Services</h2>
   <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png" alt="Trademark Icon">
-    <h3 id="srv1-title">Trademark Infringement</h3>
-    <p id="srv1-desc">Stop violations in Korea’s platforms.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png">
+    <h3 id="service1-title">Trademark Infringement</h3>
+    <p id="service1-desc">Stop violations in Korea's platforms.</p>
   </div>
   <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Copyright Icon">
-    <h3 id="srv2-title">Copyright Protection</h3>
-    <p id="srv2-desc">Protect your digital content rights.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png">
+    <h3 id="service2-title">Copyright Protection</h3>
+    <p id="service2-desc">Protect your digital content rights.</p>
   </div>
   <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png" alt="No Fee Icon">
-    <h3 id="srv3-title">No Legal Fees</h3>
-    <p id="srv3-desc">Start actions without upfront fees.</p>
+    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png">
+    <h3 id="service3-title">No Legal Fees</h3>
+    <p id="service3-desc">Start actions without upfront fees.</p>
   </div>
 </section>
 
+<!-- Status -->
 <section id="status">
-  <h2 id="status-title">Status Overview</h2>
-  <p id="status-desc">Hover over each bar to see activity reduction.</p>
+  <h2>Status Overview</h2>
+  <p>Hover over each bar to see activity reduction.</p>
   <div class="graph-container">
     <div class="graph-item"><div class="value-label">-90%</div><div class="graph-bar bar1"></div><div class="label">ECCO</div></div>
     <div class="graph-item"><div class="value-label">-90%</div><div class="graph-bar bar2"></div><div class="label">DAIWA</div></div>
@@ -196,21 +233,23 @@
   </div>
 </section>
 
+<!-- Message Form -->
 <section id="form">
-  <h2 id="msg-title">Send a Message</h2>
+  <h2 id="form-title">Send a Message</h2>
   <form action="https://formspree.io/f/manezyje" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send</button>
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
+    <textarea name="message" placeholder="Your Message" rows="6" required style="width:100%;padding:10px;"></textarea><br><br>
+    <button type="submit" style="padding:10px 20px;">Send</button>
   </form>
 </section>
 
+<!-- Contact -->
 <footer id="contact">
   <h2 id="contact-title">Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
   <p><strong>Email:</strong> ykselove@nate.com</p>
-  <p>© 2025 JeongSang Law Office. All rights reserved.</p>
+  <p>© 2025 <strong>JeongSang Law Office</strong>. All rights reserved.</p>
 </footer>
 
 <script>
@@ -218,29 +257,28 @@
     en: {
       title: "JeongSang Law Office", "nav-about": "About", "nav-services": "Services", "nav-status": "Status", "nav-message": "Message", "nav-contact": "Contact",
       "about-title": "Your Trusted IP Law Partner in Korea", "about-desc": "We help clients with trademark and copyright protection in Korea.",
-      "services-title": "Our Key Services", "srv1-title": "Trademark Infringement", "srv1-desc": "Stop violations in Korea’s platforms.",
-      "srv2-title": "Copyright Protection", "srv2-desc": "Protect your digital content rights.",
-      "srv3-title": "No Legal Fees", "srv3-desc": "Start actions without upfront fees.",
-      "status-title": "Status Overview", "status-desc": "Hover over each bar to see activity reduction.",
-      "msg-title": "Send a Message", "contact-title": "Contact"
+      "services-title": "Our Key Services",
+      "service1-title": "Trademark Infringement", "service1-desc": "Stop violations in Korea's platforms.",
+      "service2-title": "Copyright Protection", "service2-desc": "Protect your digital content rights.",
+      "service3-title": "No Legal Fees", "service3-desc": "Start actions without upfront fees.",
+      "form-title": "Send a Message", "contact-title": "Contact"
     },
-    ko: {
+    kr: {
       title: "법률사무소 정상", "nav-about": "소개", "nav-services": "서비스", "nav-status": "현황", "nav-message": "문의하기", "nav-contact": "연락처",
       "about-title": "신뢰받는 지식재산권 법률 파트너", "about-desc": "한국 내 상표권 및 저작권 보호를 도와드립니다.",
-      "services-title": "주요 서비스", "srv1-title": "상표 침해 대응", "srv1-desc": "한국 플랫폼 내 침해 행위 즉시 조치.",
-      "srv2-title": "저작권 보호", "srv2-desc": "디지털 콘텐츠 권리를 보호합니다.",
-      "srv3-title": "법률 수수료 없음", "srv3-desc": "선불 없이 법적 조치를 시작합니다.",
-      "status-title": "현황", "status-desc": "막대에 마우스를 올리면 감소율이 표시됩니다.",
-      "msg-title": "문의 메세지 보내기", "contact-title": "연락처"
-    },
-    // 일본어, 스페인어, 프랑스어, 중국어 생략 (너무 길어져서 JS 안에 다 넣을 수는 없음)
+      "services-title": "주요 서비스",
+      "service1-title": "상표 침해 대응", "service1-desc": "한국 플랫폼 내 침해 대응을 합니다.",
+      "service2-title": "저작권 보호", "service2-desc": "디지털 콘텐츠 권리를 보호합니다.",
+      "service3-title": "무료 법률 지원", "service3-desc": "선착수 후 비용 청구 없이 진행합니다.",
+      "form-title": "문의 남기기", "contact-title": "연락처"
+    }
   };
 
   function setLang(lang) {
-    const dict = translations[lang];
-    for (const id in dict) {
+    const t = translations[lang];
+    for (const id in t) {
       const el = document.getElementById(id);
-      if (el) el.innerText = dict[id];
+      if (el) el.innerText = t[id];
     }
   }
 </script>
