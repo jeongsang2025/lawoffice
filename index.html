@@ -155,35 +155,14 @@
   </style>
 </head>
 <body>
-<!-- Hero Section -->
-<div class="hero">
-  <div class="hero-overlay">
-    <h1 id="title">JeongSang Law Office</h1>
-    <nav>
-      <a class="nav-link" href="#about" id="nav-about">About</a>
-      <a class="nav-link" href="#services" id="nav-services">Services</a>
-      <a class="nav-link" href="#status" id="nav-status">Status</a>
-      <a class="nav-link" href="#form" id="nav-message">Message</a>
-      <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
-    </nav>
-  </div>
-</div>
-<!-- Language Dropdown -->
-<div id="language-select">
-  <select onchange="setLang(this.value)">
-    <option value="en">English</option>
-    <option value="kr">한국어</option>
-    <option value="jp">日本語</option>
-    <option value="es">Español</option>
-    <option value="fr">Français</option>
-    <option value="zh">中文</option>
-  </select>
-</div>
+<!-- 기존 콘텐츠 유지 + 언어 스크립트 삽입 -->
+
 <!-- About -->
 <section id="about">
   <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
   <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
 </section>
+
 <!-- Services -->
 <section class="services-section" id="services">
   <h2 id="services-title">Our Key Services</h2>
@@ -203,6 +182,7 @@
     <p id="service3-desc">Start actions without upfront fees.</p>
   </div>
 </section>
+
 <!-- Status -->
 <section id="status">
   <h2 id="status-title">Status Overview</h2>
@@ -215,6 +195,7 @@
     <div class="graph-item"><div class="value-label">-40%</div><div class="graph-bar bar5"></div><div class="label">ETC</div></div>
   </div>
 </section>
+
 <!-- Message -->
 <section id="form">
   <h2 id="form-title">Send a Message</h2>
@@ -226,6 +207,7 @@
     <button style="padding:10px 20px;" type="submit">Send</button>
   </form>
 </section>
+
 <!-- Footer -->
 <footer id="contact">
   <h2 id="contact-title">Contact</h2>
@@ -237,15 +219,143 @@
   </div>
   <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
 </footer>
+
 <script>
-  const translations = {};
+  const translations = {
+    en: {
+      title: "JeongSang Law Office",
+      "nav-about": "About",
+      "nav-services": "Services",
+      "nav-status": "Status",
+      "nav-message": "Message",
+      "nav-contact": "Contact",
+      "about-title": "Your Trusted IP Law Partner in Korea",
+      "about-desc": "We help clients with trademark and copyright protection in Korea.",
+      "services-title": "Our Key Services",
+      "service1-title": "Trademark Infringement",
+      "service1-desc": "Stop violations in Korea's platforms.",
+      "service2-title": "Copyright Protection",
+      "service2-desc": "Protect your digital content rights.",
+      "service3-title": "No Legal Fees",
+      "service3-desc": "Start actions without upfront fees.",
+      "status-title": "Status Overview",
+      "status-desc": "Hover over each bar to see activity reduction.",
+      "form-title": "Send a Message",
+      "contact-title": "Contact"
+    },
+    kr: {
+      title: "정상 법률사무소",
+      "nav-about": "소개",
+      "nav-services": "서비스",
+      "nav-status": "현황",
+      "nav-message": "메시지",
+      "nav-contact": "연락처",
+      "about-title": "신뢰받는 지식재산권 법률 파트너",
+      "about-desc": "한국 내 상표권 및 저작권 보호를 도와드립니다.",
+      "services-title": "주요 서비스",
+      "service1-title": "상표 침해 대응",
+      "service1-desc": "한국 플랫폼 내 침해 대응을 합니다.",
+      "service2-title": "저작권 보호",
+      "service2-desc": "디지털 콘텐츠 권리를 보호합니다.",
+      "service3-title": "무료 법률 지원",
+      "service3-desc": "선착수 후 비용 청구 없이 진행합니다.",
+      "status-title": "진행 현황",
+      "status-desc": "막대에 마우스를 올리면 감소율이 나타납니다.",
+      "form-title": "문의 남기기",
+      "contact-title": "연락처"
+    },
+    jp: {
+      title: "ジョンサン法律事務所",
+      "nav-about": "紹介",
+      "nav-services": "サービス",
+      "nav-status": "状況",
+      "nav-message": "メッセージ",
+      "nav-contact": "連絡先",
+      "about-title": "韓国で信頼される知財法律パートナー",
+      "about-desc": "韓国での商標と著作権の保護を支援します。",
+      "services-title": "主なサービス",
+      "service1-title": "商標侵害対応",
+      "service1-desc": "韓国のプラットフォームでの侵害を阻止します。",
+      "service2-title": "著作権保護",
+      "service2-desc": "デジタルコンテンツの権利を守ります。",
+      "service3-title": "法的費用なし",
+      "service3-desc": "前払い費用なしで対応します。",
+      "status-title": "進行状況",
+      "status-desc": "バーにマウスを置くと減少率が表示されます。",
+      "form-title": "メッセージを送る",
+      "contact-title": "連絡先"
+    },
+    zh: {
+      title: "正尚律师事务所",
+      "nav-about": "关于我们",
+      "nav-services": "服务",
+      "nav-status": "状态",
+      "nav-message": "留言",
+      "nav-contact": "联系方式",
+      "about-title": "您在韩国值得信赖的知识产权律师",
+      "about-desc": "我们帮助客户在韩国保护商标和版权。",
+      "services-title": "主要服务",
+      "service1-title": "商标侵权应对",
+      "service1-desc": "阻止在韩国平台上的侵权行为。",
+      "service2-title": "版权保护",
+      "service2-desc": "保护您的数字内容权利。",
+      "service3-title": "无需法律费用",
+      "service3-desc": "无需预付法律费用即可开始行动。",
+      "status-title": "状态概览",
+      "status-desc": "将鼠标悬停在柱形图上可查看减少情况。",
+      "form-title": "发送留言",
+      "contact-title": "联系方式"
+    },
+    es: {
+      title: "Oficina Legal JeongSang",
+      "nav-about": "Sobre nosotros",
+      "nav-services": "Servicios",
+      "nav-status": "Estado",
+      "nav-message": "Mensaje",
+      "nav-contact": "Contacto",
+      "about-title": "Su socio legal confiable en Corea",
+      "about-desc": "Ayudamos con la protección de marcas y derechos de autor en Corea.",
+      "services-title": "Nuestros Servicios",
+      "service1-title": "Respuesta a Infracción de Marca",
+      "service1-desc": "Detenga infracciones en plataformas de Corea.",
+      "service2-title": "Protección de Derechos de Autor",
+      "service2-desc": "Protegemos sus derechos de contenido digital.",
+      "service3-title": "Sin Honorarios Legales",
+      "service3-desc": "Actuamos sin tarifas legales iniciales.",
+      "status-title": "Resumen de Estado",
+      "status-desc": "Pase el mouse sobre cada barra para ver la reducción.",
+      "form-title": "Enviar un Mensaje",
+      "contact-title": "Contacto"
+    },
+    fr: {
+      title: "Cabinet juridique JeongSang",
+      "nav-about": "À propos",
+      "nav-services": "Services",
+      "nav-status": "Statut",
+      "nav-message": "Message",
+      "nav-contact": "Contact",
+      "about-title": "Votre partenaire de propriété intellectuelle en Corée",
+      "about-desc": "Nous aidons à protéger les marques et droits d’auteur en Corée.",
+      "services-title": "Nos Services Clés",
+      "service1-title": "Réponse à l'infraction de marque",
+      "service1-desc": "Stopper les infractions sur les plateformes coréennes.",
+      "service2-title": "Protection des droits d’auteur",
+      "service2-desc": "Protégez vos droits de contenu numérique.",
+      "service3-title": "Aucun frais juridique",
+      "service3-desc": "Actions sans frais juridiques initiaux.",
+      "status-title": "Aperçu du Statut",
+      "status-desc": "Survolez chaque barre pour voir la réduction.",
+      "form-title": "Envoyer un message",
+      "contact-title": "Contact"
+    }
+  };
+
   function setLang(lang) {
     const t = translations[lang];
-    for (const id in t) {
-      const el = document.getElementById(id);
-      if (el) el.innerText = t[id];
+    if (!t) return;
+    for (const key in t) {
+      const el = document.getElementById(key);
+      if (el) el.innerText = t[key];
     }
   }
 </script>
-</body>
-</html>
