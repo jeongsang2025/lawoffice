@@ -169,9 +169,8 @@
     <option value="fr">Français</option>
   </select>
 </div>
-<!-- (중간 생략된 섹션들 그대로 유지) -->
 <script>
-  const translations = { /* 네가 주신 번역 데이터 여기에 붙여넣기 */ };
+  const translations = { /* 전체 번역 테이블 */ };
   function setLang(lang) {
     const t = translations[lang];
     if (!t) return;
@@ -192,12 +191,10 @@
     }
   }
   document.addEventListener('DOMContentLoaded', function () {
-    const langSelect = document.querySelector('#lang-selector');
-    if (langSelect) {
-      langSelect.addEventListener('change', function () {
-        setLang(this.value);
-      });
-    }
+    const langSelect = document.getElementById('lang-selector');
+    langSelect.addEventListener('change', function () {
+      setLang(this.value);
+    });
   });
 </script>
 </body>
