@@ -12,7 +12,7 @@
       color: #333;
       scroll-behavior: smooth;
     }
-    .hero {
+.hero {
       position: relative;
       height: 500px;
       background-image: url('https://ipkorelaw.wordpress.com/wp-content/uploads/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png');
@@ -30,7 +30,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 10px;
     }
     .hero-overlay h1 {
       color: white;
@@ -45,7 +44,6 @@
       justify-content: center;
       margin-bottom: 10px;
       flex-direction: row;
-      z-index: 10;
     }
     .nav-link {
       color: white;
@@ -60,14 +58,10 @@
       background-color: rgba(255, 255, 255, 0.2);
     }
     #language-select {
-      position: fixed;
-      top: 12px;
-      right: 12px;
+      position: absolute;
+      right: 20px;
+      top: 520px;
       z-index: 9999;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 5px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     section {
       padding: 60px 20px;
@@ -76,26 +70,50 @@
       margin: auto;
       scroll-margin-top: 120px;
     }
+    .services-section {
+      background-color: #f0f0f0;
+    }
+    .service-box {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+    .service-box img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
     .graph-container {
       display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 12px;
-      justify-content: flex-start;
-      padding-bottom: 10px;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
     }
     .graph-item {
-      flex: 0 0 auto;
-      width: 100px;
       text-align: center;
       position: relative;
     }
     .graph-bar {
+      width: 100px;
       height: 200px;
       background-color: #ccc;
       transition: height 0.4s ease, background-color 0.4s ease;
       border-radius: 6px;
     }
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+    .bar1:hover { height: 20px; }
+    .bar2:hover { height: 20px; }
+    .bar3:hover { height: 80px; }
+    .bar4:hover { height: 100px; }
+    .bar5:hover { height: 120px; }
     .label {
       font-weight: bold;
       margin-top: 10px;
@@ -111,26 +129,30 @@
       padding: 3px 6px;
       border-radius: 4px;
     }
-    @media screen and (max-width: 480px) {
-      .hero {
-        background-position: center top;
-      }
-      .hero-overlay {
-        padding: 0 10px;
-      }
-      .hero-overlay h1 {
-        font-size: 24px;
-      }
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .legal-links {
+      margin-top: 10px;
+    }
+    footer a {
+      color: #4af;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
       nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 10px;
         gap: 4px;
+        justify-content: center;
+        flex-wrap: wrap;
       }
       .nav-link {
-        font-size: 11px;
-        padding: 5px 8px;
+        font-size: 12px;
+        padding: 6px 10px;
       }
       #language-select {
         position: fixed;
