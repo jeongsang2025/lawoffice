@@ -155,7 +155,29 @@
   </style>
 </head>
 <body>
-<!-- 기존 콘텐츠 유지 + 언어 스크립트 삽입 -->
+<div class="hero">
+  <div class="hero-overlay">
+    <h1 id="title">JeongSang Law Office</h1>
+    <nav>
+      <a class="nav-link" href="#about" id="nav-about">About</a>
+      <a class="nav-link" href="#services" id="nav-services">Services</a>
+      <a class="nav-link" href="#status" id="nav-status">Status</a>
+      <a class="nav-link" href="#form" id="nav-message">Message</a>
+      <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
+    </nav>
+  </div>
+</div>
+<!-- Language Dropdown -->
+<div id="language-select">
+  <select onchange="setLang(this.value)">
+    <option value="en">English</option>
+    <option value="kr">한국어</option>
+    <option value="jp">日本語</option>
+    <option value="zh">中文</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+  </select>
+</div>
 
 <!-- About -->
 <section id="about">
