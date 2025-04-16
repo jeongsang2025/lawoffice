@@ -19,8 +19,7 @@
     }
     .hero-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       background-color: rgba(0,0,0,0.4);
@@ -38,15 +37,19 @@
       margin: 5px;
       border-radius: 40px;
       text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .nav-link:hover {
+      background-color: rgba(255,255,255,0.2);
     }
     .lang-toggle {
       position: absolute;
-      top: -40px;
-      right: 30px;
+      top: 10px;
+      right: 20px;
+      z-index: 10;
     }
     .lang-toggle select {
-      padding: 6px;
-      border-radius: 20px;
+      padding: 4px 8px;
     }
     section {
       padding: 60px 20px;
@@ -55,7 +58,7 @@
       margin: auto;
     }
     .service-section {
-      background-color: #f0f2f7;
+      background-color: #f2f5fa;
     }
     .service-box {
       width: 300px;
@@ -100,165 +103,180 @@
     .bar3:hover { height: 60px; }
     .bar4:hover { height: 60px; }
     .bar5:hover { height: 96px; }
-    .label {
-      font-weight: bold;
-      margin-top: 10px;
-    }
-    .value-label {
+    .percent-label {
       position: absolute;
-      top: -30px;
+      top: -25px;
       left: 50%;
       transform: translateX(-50%);
-      background: #000;
-      color: #fff;
-      padding: 2px 8px;
+      background-color: black;
+      color: white;
+      padding: 2px 6px;
       font-size: 12px;
-      border-radius: 6px;
+      border-radius: 4px;
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 0.3s ease;
     }
-    .graph-item:hover .value-label {
+    .graph-item:hover .percent-label {
       opacity: 1;
     }
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
     @media (max-width: 768px) {
-      .hero-overlay {
-        flex-direction: column;
-        gap: 10px;
-      }
       .nav-link {
-        display: inline-block;
-        margin: 6px;
-        padding: 8px 12px;
-        font-size: 14px;
-      }
-      .service-box {
-        width: 90%;
+        display: block;
+        margin: 10px auto;
       }
       .graph-bar {
         width: 80px;
       }
-      .lang-toggle {
-        position: static;
-        text-align: right;
-        margin: 10px 10px 0 0;
+      .service-box {
+        width: 90%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="lang-toggle">
-    <select onchange="setLang(this.value)">
-      <option value="en">English</option>
-      <option value="kr">한국어</option>
-      <option value="jp">日本語</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-      <option value="zh">中文</option>
-    </select>
-  </div>
-  <div class="hero">
-    <div class="hero-overlay">
-      <h1 id="title">JeongSang Law Office</h1>
-      <div>
-        <a href="#about" class="nav-link" id="nav-about">About</a>
-        <a href="#services" class="nav-link" id="nav-services">Services</a>
-        <a href="#status" class="nav-link" id="nav-status">Status</a>
-        <a href="#form" class="nav-link" id="nav-message">Message</a>
-        <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
-      </div>
+
+<!-- 언어 선택 -->
+<div class="lang-toggle">
+  <select onchange="setLang(this.value)">
+    <option value="en">English</option>
+    <option value="ko">한국어</option>
+    <option value="jp">日本語</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="zh">中文</option>
+  </select>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-overlay">
+    <h1 id="title">JeongSang Law Office</h1>
+    <div>
+      <a href="#about" class="nav-link" id="nav-about">About</a>
+      <a href="#services" class="nav-link" id="nav-services">Services</a>
+      <a href="#status" class="nav-link" id="nav-status">Status</a>
+      <a href="#form" class="nav-link" id="nav-message">Message</a>
+      <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
     </div>
   </div>
+</div>
 
-  <section id="about">
-    <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
-    <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
-  </section>
+<!-- About -->
+<section id="about">
+  <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
+  <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
+</section>
 
-  <section id="services" class="service-section">
-    <h2 id="services-title">Our Key Services</h2>
-    <div class="service-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png">
-      <h3 id="srv1">Trademark Infringement</h3>
-      <p id="srv1-desc">Stop violations in Korea’s platforms.</p>
+<!-- Services -->
+<section id="services" class="service-section">
+  <h2 id="services-title">Our Key Services</h2>
+  <div class="service-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png" alt="Trademark Icon">
+    <h3 id="service1-title">Trademark Infringement</h3>
+    <p id="service1-desc">Stop violations in Korea’s platforms.</p>
+  </div>
+  <div class="service-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Copyright Icon">
+    <h3 id="service2-title">Copyright Protection</h3>
+    <p id="service2-desc">Protect your digital content rights.</p>
+  </div>
+  <div class="service-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png" alt="No Fee Icon">
+    <h3 id="service3-title">No Legal Fees</h3>
+    <p id="service3-desc">Start actions without upfront fees.</p>
+  </div>
+</section>
+
+<!-- Status -->
+<section id="status">
+  <h2>Status Overview</h2>
+  <p>Hover over each bar to see activity reduction.</p>
+  <div class="graph-container">
+    <div class="graph-item">
+      <div class="percent-label">-90%</div>
+      <div class="graph-bar bar1"></div>
+      <div class="label">ECCO</div>
     </div>
-    <div class="service-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png">
-      <h3 id="srv2">Copyright Protection</h3>
-      <p id="srv2-desc">Protect your digital content rights.</p>
+    <div class="graph-item">
+      <div class="percent-label">-90%</div>
+      <div class="graph-bar bar2"></div>
+      <div class="label">DAIWA</div>
     </div>
-    <div class="service-box">
-      <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png">
-      <h3 id="srv3">No Legal Fees</h3>
-      <p id="srv3-desc">Start actions without upfront fees.</p>
+    <div class="graph-item">
+      <div class="percent-label">-60%</div>
+      <div class="graph-bar bar3"></div>
+      <div class="label">ARCTERYX</div>
     </div>
-  </section>
-
-  <section id="status">
-    <h2>Status Overview</h2>
-    <p>Hover over each bar to see activity reduction.</p>
-    <div class="graph-container">
-      <div class="graph-item">
-        <div class="value-label">-90%</div>
-        <div class="graph-bar bar1"></div>
-        <div class="label">ECCO</div>
-      </div>
-      <div class="graph-item">
-        <div class="value-label">-90%</div>
-        <div class="graph-bar bar2"></div>
-        <div class="label">DAIWA</div>
-      </div>
-      <div class="graph-item">
-        <div class="value-label">-60%</div>
-        <div class="graph-bar bar3"></div>
-        <div class="label">ARCTERYX</div>
-      </div>
-      <div class="graph-item">
-        <div class="value-label">-50%</div>
-        <div class="graph-bar bar4"></div>
-        <div class="label">MARK & LONA</div>
-      </div>
-      <div class="graph-item">
-        <div class="value-label">-40%</div>
-        <div class="graph-bar bar5"></div>
-        <div class="label">ETC</div>
-      </div>
+    <div class="graph-item">
+      <div class="percent-label">-50%</div>
+      <div class="graph-bar bar4"></div>
+      <div class="label">MARK & LONA</div>
     </div>
-  </section>
+    <div class="graph-item">
+      <div class="percent-label">-40%</div>
+      <div class="graph-bar bar5"></div>
+      <div class="label">ETC</div>
+    </div>
+  </div>
+</section>
 
-  <section id="form">
-    <h2 id="form-title">Send a Message</h2>
-    <form action="https://formspree.io/f/xqkrgpez" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
-      <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
-      <textarea name="message" placeholder="Your Message" rows="6" required style="width:100%;padding:10px;"></textarea><br><br>
-      <button type="submit" style="padding:10px 20px;">Send</button>
-    </form>
-  </section>
+<!-- Message -->
+<section id="form">
+  <h2>Send a Message</h2>
+  <form action="https://formspree.io/f/mjvnrwqr" method="POST">
+    <input type="hidden" name="_cc" value="soonmo0608@nate.com">
+    <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px;"><br><br>
+    <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px;"><br><br>
+    <textarea name="message" placeholder="Your Message" rows="5" required style="width: 100%; padding: 10px;"></textarea><br><br>
+    <button type="submit" style="padding: 10px 20px;">Send</button>
+  </form>
+</section>
 
-  <section id="contact">
-    <h2 id="contact-title">Contact</h2>
-    <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-    <p><strong>Email:</strong> ykselove@nate.com / soonmo0608@nate.com</p>
-  </section>
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+  <p><strong>Email:</strong> ykselove@nate.com</p>
+  <p>© 2025 <strong>JeongSang Law Office</strong>. All rights reserved.</p>
+</section>
 
-  <script>
-    const langText = {
-      en: {
-        title: "JeongSang Law Office", "nav-about": "About", "nav-services": "Services", "nav-status": "Status", "nav-message": "Message", "nav-contact": "Contact", "about-title": "Your Trusted IP Law Partner in Korea", "about-desc": "We help clients with trademark and copyright protection in Korea.", "services-title": "Our Key Services", "srv1": "Trademark Infringement", "srv1-desc": "Stop violations in Korea’s platforms.", "srv2": "Copyright Protection", "srv2-desc": "Protect your digital content rights.", "srv3": "No Legal Fees", "srv3-desc": "Start actions without upfront fees.", "form-title": "Send a Message", "contact-title": "Contact"
-      },
-      kr: {
-        title: "법률사무소 정상", "nav-about": "소개", "nav-services": "서비스", "nav-status": "현황", "nav-message": "메시지", "nav-contact": "연락처", "about-title": "신뢰받는 지식재산권 법률 파트너", "about-desc": "한국 내 상표권과 저작권 보호를 도와드립니다.", "services-title": "주요 서비스", "srv1": "상표권 침해 대응", "srv1-desc": "한국 플랫폼에서 침해행위 차단.", "srv2": "저작권 보호", "srv2-desc": "디지털 콘텐츠 권리 보호.", "srv3": "법률 수수료 없음", "srv3-desc": "선불 비용 없이 즉시 조치.", "form-title": "문의 보내기", "contact-title": "연락처"
-      },
-      // 다른 언어도 여기에 추가 가능
-    };
+<!-- Language Script -->
+<script>
+  const langMap = {
+    en: {
+      title: "JeongSang Law Office",
+      "nav-about": "About",
+      "nav-services": "Services",
+      "nav-status": "Status",
+      "nav-message": "Message",
+      "nav-contact": "Contact",
+      "about-title": "Your Trusted IP Law Partner in Korea",
+      "about-desc": "We help clients with trademark and copyright protection in Korea.",
+      "services-title": "Our Key Services",
+      "service1-title": "Trademark Infringement",
+      "service1-desc": "Stop violations in Korea’s platforms.",
+      "service2-title": "Copyright Protection",
+      "service2-desc": "Protect your digital content rights.",
+      "service3-title": "No Legal Fees",
+      "service3-desc": "Start actions without upfront fees."
+    },
+    // 한국어, 일본어, 중국어, 스페인어, 프랑스어 번역은 생략 가능하며 추가 가능
+  };
 
-    function setLang(lang) {
-      const dict = langText[lang] || langText["en"];
-      for (const id in dict) {
-        const el = document.getElementById(id);
-        if (el) el.innerText = dict[id];
-      }
+  function setLang(lang) {
+    const dict = langMap[lang];
+    for (const key in dict) {
+      const el = document.getElementById(key);
+      if (el) el.innerText = dict[key];
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
