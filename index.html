@@ -1,161 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>JeongSang Law Office</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #f9f9f9;
-    color: #333;
-    scroll-behavior: smooth;
-  }
-  .hero {
-    position: relative;
-    height: 500px;
-    background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
-  }
-  .hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  .hero-overlay h1 {
-    color: white;
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  .nav-link {
-    color: white;
-    border: 1px solid white;
-    padding: 10px 20px;
-    border-radius: 40px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  #language-select {
-    position: absolute;
-    right: 20px;
-    top: 520px;
-  }
-  section {
-    padding: 60px 20px;
-    text-align: center;
-    max-width: 900px;
-    margin: auto;
-    scroll-margin-top: 120px;
-  }
-  .services-section {
-    background-color: #f0f0f0;
-  }
-  .service-box {
-    width: 300px;
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-  }
-  .service-box:hover {
-    transform: scale(1.05);
-  }
-  .service-box img {
-    width: 50px;
-    margin-bottom: 10px;
-  }
-  .graph-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-  .graph-item {
-    text-align: center;
-    position: relative;
-  }
-  .graph-bar {
-    width: 100px;
-    height: 200px;
-    background-color: #ccc;
-    transition: height 0.4s ease, background-color 0.4s ease;
-    border-radius: 6px;
-  }
-  .graph-bar:hover {
-    background-color: #4CAF50;
-  }
-  .bar1:hover { height: 20px; }
-  .bar2:hover { height: 20px; }
-  .bar3:hover { height: 80px; }
-  .bar4:hover { height: 100px; }
-  .bar5:hover { height: 120px; }
-  .label {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  .value-label {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #000;
-    color: white;
-    font-size: 12px;
-    padding: 3px 6px;
-    border-radius: 4px;
-  }
-  footer {
-    background-color: #222;
-    color: white;
-    padding: 30px 20px;
-    text-align: center;
-  }
-  .legal-links {
-    margin-top: 10px;
-  }
-  footer a {
-    color: #4af;
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 14px;
-  }
-  @media (max-width: 768px) {
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>JeongSang Law Office</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    .hero {
+      position: relative;
+      height: 500px;
+      background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-overlay h1 {
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
     nav {
-      flex-direction: row;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 10px;
     }
     .nav-link {
-      font-size: 14px;
-      padding: 8px 14px;
+      color: white;
+      border: 1px solid white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
     #language-select {
+      position: absolute;
+      right: 20px;
+      top: 520px;
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 120px;
+    }
+    .services-section {
+      background-color: #f0f0f0;
+    }
+    .service-box {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+    .service-box img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+    .graph-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .graph-item {
+      text-align: center;
       position: relative;
-      top: auto;
-      right: auto;
+    }
+    .graph-bar {
+      width: 100px;
+      height: 200px;
+      background-color: #ccc;
+      transition: height 0.4s ease, background-color 0.4s ease;
+      border-radius: 6px;
+    }
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+    .bar1:hover { height: 20px; }
+    .bar2:hover { height: 20px; }
+    .bar3:hover { height: 80px; }
+    .bar4:hover { height: 100px; }
+    .bar5:hover { height: 120px; }
+    .label {
+      font-weight: bold;
       margin-top: 10px;
     }
-  }
-</style>
+    .value-label {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: white;
+      font-size: 12px;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .legal-links {
+      margin-top: 10px;
+    }
+    footer a {
+      color: #4af;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: row;
+      }
+      .nav-link {
+        font-size: 14px;
+        padding: 8px 14px;
+      }
+      #language-select {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+<!-- Hero Section -->
 <div class="hero">
   <div class="hero-overlay">
     <h1 id="title">JeongSang Law Office</h1>
@@ -168,6 +168,7 @@
     </nav>
   </div>
 </div>
+<!-- Language Dropdown -->
 <div id="language-select">
   <select onchange="setLang(this.value)">
     <option value="en">English</option>
@@ -178,7 +179,43 @@
     <option value="zh">中文</option>
   </select>
 </div>
-<!-- 📬 Message Form 수정 -->
+<!-- About -->
+<section id="about">
+  <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
+  <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
+</section>
+<!-- Services -->
+<section class="services-section" id="services">
+  <h2 id="services-title">Our Key Services</h2>
+  <div class="service-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png"/>
+    <h3 id="service1-title">Trademark Infringement</h3>
+    <p id="service1-desc">Stop violations in Korea's platforms.</p>
+  </div>
+  <div class="service-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png"/>
+    <h3 id="service2-title">Copyright Protection</h3>
+    <p id="service2-desc">Protect your digital content rights.</p>
+  </div>
+  <div class="service-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png"/>
+    <h3 id="service3-title">No Legal Fees</h3>
+    <p id="service3-desc">Start actions without upfront fees.</p>
+  </div>
+</section>
+<!-- Status -->
+<section id="status">
+  <h2 id="status-title">Status Overview</h2>
+  <p id="status-desc">Hover over each bar to see activity reduction.</p>
+  <div class="graph-container">
+    <div class="graph-item"><div class="value-label">-90%</div><div class="graph-bar bar1"></div><div class="label">ECCO</div></div>
+    <div class="graph-item"><div class="value-label">-90%</div><div class="graph-bar bar2"></div><div class="label">DAIWA</div></div>
+    <div class="graph-item"><div class="value-label">-60%</div><div class="graph-bar bar3"></div><div class="label">ARCTERYX</div></div>
+    <div class="graph-item"><div class="value-label">-50%</div><div class="graph-bar bar4"></div><div class="label">MARK & LONA</div></div>
+    <div class="graph-item"><div class="value-label">-40%</div><div class="graph-bar bar5"></div><div class="label">ETC</div></div>
+  </div>
+</section>
+<!-- Message -->
 <section id="form">
   <h2 id="form-title">Send a Message</h2>
   <form action="https://formspree.io/f/mldjkevj" method="POST">
@@ -189,7 +226,7 @@
     <button style="padding:10px 20px;" type="submit">Send</button>
   </form>
 </section>
-<!-- 📎 Footer with email & links -->
+<!-- Footer -->
 <footer id="contact">
   <h2 id="contact-title">Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
@@ -201,7 +238,7 @@
   <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
 </footer>
 <script>
-  const translations = { /* 그대로 유지 */ };
+  const translations = {};
   function setLang(lang) {
     const t = translations[lang];
     for (const id in t) {
