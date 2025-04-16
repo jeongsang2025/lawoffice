@@ -10,30 +10,27 @@
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
+      scroll-behavior: smooth;
     }
-
     .hero {
       position: relative;
       height: 500px;
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
     }
-
     .hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0,0,0,0.4);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       color: white;
       text-align: center;
-      padding: 20px;
     }
-
     .nav-link {
       color: white;
       border: 1px solid white;
@@ -41,149 +38,96 @@
       margin: 5px;
       border-radius: 40px;
       text-decoration: none;
-      display: inline-block;
     }
-
-    .lang-dropdown {
+    .lang-select {
       position: absolute;
       top: 10px;
       right: 20px;
       z-index: 999;
     }
-
     section {
       padding: 60px 20px;
       text-align: center;
       max-width: 900px;
       margin: auto;
     }
-
-    #services {
-      background-color: #f8f8f8;
-    }
-
     .service-box {
       background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
       padding: 20px;
       margin: 20px auto;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 300px;
       text-align: center;
-      width: 300px;
     }
-
     .service-box img {
       width: 50px;
       margin-bottom: 10px;
     }
-
     .graph-container {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      margin-top: 40px;
     }
-
     .graph-item {
       text-align: center;
+      position: relative;
     }
-
     .graph-bar {
       width: 100px;
       height: 200px;
       background-color: #ccc;
-      transition: height 0.4s ease, background-color 0.4s ease;
-      margin: auto;
       border-radius: 6px;
-      position: relative;
+      transition: height 0.5s ease;
     }
-
     .graph-bar:hover {
       background-color: #4CAF50;
     }
-
     .bar1:hover { height: 20px; }
     .bar2:hover { height: 20px; }
     .bar3:hover { height: 60px; }
     .bar4:hover { height: 60px; }
     .bar5:hover { height: 96px; }
-
-    .value-label {
+    .percent {
       position: absolute;
-      top: -25px;
+      top: -20px;
       left: 50%;
       transform: translateX(-50%);
       background: black;
       color: white;
       padding: 2px 6px;
       font-size: 12px;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      display: none;
     }
-
-    .graph-bar:hover .value-label {
-      opacity: 1;
+    .graph-item:hover .percent {
+      display: block;
     }
-
-    .message-form input,
-    .message-form textarea {
+    input, textarea {
       width: 100%;
       padding: 10px;
-      margin-bottom: 10px;
+      margin: 8px 0;
     }
-
-    .message-form button {
+    button {
       padding: 10px 20px;
-    }
-
-    @media screen and (max-width: 768px) {
-      .hero-overlay a.nav-link {
-        display: inline-block;
-        margin: 5px;
-      }
-
-      .hero-overlay {
-        flex-direction: column;
-      }
-
-      .hero-overlay > div {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .graph-bar {
-        width: 80px;
-      }
-
-      .service-box {
-        width: 90%;
-      }
-
-      .lang-dropdown {
-        top: auto;
-        bottom: 10px;
-        right: 10px;
-      }
     }
   </style>
 </head>
 <body>
 
-<!-- ✅ 언어 선택 -->
-<div class="lang-dropdown">
+<!-- 언어 선택 -->
+<div class="lang-select">
   <select onchange="setLanguage(this.value)">
     <option value="en">English</option>
-    <option value="ko">한국어</option>
-    <option value="ja">日本語</option>
+    <option value="kr">한국어</option>
+    <option value="jp">日本語</option>
     <option value="es">Español</option>
     <option value="fr">Français</option>
     <option value="zh">中文</option>
   </select>
 </div>
 
-<!-- ✅ 상단 Hero -->
+<!-- Hero -->
 <div class="hero">
   <div class="hero-overlay">
     <h1 id="title">JeongSang Law Office</h1>
@@ -197,145 +141,143 @@
   </div>
 </div>
 
-<!-- ✅ 소개 -->
+<!-- About -->
 <section id="about">
   <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
   <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
 </section>
 
-<!-- ✅ 서비스 -->
+<!-- Services -->
 <section id="services">
   <h2 id="services-title">Our Key Services</h2>
   <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png" />
+    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png" alt="Trademark">
     <h3 id="service1-title">Trademark Infringement</h3>
-    <p id="service1-desc">Stop violations in Korea's platforms.</p>
+    <p id="service1-desc">Stop trademark violations in Korea's e-commerce platforms.</p>
   </div>
   <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" />
+    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Copyright">
     <h3 id="service2-title">Copyright Protection</h3>
-    <p id="service2-desc">Protect your digital content rights.</p>
+    <p id="service2-desc">Enforce your content rights for unauthorized use.</p>
   </div>
   <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png" />
+    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png" alt="No Fee">
     <h3 id="service3-title">No Legal Fees</h3>
-    <p id="service3-desc">Start actions without upfront fees.</p>
+    <p id="service3-desc">Start enforcement actions with no upfront fees.</p>
   </div>
 </section>
 
-<!-- ✅ 상태 그래프 -->
+<!-- Status -->
 <section id="status">
   <h2>Status Overview</h2>
   <p>Hover over each bar to see activity reduction.</p>
   <div class="graph-container">
     <div class="graph-item">
-      <div class="graph-bar bar1"><div class="value-label">-90%</div></div>
+      <div class="percent">-90%</div>
+      <div class="graph-bar bar1"></div>
       <div class="label">ECCO</div>
     </div>
     <div class="graph-item">
-      <div class="graph-bar bar2"><div class="value-label">-90%</div></div>
+      <div class="percent">-90%</div>
+      <div class="graph-bar bar2"></div>
       <div class="label">DAIWA</div>
     </div>
     <div class="graph-item">
-      <div class="graph-bar bar3"><div class="value-label">-60%</div></div>
+      <div class="percent">-60%</div>
+      <div class="graph-bar bar3"></div>
       <div class="label">ARCTERYX</div>
     </div>
     <div class="graph-item">
-      <div class="graph-bar bar4"><div class="value-label">-50%</div></div>
+      <div class="percent">-50%</div>
+      <div class="graph-bar bar4"></div>
       <div class="label">MARK & LONA</div>
     </div>
     <div class="graph-item">
-      <div class="graph-bar bar5"><div class="value-label">-40%</div></div>
+      <div class="percent">-40%</div>
+      <div class="graph-bar bar5"></div>
       <div class="label">ETC</div>
     </div>
   </div>
 </section>
 
-<!-- ✅ 메시지 -->
+<!-- Message -->
 <section id="form">
   <h2 id="message-title">Send a Message</h2>
-  <form action="https://formspree.io/f/xqkrgpez" method="POST" class="message-form">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+  <form action="https://formspree.io/f/xqkrgpez" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
     <button type="submit">Send</button>
   </form>
 </section>
 
-<!-- ✅ 연락처 -->
+<!-- Contact -->
 <section id="contact">
   <h2 id="contact-title">Contact</h2>
-  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Korea</p>
   <p><strong>Email:</strong> ykselove@nate.com / soonmo0608@nate.com</p>
 </section>
 
-<!-- ✅ 다국어 번역 스크립트 -->
 <script>
-  const translations = {
+  const langMap = {
     en: {
-      title: "JeongSang Law Office",
-      "nav-about": "About", "nav-services": "Services", "nav-status": "Status", "nav-message": "Message", "nav-contact": "Contact",
+      title: "JeongSang Law Office", "nav-about": "About", "nav-services": "Services", "nav-status": "Status", "nav-message": "Message", "nav-contact": "Contact",
       "about-title": "Your Trusted IP Law Partner in Korea", "about-desc": "We help clients with trademark and copyright protection in Korea.",
       "services-title": "Our Key Services",
-      "service1-title": "Trademark Infringement", "service1-desc": "Stop violations in Korea's platforms.",
-      "service2-title": "Copyright Protection", "service2-desc": "Protect your digital content rights.",
-      "service3-title": "No Legal Fees", "service3-desc": "Start actions without upfront fees.",
+      "service1-title": "Trademark Infringement", "service1-desc": "Stop trademark violations in Korea's e-commerce platforms.",
+      "service2-title": "Copyright Protection", "service2-desc": "Enforce your content rights for unauthorized use.",
+      "service3-title": "No Legal Fees", "service3-desc": "Start enforcement actions with no upfront fees.",
       "message-title": "Send a Message", "contact-title": "Contact"
     },
-    ko: {
-      title: "법률사무소 정상",
-      "nav-about": "소개", "nav-services": "서비스", "nav-status": "현황", "nav-message": "메시지", "nav-contact": "연락처",
-      "about-title": "신뢰받는 지식재산권 법률 파트너", "about-desc": "한국 내 상표권과 저작권 보호를 도와드립니다.",
+    kr: {
+      title: "법률사무소 정상", "nav-about": "소개", "nav-services": "서비스", "nav-status": "현황", "nav-message": "문의", "nav-contact": "연락처",
+      "about-title": "신뢰받는 지식재산권 법률 파트너", "about-desc": "한국 내 상표권 및 저작권 보호를 도와드립니다.",
       "services-title": "주요 서비스",
-      "service1-title": "상표권 침해 대응", "service1-desc": "한국 플랫폼에서 위반 행위 중지.",
-      "service2-title": "저작권 보호", "service2-desc": "디지털 콘텐츠 권리를 보호합니다.",
-      "service3-title": "법률비용 없음", "service3-desc": "선불 비용 없이 즉시 조치합니다.",
+      "service1-title": "상표 침해 대응", "service1-desc": "한국 전자상거래 플랫폼에서 침해 대응",
+      "service2-title": "저작권 보호", "service2-desc": "무단 사용에 대한 권리를 보호합니다.",
+      "service3-title": "법률 수수료 없음", "service3-desc": "선불 비용 없이 법적 대응을 시작합니다.",
       "message-title": "메시지 보내기", "contact-title": "연락처"
     },
-    ja: {
-      title: "ジョンサン法律事務所",
-      "nav-about": "紹介", "nav-services": "サービス", "nav-status": "状況", "nav-message": "メッセージ", "nav-contact": "連絡先",
-      "about-title": "韓国で信頼される知財法律事務所", "about-desc": "韓国で商標と著作権の保護を支援します。",
+    jp: {
+      title: "ジョンサン法律事務所", "nav-about": "紹介", "nav-services": "サービス", "nav-status": "状況", "nav-message": "メッセージ", "nav-contact": "連絡先",
+      "about-title": "韓国で信頼される知財法律パートナー", "about-desc": "韓国での商標・著作権保護を支援します。",
       "services-title": "主なサービス",
-      "service1-title": "商標侵害対応", "service1-desc": "韓国のプラットフォームでの侵害停止。",
-      "service2-title": "著作権保護", "service2-desc": "デジタル著作権を保護します。",
-      "service3-title": "無料の法律サービス", "service3-desc": "前金なしで即時対応。",
-      "message-title": "メッセージを送る", "contact-title": "連絡先"
+      "service1-title": "商標侵害対応", "service1-desc": "韓国のECでの商標侵害を即時対応。",
+      "service2-title": "著作権保護", "service2-desc": "無断使用に対して迅速に権利行使します。",
+      "service3-title": "法的費用なし", "service3-desc": "着手金不要で法的対応を開始。",
+      "message-title": "メッセージを送信", "contact-title": "連絡先"
     },
     es: {
-      title: "Oficina Legal JeongSang",
-      "nav-about": "Sobre", "nav-services": "Servicios", "nav-status": "Estado", "nav-message": "Mensaje", "nav-contact": "Contacto",
-      "about-title": "Su socio legal de propiedad intelectual en Corea", "about-desc": "Ayudamos a proteger marcas y derechos de autor en Corea.",
-      "services-title": "Servicios Clave",
-      "service1-title": "Infracción de Marca", "service1-desc": "Detener violaciones en plataformas coreanas.",
-      "service2-title": "Protección de Copyright", "service2-desc": "Proteja su contenido digital.",
-      "service3-title": "Sin Honorarios Legales", "service3-desc": "Actuación inmediata sin anticipos.",
-      "message-title": "Enviar Mensaje", "contact-title": "Contacto"
+      title: "Oficina Legal JeongSang", "nav-about": "Sobre", "nav-services": "Servicios", "nav-status": "Estado", "nav-message": "Mensaje", "nav-contact": "Contacto",
+      "about-title": "Su socio legal confiable en Corea", "about-desc": "Ayudamos con la protección de marcas y derechos de autor en Corea.",
+      "services-title": "Servicios clave",
+      "service1-title": "Infracción de Marca", "service1-desc": "Detenga violaciones en plataformas de comercio electrónico.",
+      "service2-title": "Protección de Derechos", "service2-desc": "Protegemos sus contenidos de uso no autorizado.",
+      "service3-title": "Sin Honorarios Legales", "service3-desc": "Tomamos acción sin pago anticipado.",
+      "message-title": "Enviar mensaje", "contact-title": "Contacto"
     },
     fr: {
-      title: "Cabinet Juridique JeongSang",
-      "nav-about": "À propos", "nav-services": "Services", "nav-status": "Statut", "nav-message": "Message", "nav-contact": "Contact",
-      "about-title": "Votre partenaire juridique de propriété intellectuelle en Corée", "about-desc": "Nous protégeons marques et droits d’auteur.",
-      "services-title": "Nos Services Clés",
-      "service1-title": "Contrefaçon de Marque", "service1-desc": "Stopper les violations sur les plateformes coréennes.",
-      "service2-title": "Protection de Copyright", "service2-desc": "Protégez vos droits numériques.",
-      "service3-title": "Aucun Frais Juridiques", "service3-desc": "Action immédiate sans frais initiaux.",
-      "message-title": "Envoyer un Message", "contact-title": "Contact"
+      title: "Cabinet juridique JeongSang", "nav-about": "À propos", "nav-services": "Services", "nav-status": "Statut", "nav-message": "Message", "nav-contact": "Contact",
+      "about-title": "Votre partenaire en Corée pour la propriété intellectuelle", "about-desc": "Nous protégeons vos marques et droits d’auteur.",
+      "services-title": "Nos services clés",
+      "service1-title": "Contrefaçon de Marque", "service1-desc": "Réagissez aux violations en ligne.",
+      "service2-title": "Protection du Droit d'Auteur", "service2-desc": "Faites respecter vos contenus.",
+      "service3-title": "Aucun Frais Légal", "service3-desc": "Aucune avance requise.",
+      "message-title": "Envoyer un message", "contact-title": "Contact"
     },
     zh: {
-      title: "正尚律师事务所",
-      "nav-about": "关于我们", "nav-services": "服务", "nav-status": "状态", "nav-message": "留言", "nav-contact": "联系方式",
+      title: "正尚律师事务所", "nav-about": "关于我们", "nav-services": "服务", "nav-status": "状态", "nav-message": "留言", "nav-contact": "联系方式",
       "about-title": "您在韩国值得信赖的知识产权律师", "about-desc": "我们帮助客户在韩国保护商标和版权。",
       "services-title": "主要服务",
-      "service1-title": "商标侵权应对", "service1-desc": "快速处理韩国平台上的侵权行为。",
-      "service2-title": "版权保护", "service2-desc": "保护您的数字内容权益。",
-      "service3-title": "无需法律费用", "service3-desc": "立即采取行动，不收取初始法律费用。",
-      "message-title": "发送消息", "contact-title": "联系方式"
+      "service1-title": "商标侵权应对", "service1-desc": "快速应对电商平台的侵权行为。",
+      "service2-title": "版权保护", "service2-desc": "保护您内容的使用权。",
+      "service3-title": "无需法律费用", "service3-desc": "无需预付费用，立即开始执行。",
+      "message-title": "发送信息", "contact-title": "联系方式"
     }
   };
 
   function setLanguage(lang) {
-    const dict = translations[lang];
+    const dict = langMap[lang];
     for (const id in dict) {
       const el = document.getElementById(id);
       if (el) el.innerText = dict[id];
