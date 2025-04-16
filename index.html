@@ -379,5 +379,21 @@
       const el = document.getElementById(key);
       if (el) el.innerText = t[key];
     }
+    // 자동 링크 변경
+const legal = document.getElementById("legal-link");
+const privacy = document.getElementById("privacy-link");
+if (legal && privacy) {
+  if (lang === 'kr') {
+    legal.href = 'legal_ko.html';
+    privacy.href = 'privacy_ko.html';
+  } else if (lang === 'en') {
+    legal.href = 'legal_en.html';
+    privacy.href = 'privacy_en.html';
+  } else {
+    legal.href = 'legal_en.html';
+    privacy.href = 'privacy_en.html';
+    }
+  }
+}
   }
 </script>
