@@ -10,8 +10,8 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #121212;
-      color: #e0e0e0;
+      background: #ffffff;
+      color: #333;
     }
     header {
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
@@ -23,18 +23,6 @@
       text-align: center;
       color: white;
       position: relative;
-      backdrop-filter: brightness(60%);
-    }
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 1;
-    }
-    header > * {
-      position: relative;
-      z-index: 2;
     }
     header h1 {
       font-size: 2rem;
@@ -65,7 +53,7 @@
       text-align: center;
     }
     .services {
-      background: #1e1e1e;
+      background: #f1f1f1;
     }
     .service-container {
       display: flex;
@@ -74,9 +62,9 @@
       gap: 20px;
     }
     .service-card {
-      background: #2b2b2b;
+      background: #ffffff;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 20px;
       width: 250px;
       transition: transform 0.3s;
@@ -98,7 +86,7 @@
     }
     .bar {
       width: 60px;
-      background: green;
+      background: #ccc;
       position: relative;
       border-radius: 5px 5px 0 0;
       display: flex;
@@ -137,10 +125,8 @@
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      border: 1px solid #666;
+      border: 1px solid #ccc;
       border-radius: 5px;
-      background: #222;
-      color: white;
     }
     button {
       padding: 10px 20px;
@@ -193,64 +179,21 @@
         <option value="zh">中文</option>
       </select>
     </div>
-    <h1>JeongSang Law Office</h1>
+    <h1 data-en="JeongSang Law Office" data-ko="정상 법률사무소" data-ja="ジョンサン法律事務所" data-es="Oficina Legal JeongSang" data-fr="Cabinet Juridique JeongSang" data-zh="正尚法律事务所">JeongSang Law Office</h1>
     <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#status">Status</a>
-      <a href="#message">Message</a>
-      <a href="#contact">Contact</a>
+      <a href="#about" data-en="About" data-ko="소개" data-ja="紹介" data-es="Acerca de" data-fr="À propos" data-zh="关于">About</a>
+      <a href="#services" data-en="Services" data-ko="서비스" data-ja="サービス" data-es="Servicios" data-fr="Services" data-zh="服务">Services</a>
+      <a href="#status" data-en="Status" data-ko="현황" data-ja="状況" data-es="Estado" data-fr="Statut" data-zh="状态">Status</a>
+      <a href="#message" data-en="Message" data-ko="메시지" data-ja="メッセージ" data-es="Mensaje" data-fr="Message" data-zh="留言">Message</a>
+      <a href="#contact" data-en="Contact" data-ko="연락처" data-ja="連絡先" data-es="Contacto" data-fr="Contact" data-zh="联系">Contact</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>Your Trusted IP Law Partner in Korea</h2>
-    <p>We help clients with trademark and copyright protection in Korea.</p>
-  </section>
-
-  <section id="services" class="services">
-    <h2>Our Key Services</h2>
-    <div class="service-container">
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/like--v1.png"/>
-        <h3>Trademark Infringement</h3>
-        <p>Stop violations in Korea’s platforms.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/briefcase--v1.png"/>
-        <h3>Copyright Protection</h3>
-        <p>Protect your digital content rights.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://img.icons8.com/ios-filled/100/settings--v1.png"/>
-        <h3>No Legal Fees</h3>
-        <p>Start actions without upfront fees.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="status">
-    <h2>Status Overview</h2>
-    <p>Hover over each bar to see activity reduction.</p>
-    <div class="graph-container">
-      <div class="bar" style="--hover-height: 180px;"><span>-90%</span></div>
-      <div class="bar" style="--hover-height: 180px;"><span>-90%</span></div>
-      <div class="bar" style="--hover-height: 120px;"><span>-60%</span></div>
-      <div class="bar" style="--hover-height: 100px;"><span>-50%</span></div>
-      <div class="bar" style="--hover-height: 80px;"><span>-40%</span></div>
-    </div>
-    <div style="display:flex; justify-content:center; gap:20px; margin-top:10px;">
-      <div class="bar-label">ECCO</div>
-      <div class="bar-label">DAIWA</div>
-      <div class="bar-label">ARCTERYX</div>
-      <div class="bar-label">MARK & LONA</div>
-      <div class="bar-label">ETC</div>
-    </div>
-  </section>
-
+  <!-- 메시지 폼 -->
   <section id="message">
     <h2>Send a Message</h2>
     <form action="https://formspree.io/f/mldjkevj" method="POST">
+      <input type="hidden" name="_to" value="inchonsy@nate.com,soonmo0608@nate.com">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -258,6 +201,7 @@
     </form>
   </section>
 
+  <!-- Contact & Footer -->
   <footer id="contact">
     <h3>Contact</h3>
     <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
@@ -271,7 +215,10 @@
 
   <script>
     function changeLang(lang) {
-      alert('Language switching is under construction.');
+      const elements = document.querySelectorAll('[data-' + lang + ']');
+      elements.forEach(el => {
+        el.innerText = el.getAttribute('data-' + lang);
+      });
     }
   </script>
 </body>
