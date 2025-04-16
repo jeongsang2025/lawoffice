@@ -4,6 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JeongSang Law Office</title>
+  <style>
+    a.nav-link {
+      color: white;
+      border: 1px solid white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    a.nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .service-box {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
 
@@ -15,11 +39,11 @@
   <div style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.4);display: flex;flex-direction: column;align-items: center;justify-content: center;color: white;text-align: center; z-index: 1;">
     <h1 style="color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px;">JeongSang Law Office</h1>
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-      <a href="#about" style="color: white; border: 1px solid white;padding: 10px 20px;border-radius: 40px;text-decoration: none;">About</a>
-      <a href="#services" style="color: white; border: 1px solid white;padding: 10px 20px;border-radius: 40px;text-decoration: none;">Services</a>
-      <a href="#contact" style="color: white; border: 1px solid white;padding: 10px 20px;border-radius: 40px;text-decoration: none;">Contact</a>
-      <a href="#form-anchor" style="color: white; border: 1px solid white;padding: 10px 20px;border-radius: 40px;text-decoration: none;">Message</a>
-      <a href="#status" style="color: white; border: 1px solid white;padding: 10px 20px;border-radius: 40px;text-decoration: none;">Status</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#form-anchor" class="nav-link">Message</a>
+      <a href="#status" class="nav-link">Status</a>
     </div>
   </div>
 </div>
@@ -37,17 +61,17 @@
 <section id="services" style="padding: 60px 20px;background-color: #f8f8f8;">
   <h2 style="text-align: center;">Our Key Services</h2>
   <div style="display: flex;flex-wrap: wrap;justify-content: center;gap: 20px;margin-top: 40px;">
-    <div style="width: 300px;background: white;padding: 20px;box-shadow: 0 0 10px rgba(0,0,0,0.1);text-align: center;transition: transform 0.3s ease;">
+    <div class="service-box">
       <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png" alt="Trademark Icon" style="width: 50px; margin-bottom: 10px;">
       <h3>Trademark Infringement Response</h3>
       <p>We help you stop trademark violations on Korean e-commerce platforms, including emergency takedown requests.</p>
     </div>
-    <div style="width: 300px;background: white;padding: 20px;box-shadow: 0 0 10px rgba(0,0,0,0.1);text-align: center;transition: transform 0.3s ease;">
+    <div class="service-box">
       <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png" alt="Copyright Icon" style="width: 50px; margin-bottom: 10px;">
       <h3>Copyright Protection</h3>
       <p>From illegal copying to unauthorized online use — we protect your digital content rights swiftly and decisively.</p>
     </div>
-    <div style="width: 300px;background: white;padding: 20px;box-shadow: 0 0 10px rgba(0,0,0,0.1);text-align: center;transition: transform 0.3s ease;">
+    <div class="service-box">
       <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png" alt="No Fee Icon" style="width: 50px; margin-bottom: 10px;">
       <h3>No Legal Fees Charged</h3>
       <p>We take immediate action without charging any legal fees. If successful, we may recover legal costs from the infringers.</p>
