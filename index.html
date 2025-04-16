@@ -12,13 +12,11 @@
       color: #333;
       scroll-behavior: smooth;
     }
-
     .hero {
       position: relative;
       height: 500px;
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
     }
-
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -33,7 +31,6 @@
       color: white;
       text-align: center;
     }
-
     .nav-link {
       color: white;
       border: 1px solid white;
@@ -43,11 +40,9 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-
     .nav-link:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
-
     section {
       padding: 60px 20px;
       text-align: center;
@@ -55,7 +50,6 @@
       margin: auto;
       scroll-margin-top: 120px;
     }
-
     .service-box {
       width: 300px;
       background: white;
@@ -63,12 +57,11 @@
       margin: 20px auto;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
+      text-align: center;
     }
-
     .service-box:hover {
       transform: scale(1.05);
     }
-
     .service-box img {
       width: 50px;
       margin-bottom: 10px;
@@ -81,11 +74,10 @@
       flex-wrap: wrap;
       margin-top: 40px;
     }
-
     .graph-item {
       text-align: center;
+      position: relative;
     }
-
     .graph-bar {
       width: 100px;
       height: 200px;
@@ -93,14 +85,15 @@
       transition: height 0.4s ease, background-color 0.4s ease;
       margin: auto;
       border-radius: 6px;
-      position: relative;
     }
-
-    .graph-item:hover .bar1 { height: 20px; background-color: #4CAF50; }
-    .graph-item:hover .bar2 { height: 20px; background-color: #4CAF50; }
-    .graph-item:hover .bar3 { height: 60px; background-color: #4CAF50; }
-    .graph-item:hover .bar4 { height: 60px; background-color: #4CAF50; }
-    .graph-item:hover .bar5 { height: 96px; background-color: #4CAF50; }
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+    .bar1:hover { height: 20px; }
+    .bar2:hover { height: 20px; }
+    .bar3:hover { height: 60px; }
+    .bar4:hover { height: 60px; }
+    .bar5:hover { height: 96px; }
 
     .label {
       font-weight: bold;
@@ -117,18 +110,30 @@
       padding: 4px 8px;
       font-size: 12px;
       border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .graph-item:hover .value-label {
+      opacity: 1;
     }
 
     @media (max-width: 768px) {
-      .nav-link { display: block; margin: 10px auto; }
-      .service-box { width: 90%; }
-      .graph-bar { width: 80px; }
+      .nav-link {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .service-box {
+        width: 90%;
+      }
+      .graph-bar {
+        width: 80px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Hero -->
+<!-- Hero Banner -->
 <div class="hero">
   <div class="hero-overlay">
     <h1>JeongSang Law Office</h1>
@@ -168,10 +173,10 @@
   </div>
 </section>
 
-<!-- Status -->
+<!-- Status Graph -->
 <section id="status">
   <h2>Status Overview</h2>
-  <p>Hover over each bar to see reduction percentages.</p>
+  <p>Hover over each bar to see reduction %</p>
   <div class="graph-container">
     <div class="graph-item">
       <div class="value-label">-90%</div>
@@ -201,10 +206,10 @@
   </div>
 </section>
 
-<!-- Message Form -->
+<!-- Contact Form -->
 <section id="form">
   <h2>Leave a Message</h2>
-  <form action="https://formspree.io/f/xqkrgpez" method="POST">
+  <form id="contact-form">
     <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
     <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
     <textarea name="message" placeholder="Your Message" rows="6" required style="width:100%;padding:10px;"></textarea><br><br>
@@ -216,9 +221,32 @@
 <section id="contact">
   <h2>Contact Information</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-  <p><strong>Email:</strong> ykselove@nate.com</p>
+  <p><strong>Email:</strong> ykselove@nate.com, soonmo0608@nate.com</p>
   <p>© 2025 <strong>JeongSang Law Office</strong>. All rights reserved.</p>
 </section>
+
+<!-- JS for multi-email submission -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+
+  fetch("https://formspree.io/f/xqkrgpez", {
+    method: "POST",
+    headers: { 'Accept': 'application/json' },
+    body: formData,
+  });
+
+  fetch("https://formspree.io/f/moqgrwba", {
+    method: "POST",
+    headers: { 'Accept': 'application/json' },
+    body: formData,
+  });
+
+  alert("Message sent to both recipients!");
+  this.reset();
+});
+</script>
 
 </body>
 </html>
