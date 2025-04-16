@@ -10,19 +10,19 @@
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
+      scroll-behavior: smooth;
     }
+
     .hero {
       position: relative;
       height: 500px;
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
     }
+
     .hero-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.4);
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -30,6 +30,7 @@
       color: white;
       text-align: center;
     }
+
     .nav-link {
       color: white;
       border: 1px solid white;
@@ -37,43 +38,114 @@
       margin: 5px;
       border-radius: 40px;
       text-decoration: none;
+      transition: background-color 0.3s ease;
     }
+
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
     .lang-toggle {
       position: absolute;
       top: 20px;
       right: 30px;
     }
-    .lang-toggle button {
-      margin-left: 5px;
-      padding: 5px 10px;
-      border: none;
-      background: #fff;
-      color: #000;
-      cursor: pointer;
-      border-radius: 20px;
+
+    .lang-toggle select {
+      padding: 6px 10px;
       font-weight: bold;
+      border-radius: 20px;
+      border: none;
     }
+
     section {
       padding: 60px 20px;
-      text-align: center;
       max-width: 900px;
       margin: auto;
+      text-align: center;
+      scroll-margin-top: 100px;
+    }
+
+    .graph-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .graph-item {
+      text-align: center;
+      position: relative;
+    }
+
+    .graph-bar {
+      width: 100px;
+      height: 200px;
+      background-color: #ccc;
+      margin: auto;
+      border-radius: 6px;
+      transition: height 0.4s ease, background-color 0.4s ease;
+    }
+
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+
+    .bar1:hover { height: 20px; }
+    .bar2:hover { height: 20px; }
+    .bar3:hover { height: 60px; }
+    .bar4:hover { height: 60px; }
+    .bar5:hover { height: 96px; }
+
+    .value-label {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: white;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-link {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .graph-bar {
+        width: 80px;
+      }
+
+      .lang-toggle select {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- 다국어 버튼 -->
+<!-- 언어 선택 드롭다운 -->
 <div class="lang-toggle">
-  <button onclick="setLang('en')">EN</button>
-  <button onclick="setLang('kr')">KR</button>
-  <button onclick="setLang('jp')">JP</button>
-  <button onclick="setLang('es')">ES</button>
-  <button onclick="setLang('fr')">FR</button>
-  <button onclick="setLang('zh')">ZH</button>
+  <select onchange="setLang(this.value)">
+    <option value="en">English</option>
+    <option value="kr">한국어</option>
+    <option value="jp">日本語</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="zh">中文</option>
+  </select>
 </div>
 
-<!-- Hero -->
+<!-- Hero Section -->
 <div class="hero">
   <div class="hero-overlay">
     <h1 id="title">JeongSang Law Office</h1>
@@ -93,7 +165,40 @@
   <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
 </section>
 
-<!-- JS: 다국어 처리 -->
+<!-- Status -->
+<section id="status">
+  <h2>Status Overview</h2>
+  <p>Hover over each bar to see activity reduction.</p>
+  <div class="graph-container">
+    <div class="graph-item">
+      <div class="value-label">-90%</div>
+      <div class="graph-bar bar1"></div>
+      <div class="label">ECCO</div>
+    </div>
+    <div class="graph-item">
+      <div class="value-label">-90%</div>
+      <div class="graph-bar bar2"></div>
+      <div class="label">DAIWA</div>
+    </div>
+    <div class="graph-item">
+      <div class="value-label">-60%</div>
+      <div class="graph-bar bar3"></div>
+      <div class="label">ARCTERYX</div>
+    </div>
+    <div class="graph-item">
+      <div class="value-label">-50%</div>
+      <div class="graph-bar bar4"></div>
+      <div class="label">MARK & LONA</div>
+    </div>
+    <div class="graph-item">
+      <div class="value-label">-40%</div>
+      <div class="graph-bar bar5"></div>
+      <div class="label">ETC</div>
+    </div>
+  </div>
+</section>
+
+<!-- JS for Language Change -->
 <script>
   const translations = {
     en: {
