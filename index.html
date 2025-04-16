@@ -1,10 +1,10 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>법률사무소 정상</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Noto Sans KR', Arial, sans-serif;
@@ -30,74 +30,110 @@
       color: #ffffff;
       text-decoration: underline;
     }
-    .policy-container {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-    .policy-container h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #1e1e1e;
-    }
-    .policy-container h2 {
-      font-size: 1.25rem;
-      color: #0066cc;
-      margin-top: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-    .policy-container p,
-    .policy-container li {
-      line-height: 1.7;
-      font-size: 1rem;
-      color: #444;
-    }
-    .lang-switch {
-      text-align: right;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-    }
-    .lang-switch a {
-      color: #0066cc;
-      text-decoration: none;
-      margin-left: 0.5rem;
-    }
-    .lang-switch a:hover {
-      text-decoration: underline;
-    }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 복구된 사이트 콘텐츠 자리 (이곳에 기존 메인 콘텐츠가 들어갈 예정) -->
-  <main style="text-align: center; padding: 3rem; font-size: 1.25rem;">
-    <p style="color: gray;">※ 본문 콘텐츠가 복원되지 않은 상태입니다. 이전 버전에서 본문 내용 복사 후 이 영역에 붙여넣어주세요.</p>
-  </main>
+  <div style="background: url('background.jpg') center/cover no-repeat; height: 400px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">JeongSang Law Office</h1>
+    <nav style="display: flex; gap: 1rem;">
+      <button id="nav_about">About</button>
+      <button id="nav_services">Services</button>
+      <button id="nav_status">Status</button>
+      <button id="nav_message">Message</button>
+      <button id="nav_contact">Contact</button>
+    </nav>
+  </div>
+
+  <div style="text-align: right; padding: 1rem;">
+    <select onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="ko">한국어</option>
+    </select>
+  </div>
+
+  <section style="text-align: center; padding: 2rem 1rem;">
+    <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
+    <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
+  </section>
+
+  <section style="background: #f1f1f1; padding: 3rem 1rem; text-align: center;">
+    <h2 id="services-title">Our Key Services</h2>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; max-width: 900px; margin: auto;">
+      <div style="background: white; padding: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px;">
+        <div style="font-size: 2rem;">❤️</div>
+        <h3 id="service1">Trademark Infringement</h3>
+        <p id="desc1">Stop violations in Korea's platforms.</p>
+      </div>
+      <div style="background: white; padding: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px;">
+        <div style="font-size: 2rem;">💼</div>
+        <h3 id="service2">Copyright Protection</h3>
+        <p id="desc2">Protect your digital content rights.</p>
+      </div>
+      <div style="background: white; padding: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 250px;">
+        <div style="font-size: 2rem;">🛠️</div>
+        <h3 id="service3">No Legal Fees</h3>
+        <p id="desc3">Start actions without upfront fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align: center; padding: 2rem;">
+    <h2 id="status-title">Status Overview</h2>
+    <p>Hover over each bar to see activity reduction.</p>
+    <div style="display: flex; justify-content: center; gap: 1rem; align-items: flex-end; height: 200px;">
+      <div title="90%" style="height: 90%; width: 50px; background: lightgray;"></div>
+      <div title="90%" style="height: 90%; width: 50px; background: lightgray;"></div>
+      <div title="60%" style="height: 60%; width: 50px; background: lightgray;"></div>
+      <div title="50%" style="height: 50%; width: 50px; background: lightgray;"></div>
+      <div title="40%" style="height: 40%; width: 50px; background: lightgray;"></div>
+    </div>
+  </section>
+
+  <section style="text-align: center; padding: 2rem;">
+    <h2 id="contact-title">Send a Message</h2>
+    <form action="https://formspree.io/f/manezyje" method="POST" style="max-width: 600px; margin: auto;">
+      <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+      <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+      <textarea name="message" placeholder="Your Message" rows="6" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea><br>
+      <button type="submit" style="padding: 0.5rem 1rem;">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    ⓒ 2025 법률사무소 정상 |
+    <a href="/lawoffice/privacy_ko.html">개인정보처리방침</a> |
+    <a href="/lawoffice/legal_ko.html">법적 고지</a>
+  </footer>
 
   <script>
     const translations = {
       en: {
-        title: "JeongSang Law Office",
-        nav_about: "About",
-        nav_services: "Services",
-        nav_status: "Status",
-        nav_message: "Message",
-        nav_contact: "Contact"
+        about_title: "Your Trusted IP Law Partner in Korea",
+        about_desc: "We help clients with trademark and copyright protection in Korea.",
+        services_title: "Our Key Services",
+        service1: "Trademark Infringement",
+        desc1: "Stop violations in Korea's platforms.",
+        service2: "Copyright Protection",
+        desc2: "Protect your digital content rights.",
+        service3: "No Legal Fees",
+        desc3: "Start actions without upfront fees.",
+        status_title: "Status Overview",
+        contact_title: "Send a Message"
       },
       ko: {
-        title: "법률사무소 정상",
-        nav_about: "소개",
-        nav_services: "서비스",
-        nav_status: "진행현황",
-        nav_message: "상담신청",
-        nav_contact: "연락처"
+        about_title: "한국에서 신뢰받는 지식재산권 전문 로펌",
+        about_desc: "한국 내 상표 및 저작권 보호를 지원합니다.",
+        services_title: "주요 서비스",
+        service1: "상표권 침해 대응",
+        desc1: "국내 플랫폼 내 침해 행위를 중단시킵니다.",
+        service2: "저작권 보호",
+        desc2: "디지털 콘텐츠 권리를 지켜드립니다.",
+        service3: "선임료 없음",
+        desc3: "선임료 없이 바로 조치를 시작하세요.",
+        status_title: "진행현황",
+        contact_title: "메시지 보내기"
       }
     };
-
     function setLang(lang) {
       const dict = translations[lang];
       for (const id in dict) {
@@ -106,13 +142,5 @@
       }
     }
   </script>
-
-  <!-- Footer 시작 -->
-  <footer>
-    ⓒ 2025 법률사무소 정상 |
-    <a href="/lawoffice/privacy_ko.html">개인정보처리방침</a> |
-    <a href="/lawoffice/legal_ko.html">법적 고지</a>
-  </footer>
-  <!-- Footer 끝 -->
 </body>
 </html>
