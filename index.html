@@ -11,38 +11,20 @@
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
-      transition: filter 0.3s ease;
-    }
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    section.focused {
-      transform: scale(1.05);
-      z-index: 1;
-    }
-    section.blurred {
-      filter: blur(3px);
-      pointer-events: none;
-      user-select: none;
-    }
-    .nav-link {
-      color: white;
-      border: 1px solid white;
-      padding: 10px 20px;
-      border-radius: 40px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      margin: 5px;
-    }
-    .nav-link:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      scroll-behavior: smooth;
     }
     .hero {
       position: relative;
       height: 500px;
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -50,74 +32,161 @@
       color: white;
       text-align: center;
     }
-    .nav {
-      margin-top: 20px;
+    .nav-link {
+      color: white;
+      border: 1px solid white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
-    .language-switch {
-      text-align: right;
-      margin: 10px 20px;
+    .nav-link:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 120px;
+    }
+    .service-box {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+    .graph-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .graph-item {
+      text-align: center;
+    }
+    .graph-bar {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      transition: height 0.3s ease;
+      margin: auto;
+      border-radius: 6px;
+    }
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    @media (max-width: 768px) {
+      .nav-link {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+      .service-box {
+        width: 90%;
+      }
+      .graph-bar {
+        width: 80px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="language-switch">
-  <button onclick="setLanguage('en')">English</button>
-  <button onclick="setLanguage('ko')">한국어</button>
-</div>
-
 <!-- Hero -->
 <div class="hero">
-  <h1>JeongSang Law Office</h1>
-  <div class="nav">
-    <a href="#about" class="nav-link" onclick="highlightSection('about')">About</a>
-    <a href="#services" class="nav-link" onclick="highlightSection('services')">Services</a>
-    <a href="#status" class="nav-link" onclick="highlightSection('status')">Status</a>
-    <a href="#form" class="nav-link" onclick="highlightSection('form')">Message</a>
-    <a href="#contact" class="nav-link" onclick="highlightSection('contact')">Contact</a>
+  <div class="hero-overlay">
+    <h1>JeongSang Law Office</h1>
+    <div>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#status" class="nav-link">Status</a>
+      <a href="#form" class="nav-link">Message</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
   </div>
 </div>
 
-<!-- Sections -->
-<section id="about"><h2 id="about-title">Your Trusted IP Law Partner in Korea</h2><p>JeongSang Law Office specializes in IP law.</p></section>
-<section id="services"><h2 id="services-title">Our Key Services</h2><p>Trademark, copyright, and no legal fee options available.</p></section>
-<section id="status"><h2>Status Overview</h2><p>Graphs go here...</p></section>
-<section id="form"><h2 id="contact-title">Contact Form</h2><p>Form contents here...</p></section>
-<section id="contact"><h2>Contact Info</h2><p>Email: ykselove@nate.com</p></section>
+<!-- About -->
+<section id="about">
+  <h2>Your Trusted IP Law Partner in Korea</h2>
+  <p><strong>JeongSang Law Office</strong> specializes in intellectual property protection, helping global clients address trademark and copyright violations in South Korea.<br>We serve foreign clients with fast, efficient, and cost-free initial legal actions.</p>
+</section>
 
-<script>
-  const sections = document.querySelectorAll("section");
+<!-- Services -->
+<section id="services">
+  <h2>Our Key Services</h2>
+  <div class="service-box">
+    <h3>Trademark Infringement Response</h3>
+    <p>We help you stop trademark violations on Korean e-commerce platforms.</p>
+  </div>
+  <div class="service-box">
+    <h3>Copyright Protection</h3>
+    <p>From illegal copying to unauthorized online use — we protect your rights.</p>
+  </div>
+  <div class="service-box">
+    <h3>No Legal Fees Charged</h3>
+    <p>We take immediate action without charging legal fees. Costs are recovered from infringers.</p>
+  </div>
+</section>
 
-  function highlightSection(id) {
-    sections.forEach(sec => {
-      if (sec.id === id) {
-        sec.classList.add("focused");
-        sec.classList.remove("blurred");
-      } else {
-        sec.classList.remove("focused");
-        sec.classList.add("blurred");
-      }
-    });
-  }
+<!-- Graph -->
+<section id="status">
+  <h2>Status Overview</h2>
+  <p>Hover over each bar to see activity difference</p>
+  <div class="graph-container">
+    <div class="graph-item">
+      <div class="graph-bar" style="height: 100px;"></div>
+      <div class="label">ECCO</div>
+    </div>
+    <div class="graph-item">
+      <div class="graph-bar" style="height: 100px;"></div>
+      <div class="label">DAIWA</div>
+    </div>
+    <div class="graph-item">
+      <div class="graph-bar" style="height: 100px;"></div>
+      <div class="label">ARCTERYX</div>
+    </div>
+    <div class="graph-item">
+      <div class="graph-bar" style="height: 100px;"></div>
+      <div class="label">MARK & LONA</div>
+    </div>
+    <div class="graph-item">
+      <div class="graph-bar" style="height: 100px;"></div>
+      <div class="label">ETC</div>
+    </div>
+  </div>
+</section>
 
-  const langText = {
-    en: {
-      about: "Your Trusted IP Law Partner in Korea",
-      services: "Our Key Services",
-      contact: "Contact Form"
-    },
-    ko: {
-      about: "신뢰받는 지식재산권 전문 법률사무소",
-      services: "주요 서비스",
-      contact: "문의하기"
-    }
-  };
-  function setLanguage(lang) {
-    document.getElementById("about-title").innerText = langText[lang].about;
-    document.getElementById("services-title").innerText = langText[lang].services;
-    document.getElementById("contact-title").innerText = langText[lang].contact;
-  }
-</script>
+<!-- Form -->
+<section id="form">
+  <h2>Leave a Message</h2>
+  <form action="https://formspree.io/f/xqkrgpez" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
+    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
+    <textarea name="message" placeholder="Your Message" rows="6" required style="width:100%;padding:10px;"></textarea><br><br>
+    <button type="submit" style="padding:10px 20px;">Send Message</button>
+  </form>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Contact Information</h2>
+  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+  <p><strong>Email:</strong> ykselove@nate.com</p>
+  <p>© 2025 <strong>JeongSang Law Office</strong>. All rights reserved.</p>
+</section>
 
 </body>
 </html>
