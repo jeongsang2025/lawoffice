@@ -10,8 +10,8 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: #f9f9f9;
-      color: #333;
+      background: #121212;
+      color: #e0e0e0;
     }
     header {
       background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
@@ -23,6 +23,18 @@
       text-align: center;
       color: white;
       position: relative;
+      backdrop-filter: brightness(60%);
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    header > * {
+      position: relative;
+      z-index: 2;
     }
     header h1 {
       font-size: 2rem;
@@ -40,18 +52,20 @@
       color: #fff;
       text-decoration: none;
       font-size: 0.9rem;
+      backdrop-filter: blur(6px);
     }
     .lang-select {
       position: absolute;
       top: 20px;
       right: 20px;
+      z-index: 3;
     }
     section {
       padding: 40px 20px;
       text-align: center;
     }
     .services {
-      background: #f1f1f1;
+      background: #1e1e1e;
     }
     .service-container {
       display: flex;
@@ -60,9 +74,9 @@
       gap: 20px;
     }
     .service-card {
-      background: white;
+      background: #2b2b2b;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
       padding: 20px;
       width: 250px;
       transition: transform 0.3s;
@@ -84,13 +98,14 @@
     }
     .bar {
       width: 60px;
-      background: #ccc;
+      background: green;
       position: relative;
       border-radius: 5px 5px 0 0;
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      transition: height 0.5s;
+      height: 200px;
+      transition: all 0.5s ease;
     }
     .bar span {
       position: absolute;
@@ -107,6 +122,7 @@
       opacity: 1;
     }
     .bar:hover {
+      background: #00ff6a;
       height: var(--hover-height);
     }
     .bar-label {
@@ -121,12 +137,14 @@
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      border: 1px solid #ccc;
+      border: 1px solid #666;
       border-radius: 5px;
+      background: #222;
+      color: white;
     }
     button {
       padding: 10px 20px;
-      background: #444;
+      background: #00c67f;
       color: white;
       border: none;
       border-radius: 5px;
@@ -169,6 +187,10 @@
       <select onchange="changeLang(this.value)">
         <option value="en">English</option>
         <option value="ko">한국어</option>
+        <option value="ja">日本語</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="zh">中文</option>
       </select>
     </div>
     <h1>JeongSang Law Office</h1>
@@ -211,11 +233,11 @@
     <h2>Status Overview</h2>
     <p>Hover over each bar to see activity reduction.</p>
     <div class="graph-container">
-      <div class="bar" style="height: 200px; --hover-height: 180px;"><span>-90%</span></div>
-      <div class="bar" style="height: 200px; --hover-height: 180px;"><span>-90%</span></div>
-      <div class="bar" style="height: 200px; --hover-height: 120px;"><span>-60%</span></div>
-      <div class="bar" style="height: 200px; --hover-height: 100px;"><span>-50%</span></div>
-      <div class="bar" style="height: 200px; --hover-height: 80px;"><span>-40%</span></div>
+      <div class="bar" style="--hover-height: 180px;"><span>-90%</span></div>
+      <div class="bar" style="--hover-height: 180px;"><span>-90%</span></div>
+      <div class="bar" style="--hover-height: 120px;"><span>-60%</span></div>
+      <div class="bar" style="--hover-height: 100px;"><span>-50%</span></div>
+      <div class="bar" style="--hover-height: 80px;"><span>-40%</span></div>
     </div>
     <div style="display:flex; justify-content:center; gap:20px; margin-top:10px;">
       <div class="bar-label">ECCO</div>
@@ -249,7 +271,7 @@
 
   <script>
     function changeLang(lang) {
-      alert('Language change not yet implemented.');
+      alert('Language switching is under construction.');
     }
   </script>
 </body>
