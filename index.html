@@ -15,10 +15,7 @@
     .hero {
       position: relative;
       height: 500px;
-      background-image: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background: url('https://glglgldi1234.files.wordpress.com/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
     }
     .hero-overlay {
       position: absolute;
@@ -42,6 +39,7 @@
       gap: 8px;
       justify-content: center;
       margin-bottom: 10px;
+      flex-direction: row;
     }
     .nav-link {
       color: white;
@@ -65,81 +63,112 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-
-    @media screen and (max-width: 480px) {
-      nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 4px;
-        margin-top: 10px;
-      }
-      .nav-link {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-      .hero-overlay h1 {
-        font-size: 24px;
-      }
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 120px;
+    }
+    .services-section {
+      background-color: #f0f0f0;
+    }
+    .service-box {
+      width: 300px;
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .service-box:hover {
+      transform: scale(1.05);
+    }
+    .service-box img {
+      width: 50px;
+      margin-bottom: 10px;
+    }
+    .graph-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .graph-item {
+      text-align: center;
+      position: relative;
+    }
+    .graph-bar {
+      width: 100px;
+      height: 200px;
+      background-color: #ccc;
+      transition: height 0.4s ease, background-color 0.4s ease;
+      border-radius: 6px;
+    }
+    .graph-bar:hover {
+      background-color: #4CAF50;
+    }
+    .bar1:hover { height: 20px; }
+    .bar2:hover { height: 20px; }
+    .bar3:hover { height: 80px; }
+    .bar4:hover { height: 100px; }
+    .bar5:hover { height: 120px; }
+    .label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    .value-label {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      color: white;
+      font-size: 12px;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .legal-links {
+      margin-top: 10px;
+    }
+    footer a {
+      color: #4af;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-overlay">
-      <h1 id="title">JeongSang Law Office</h1>
-      <nav>
-        <a class="nav-link" href="#about" id="nav-about">About</a>
-        <a class="nav-link" href="#services" id="nav-services">Services</a>
-        <a class="nav-link" href="#status" id="nav-status">Status</a>
-        <a class="nav-link" href="#form" id="nav-message">Message</a>
-        <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
-      </nav>
-    </div>
+<div class="hero">
+  <div class="hero-overlay">
+    <h1 id="title">JeongSang Law Office</h1>
+    <nav>
+      <a class="nav-link" href="#about" id="nav-about">About</a>
+      <a class="nav-link" href="#services" id="nav-services">Services</a>
+      <a class="nav-link" href="#status" id="nav-status">Status</a>
+      <a class="nav-link" href="#form" id="nav-message">Message</a>
+      <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
+    </nav>
   </div>
-  <div id="language-select">
-    <select id="lang-selector">
-      <option value="en">English</option>
-      <option value="kr">한국어</option>
-      <option value="jp">日本語</option>
-      <option value="zh">中文</option>
-      <option value="es">Español</option>
-      <option value="fr">Français</option>
-    </select>
-  </div>
-<script>
-const translations = { /* ... 그대로 유지 ... */ };
-
-function setLang(lang) {
-  const t = translations[lang];
-  if (!t) return;
-  for (const key in t) {
-    const el = document.getElementById(key);
-    if (el) el.innerText = t[key];
-  }
-  const legal = document.getElementById("legal-link");
-  const privacy = document.getElementById("privacy-link");
-  if (legal && privacy) {
-    if (lang === 'kr') {
-      legal.href = 'legal_ko.html';
-      privacy.href = 'privacy_ko.html';
-    } else {
-      legal.href = 'legal_en.html';
-      privacy.href = 'privacy_en.html';
-    }
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const langSelect = document.querySelector('#lang-selector');
-  if (langSelect) {
-    langSelect.addEventListener('change', function () {
-      setLang(this.value);
-    });
-  }
-});
-</script>
-</body>
-</html>
+</div>
+<div id="language-select">
+  <select id="lang-selector">
+    <option value="en">English</option>
+    <option value="kr">한국어</option>
+    <option value="jp">日本語</option>
+    <option value="zh">中文</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+  </select>
+</div>
 <!-- About Section -->
 <section id="about">
   <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
