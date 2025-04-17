@@ -187,6 +187,40 @@
 .graph-item:hover .value-label {
   display: block;
 }
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#cookie-consent button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+#cookie-consent button:hover {
+  background: #45a049;
+}
+.hide {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
 
   </style>
 </head>
@@ -500,7 +534,8 @@ function setLang(lang) {
   }
 }
 
-
+<script>
+  
 document.addEventListener('DOMContentLoaded', function () {
   const langSelect = document.querySelector('#lang-selector');
   if (langSelect) {
@@ -510,3 +545,21 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+  
+<!-- 쿠키 배너 스크립트 -->
+<script>
+function acceptCookies() {
+  localStorage.setItem('cookieAccepted', 'true'); // ✅ 수락 여부 저장
+  const banner = document.getElementById('cookie-consent');
+  banner.classList.add('hide'); // ✅ 부드럽게 사라지게
+}
+
+// ✅ 페이지 로드 시 쿠키 수락 여부 체크
+document.addEventListener('DOMContentLoaded', function () {
+  if (localStorage.getItem('cookieAccepted') === 'true') {
+    document.getElementById('cookie-consent').style.display = 'none';
+  }
+});
+</script>  
+
+</html> <!-- ✅ 추가 -->
