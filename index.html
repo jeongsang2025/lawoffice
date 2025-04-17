@@ -280,6 +280,12 @@
 
   <a href="business-info.html" target="_blank">사업자 정보</a>
   <a href="business-info_en.html" target="_blank">Business Info</a>
+
+
+  <a href="cookie_ko.html" target="_blank" id="cookie-link">쿠키정책</a>
+<a href="cookie_en.html" target="_blank" id="cookie-link-en" style="display:none;">Cookie Policy</a>
+
+  
 </div>
 
 
@@ -429,6 +435,11 @@ function setLang(lang) {
 
 const legal = document.getElementById("legal-link");
 const privacy = document.getElementById("privacy-link");
+const cookie = document.getElementById("cookie-link");
+  
+if (cookie) {
+  cookie.href = lang === 'kr' ? 'cookie_ko.html' : 'cookie_en.html';
+}
 
 if (legal && privacy) {
   if (lang === 'kr') {
@@ -444,6 +455,9 @@ if (legal && privacy) {
   document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
   document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
   document.getElementById("disclaimer-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+  document.getElementById("cookie-link").style.display = lang === 'kr' ? 'inline' : 'none';
+document.getElementById("cookie-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+
 }
 
   }
