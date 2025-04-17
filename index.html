@@ -437,38 +437,33 @@ function setLang(lang) {
     if (el) el.innerText = t[key];
   }
 
-const legal = document.getElementById("legal-link");
-const privacy = document.getElementById("privacy-link");
-const cookie = document.getElementById("cookie-link");
-  
-if (cookie) {
-  cookie.href = lang === 'kr' ? 'cookie_ko.html' : 'cookie_en.html';
-}
+  const legal = document.getElementById("legal-link");
+  const privacy = document.getElementById("privacy-link");
+  const cookie = document.getElementById("cookie-link");
 
-if (legal && privacy) {
-  if (lang === 'kr') {
-    legal.href = 'legal_ko.html';
-    privacy.href = 'privacy_ko.html';
-  } else {
-    legal.href = 'legal_en.html';
-    privacy.href = 'privacy_en.html';
+  if (cookie) {
+    cookie.href = lang === 'kr' ? 'cookie_ko.html' : 'cookie_en.html';
   }
 
-  // ✅ 여기에서 함께 제어해줌!
-  document.getElementById("terms-link").style.display = lang === 'kr' ? 'inline' : 'none';
-  document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
-  document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
-  document.getElementById("disclaimer-link-en").style.display = lang === 'en' ? 'inline' : 'none';
-  document.getElementById("cookie-link").style.display = lang === 'kr' ? 'inline' : 'none';
-document.getElementById("cookie-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+  if (legal && privacy) {
+    if (lang === 'kr') {
+      legal.href = 'legal_ko.html';
+      privacy.href = 'privacy_ko.html';
+    } else {
+      legal.href = 'legal_en.html';
+      privacy.href = 'privacy_en.html';
+    }
 
-}
-
+    // ✅ 여기에서 함께 제어해줌!
+    document.getElementById("terms-link").style.display = lang === 'kr' ? 'inline' : 'none';
+    document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+    document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
+    document.getElementById("disclaimer-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+    document.getElementById("cookie-link").style.display = lang === 'kr' ? 'inline' : 'none';
+    document.getElementById("cookie-link-en").style.display = lang === 'en' ? 'inline' : 'none';
   }
-
-  // ✅ 여기에 이걸 추가!
-
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const langSelect = document.querySelector('#lang-selector');
