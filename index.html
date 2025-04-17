@@ -268,15 +268,20 @@
   <h2 id="contact-title">Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
   <p><strong>Email:</strong> inchonsy@nate.com</p>
-  <div class="legal-links">
-    <a href="privacy_ko.html" target="_blank" id="privacy-link">개인정보처리방침</a>
-    <a href="legal_ko.html" target="_blank" id="legal-link">법적 고지</a>
-    <a href="terms.html" target="_blank">이용약관</a>
-<a href="disclaimer.html" target="_blank">면책 조항</a>  
-    <a href="terms_en.html" target="_blank" style="display:none;">Terms of Use</a>
-<a href="disclaimer_en.html" target="_blank" style="display:none;">Disclaimer</a>
-<a href="business-info.html" target="_blank">사업자 정보</a>
-<a href="business-info_en.html" target="_blank">Business Info</a>
+<div class="legal-links">
+  <a href="privacy_ko.html" target="_blank" id="privacy-link">개인정보처리방침</a>
+  <a href="legal_ko.html" target="_blank" id="legal-link">법적 고지</a>
+
+  <a href="terms_ko.html" target="_blank" id="terms-link">이용약관</a>
+  <a href="terms_en.html" target="_blank" id="terms-link-en" style="display:none;">Terms of Use</a>
+
+  <a href="disclaimer_ko.html" target="_blank" id="disclaimer-link">면책조항</a>
+  <a href="disclaimer_en.html" target="_blank" id="disclaimer-link-en" style="display:none;">Disclaimer</a>
+
+  <a href="business-info.html" target="_blank">사업자 정보</a>
+  <a href="business-info_en.html" target="_blank">Business Info</a>
+</div>
+
 
 
 
@@ -421,17 +426,33 @@ function setLang(lang) {
     const el = document.getElementById(key);
     if (el) el.innerText = t[key];
   }
-  const legal = document.getElementById("legal-link");
-  const privacy = document.getElementById("privacy-link");
-  if (legal && privacy) {
-    if (lang === 'kr') {
-      legal.href = 'legal_ko.html';
-      privacy.href = 'privacy_ko.html';
-    } else {
-      legal.href = 'legal_en.html';
-      privacy.href = 'privacy_en.html';
-    }
+
+const legal = document.getElementById("legal-link");
+const privacy = document.getElementById("privacy-link");
+
+if (legal && privacy) {
+  if (lang === 'kr') {
+    legal.href = 'legal_ko.html';
+    privacy.href = 'privacy_ko.html';
+  } else {
+    legal.href = 'legal_en.html';
+    privacy.href = 'privacy_en.html';
   }
+
+  // ✅ 여기에서 함께 제어해줌!
+  document.getElementById("terms-link").style.display = lang === 'kr' ? 'inline' : 'none';
+  document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+  document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
+  document.getElementById("disclaimer-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+}
+
+  }
+
+  // ✅ 여기에 이걸 추가!
+  document.getElementById("terms-link").style.display = lang === 'kr' ? 'inline' : 'none';
+  document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
+  document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
+  document.getElementById("disclaimer-link-en").style.display = lang === 'en' ? 'inline' : 'none';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
