@@ -203,6 +203,22 @@
   gap: 10px;
 }
 
+#cookie-consent {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
 #cookie-consent button {
   background: #4CAF50;
   color: white;
@@ -216,11 +232,13 @@
 #cookie-consent button:hover {
   background: #45a049;
 }
+
 .hide {
   opacity: 0;
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
+
 
   </style>
 </head>
@@ -369,8 +387,6 @@
   
 const translations = {
 
-
-  
   fr: {
     title: "Cabinet juridique JeongSang",
     "nav-about": "À propos",
@@ -514,7 +530,6 @@ function setLang(lang) {
   if (cookie) {
     cookie.href = lang === 'kr' ? 'cookie_ko.html' : 'cookie_en.html';
   }
-
   if (legal && privacy) {
     if (lang === 'kr') {
       legal.href = 'legal_ko.html';
@@ -523,8 +538,6 @@ function setLang(lang) {
       legal.href = 'legal_en.html';
       privacy.href = 'privacy_en.html';
     }
-
-    // ✅ 여기에서 함께 제어해줌!
     document.getElementById("terms-link").style.display = lang === 'kr' ? 'inline' : 'none';
     document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
     document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
@@ -533,33 +546,42 @@ function setLang(lang) {
     document.getElementById("cookie-link-en").style.display = lang === 'en' ? 'inline' : 'none';
   }
 }
+</script>
 
+<!-- ✅ 쿠키 배너 HTML -->
+<div id="cookie-consent" class="cookie-banner">
+  <p id="cookie-text">We use cookies to improve your experience. / 우리는 쿠키를 사용합니다.</p>
+  <button onclick="acceptCookies()" id="accept-btn">Accept / 동의하기</button>
+</div>
+
+<!-- ✅ 페이지 이벤트 전체 통합 -->
 <script>
-  
 document.addEventListener('DOMContentLoaded', function () {
+  // 언어 선택기 이벤트 등록
   const langSelect = document.querySelector('#lang-selector');
   if (langSelect) {
     langSelect.addEventListener('change', function () {
       setLang(this.value);
     });
   }
-});
-</script>
-  
-<!-- 쿠키 배너 스크립트 -->
-<script>
-function acceptCookies() {
-  localStorage.setItem('cookieAccepted', 'true'); // ✅ 수락 여부 저장
-  const banner = document.getElementById('cookie-consent');
-  banner.classList.add('hide'); // ✅ 부드럽게 사라지게
-}
 
-// ✅ 페이지 로드 시 쿠키 수락 여부 체크
-document.addEventListener('DOMContentLoaded', function () {
+  // 쿠키 배너 수락 여부 확인
   if (localStorage.getItem('cookieAccepted') === 'true') {
-    document.getElementById('cookie-consent').style.display = 'none';
+    const banner = document.getElementById('cookie-consent');
+    if (banner) {
+      banner.style.display = 'none';
+    }
   }
 });
-</script>  
 
-</html> <!-- ✅ 추가 -->
+// 쿠키 수락 버튼 클릭 시
+function acceptCookies() {
+  localStorage.setItem('cookieAccepted', 'true');
+  const banner = document.getElementById('cookie-consent');
+  if (banner) {
+    banner.classList.add('hide');
+    setTimeout(() => { banner.style.display = 'none'; }, 600);
+  }
+}
+</script>
+</html>
