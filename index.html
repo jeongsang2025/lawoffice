@@ -3,121 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JeongSang Law Office - Final Test</title>
+  <title>JeongSang Law Office</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #000; color: white; height: 100vh; display: flex; justify-content: center; align-items: center; }
-    
-    #hero-text {
-      font-size: 60px;
-      font-weight: bold;
+    body { font-family: Arial, sans-serif; background: #fff; color: #333; scroll-behavior: smooth; }
+
+    /* 상단 고정 메뉴 */
+    header {
+      position: sticky;
+      top: 0;
+      background: #000;
+      padding: 10px 20px;
+      z-index: 1000;
       display: flex;
-      gap: 5px;
+      justify-content: center;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+    nav a:hover { background: rgba(255, 255, 255, 0.2); }
+
+    /* Hero 이미지 */
+    .hero {
+      height: 90vh;
+      background: url('https://your-hero-image-url.com') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      background-color: #333;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 10px;
     }
 
-    /* 기본 글자 상태 */
-    #hero-text span {
-      opacity: 1;
-      transition: opacity 5s ease, transform 2s ease;
+    /* 회사 소개 */
+    #about {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
     }
 
-    /* 흐려지면서 사라짐 */
-    .fade-out {
-      opacity: 0;
+    /* 그래프 섹션 */
+    #status {
+      padding: 60px 20px;
+      background: #f4f4f4;
+      text-align: center;
+    }
+    #status img {
+      max-width: 90%;
+      height: auto;
     }
 
-    /* 부드럽게 이동 */
-    .move-center {
-      transform: translateX(10px);
+    /* 이메일 폼 */
+    #form {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    form input, form textarea {
+      width: 90%;
+      max-width: 500px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    form button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
     }
 
-    /* 숨겨진 글자 (처음엔 안보임) */
-    .hidden {
-      opacity: 0;
+    /* 브랜드 슬라이더 */
+    .brand-slider {
+      background: #eee;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 40px 0;
+    }
+    .brand-slider img {
+      display: inline-block;
+      height: 50px;
+      margin: 0 30px;
+      animation: slide 30s linear infinite;
+    }
+    @keyframes slide {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
 
-    /* 부드럽게 등장하는 글자 */
-    .appear {
-      opacity: 1;
-      transition: opacity 2s ease;
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
     }
-
-    /* 반짝이는 효과 */
-    .glow {
-      animation: glow 2s infinite alternate;
-    }
-    @keyframes glow {
-      0% { text-shadow: 0 0 5px #fff, 0 0 10px #00f, 0 0 20px #00f; }
-      100% { text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #00f; }
-    }
+    footer a { color: #4af; text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
+
 <body>
 
-<div id="hero-text">
-  <span id="J">J</span>
-  <span id="eong">eong</span>
-  <span id="S">S</span>
-  <span id="ang">ang</span>
+<header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#status">Status</a>
+    <a href="#form">Message</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Welcome to JeongSang Law Office</h1>
 </div>
 
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    // 1. eong, ang 흐려지게 시작
-    document.getElementById('eong').classList.add('fade-out');
-    document.getElementById('ang').classList.add('fade-out');
+<section id="about">
+  <h2>About Us</h2>
+  <p>We are your trusted IP law partner in Korea, providing expert services in trademark and copyright protection.</p>
+</section>
 
-    // 5초동안 흐려지고 사라진 후
-    setTimeout(() => {
-      document.getElementById('eong').remove();
-      document.getElementById('ang').remove();
+<section id="status">
+  <h2>Status Overview</h2>
+  <img src="https://your-graph-image-url.com" alt="Graph Overview">
+</section>
 
-      // 2. J, S 부드럽게 가운데로 이동
-      document.getElementById('J').classList.add('move-center');
-      document.getElementById('S').classList.add('move-center');
+<section id="form">
+  <h2>Send a Message</h2>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+</section>
 
-      // 2초 동안 이동 후
-      setTimeout(() => {
-        // 3. I, P 추가
-        const heroText = document.getElementById('hero-text');
+<section class="brand-slider">
+  <img src="https://your-brand-arc-logo.png" alt="Arc'teryx">
+  <img src="https://your-brand-ecco-logo.png" alt="ECCO">
+  <img src="https://your-brand-daiwa-logo.png" alt="DAIWA">
+  <img src="https://your-brand-columbia-logo.png" alt="Columbia">
+  <img src="https://your-brand-dainese-logo.png" alt="Dainese">
+  <img src="https://your-brand-fjallraven-logo.png" alt="Fjallraven">
+</section>
 
-        const i = document.createElement('span');
-        i.id = 'I';
-        i.className = 'hidden'; // 처음엔 숨김
-        i.innerText = 'I';
-        heroText.appendChild(i);
-
-        const p = document.createElement('span');
-        p.id = 'P';
-        p.className = 'hidden';
-        p.innerText = 'P';
-        heroText.appendChild(p);
-
-        // 4. I와 P 부드럽게 등장
-        setTimeout(() => {
-          document.getElementById('I').classList.add('appear');
-        }, 500); // I 먼저
-
-        setTimeout(() => {
-          document.getElementById('P').classList.add('appear');
-        }, 1000); // P 나중
-
-        // 5. I와 P 다 나오고 나서 JSIP 전체 반짝이기
-        setTimeout(() => {
-          document.getElementById('J').classList.add('glow');
-          document.getElementById('S').classList.add('glow');
-          document.getElementById('I').classList.add('glow');
-          document.getElementById('P').classList.add('glow');
-        }, 2000);
-
-      }, 2000); // J, S 이동하는 시간 후
-
-    }, 5000); // eong, ang 흐려지면서 사라지는 시간 후
-
-  }, 2000); // 전체 2초 대기 후 시작
-});
-</script>
+<footer id="contact">
+  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+  <p><strong>Email:</strong> inchonsy@nate.com</p>
+  <div class="legal">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Business Info</a>
+  </div>
+  <p style="margin-top:10px; font-size:12px; color:#888;">&copy; 2025 JeongSang Law Office. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
