@@ -11,9 +11,8 @@
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
     .hero-overlay h1 { color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px; }
     nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 10px; }
-    .nav-link { color: white; border: 1px solid white; padding: 8px 12px; border-radius: 40px; text-decoration: none; transition: background 0.3s; font-size: 14px; }
+    .nav-link { color: white; border: 1px solid white; padding: 8px 12px; border-radius: 40px; text-decoration: none; transition: background-color 0.3s; font-size: 14px; }
     .nav-link:hover { background-color: rgba(255, 255, 255, 0.2); }
-    #language-select { position: absolute; right: 20px; top: 520px; z-index: 9999; }
     section { padding: 60px 20px; text-align: center; max-width: 900px; margin: auto; scroll-margin-top: 120px; }
     .services-section { background-color: #f0f0f0; }
     .service-box { width: 300px; background: white; padding: 20px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
@@ -23,7 +22,7 @@
     .brand-track { display: flex; animation: slide-left 30s linear infinite; }
     .brand-track img { width: 200px; height: auto; margin: 0 30px; }
     @keyframes slide-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-    .graph-container img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    #status img { display: block; margin: 20px auto; max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
     footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
@@ -32,7 +31,7 @@
 <body>
 <div class="hero">
   <div class="hero-overlay">
-    <h1 id="title">JeongSang Law Office</h1>
+    <h1>JeongSang Law Office</h1>
     <nav>
       <a class="nav-link" href="#about">About</a>
       <a class="nav-link" href="#services">Services</a>
@@ -41,16 +40,6 @@
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
   </div>
-</div>
-<div id="language-select">
-  <select id="lang-selector" onchange="setLang(this.value)">
-    <option value="en">English</option>
-    <option value="kr">한국어</option>
-    <option value="jp">日本語</option>
-    <option value="zh">中文</option>
-    <option value="es">Español</option>
-    <option value="fr">Français</option>
-  </select>
 </div>
 
 <section id="about">
@@ -96,34 +85,16 @@
   <h2>Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
   <p><strong>Email:</strong> inchonsy@nate.com</p>
+  <div class="legal-links">
+    <a href="privacy_ko.html" target="_blank">Privacy Policy</a>
+    <a href="legal_ko.html" target="_blank">Legal Notice</a>
+    <a href="terms_ko.html" target="_blank">Terms of Use</a>
+    <a href="disclaimer_ko.html" target="_blank">Disclaimer</a>
+    <a href="business-info.html" target="_blank">Business Info</a>
+    <a href="cookie_ko.html" target="_blank">Cookie Policy</a>
+  </div>
+  <p style="margin-top:10px; font-size:12px; color:#888;">© 2025 JeongSang Law Office. All rights reserved.</p>
 </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  setLang('en');
-  const langSelect = document.querySelector('#lang-selector');
-  if (langSelect) {
-    langSelect.addEventListener('change', function () {
-      setLang(this.value);
-    });
-  }
-});
-
-function setLang(lang) {
-  const translations = {
-    en: { title: "JeongSang Law Office", about: "Your Trusted IP Law Partner in Korea", services: "Our Key Services", status: "Status Overview", message: "Send a Message", contact: "Contact" },
-    kr: { title: "정상 법률사무소", about: "신뢰받는 지식재산권 법률 파트너", services: "주요 서비스", status: "진행 현황", message: "메시지 보내기", contact: "연락처" },
-    jp: { title: "ジョンサン法律事務所", about: "信頼できる韓国の知財法律パートナー", services: "主なサービス", status: "ステータス概要", message: "メッセージを送る", contact: "連絡先" },
-    zh: { title: "正尚律师事务所", about: "值得信赖的韩国知识产权法律合作伙伴", services: "主要服务", status: "状态概览", message: "发送消息", contact: "联系方式" },
-    es: { title: "Oficina Legal JeongSang", about: "Su socio de confianza en propiedad intelectual en Corea", services: "Nuestros Servicios", status: "Resumen del Estado", message: "Enviar un Mensaje", contact: "Contacto" },
-    fr: { title: "Cabinet d'avocats JeongSang", about: "Votre partenaire de confiance en propriété intellectuelle en Corée", services: "Nos Services", status: "Aperçu du Statut", message: "Envoyer un message", contact: "Contact" }
-  };
-
-  const t = translations[lang];
-  if (!t) return;
-  document.getElementById('title').innerText = t.title;
-}
-</script>
 
 </body>
 </html>
