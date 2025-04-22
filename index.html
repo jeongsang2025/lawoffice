@@ -3,141 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JeongSang Law Office</title>
+  <title>JeongSang Law Office - Test</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #fff; color: #333; scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background: #000; color: white; height: 100vh; display: flex; justify-content: center; align-items: center; }
     
-    .hero {
-      position: relative;
-      height: 90vh;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      background-color: #000;
-    }
-    #background-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
     #hero-text {
-      position: relative;
-      font-size: 48px;
+      font-size: 60px;
       font-weight: bold;
       display: flex;
       gap: 5px;
     }
+
+    /* 초기 모든 글자 보임 */
     #hero-text span {
-      display: inline-block;
       opacity: 1;
-      transition: opacity 2s ease, transform 1.5s ease;
+      transition: opacity 2s ease;
     }
+
+    /* 흐려지면서 사라지게 */
     .fade-out {
       opacity: 0;
-    }
-    .move-center {
-      transform: translateX(10px);
-    }
-    .appear {
-      opacity: 1;
-    }
-    .hidden {
-      opacity: 0;
-    }
-    .glow {
-      animation: glow 2s infinite alternate;
-    }
-    @keyframes glow {
-      0% { text-shadow: 0 0 5px #fff, 0 0 10px #00f, 0 0 20px #00f; }
-      100% { text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #00f; }
     }
   </style>
 </head>
 <body>
 
-<div class="hero">
-  <video autoplay muted loop id="background-video">
-    <source src="https://your-background-video-url.com/video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div id="hero-text">
-    <span id="welcome">Welcome</span>
-    <span id="to">to</span>
-    <span id="J">J</span>
-    <span id="eong">eong</span>
-    <span id="S">S</span>
-    <span id="ang">ang</span>
-  </div>
+<div id="hero-text">
+  <span id="J">J</span>
+  <span id="eong">eong</span>
+  <span id="S">S</span>
+  <span id="ang">ang</span>
 </div>
 
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
-    // Welcome, to, eong, ang -> 서서히 사라지기
-    document.getElementById('welcome').classList.add('fade-out');
-    document.getElementById('to').classList.add('fade-out');
+    // eong과 ang만 천천히 흐려지게
     document.getElementById('eong').classList.add('fade-out');
     document.getElementById('ang').classList.add('fade-out');
-
-    // 2초 후 삭제
-    setTimeout(() => {
-      document.getElementById('welcome').remove();
-      document.getElementById('to').remove();
-      document.getElementById('eong').remove();
-      document.getElementById('ang').remove();
-
-      // J, S 가운데로 이동
-      const j = document.getElementById('J');
-      const s = document.getElementById('S');
-      j.classList.add('move-center');
-      s.classList.add('move-center');
-
-      // IP 추가
-      setTimeout(() => {
-        const heroText = document.getElementById('hero-text');
-
-        const i = document.createElement('span');
-        i.id = 'I';
-        i.className = 'hidden';
-        i.innerText = 'I';
-        heroText.appendChild(i);
-
-        const p = document.createElement('span');
-        p.id = 'P';
-        p.className = 'hidden';
-        p.innerText = 'P';
-        heroText.appendChild(p);
-
-        // I, P 천천히 등장
-        setTimeout(() => {
-          document.getElementById('I').classList.add('appear');
-        }, 200);
-
-        setTimeout(() => {
-          document.getElementById('P').classList.add('appear');
-        }, 400);
-
-        // I, P 다 나오고 나서 전체 glow
-        setTimeout(() => {
-          j.classList.add('glow');
-          s.classList.add('glow');
-          document.getElementById('I').classList.add('glow');
-          document.getElementById('P').classList.add('glow');
-        }, 1000);
-
-      }, 1000);
-
-    }, 2000);
-
-  }, 4000); // 처음 4초 동안 전체 문장 보여줌
+  }, 2000); // 2초 후 실행
 });
 </script>
 
