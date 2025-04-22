@@ -15,13 +15,13 @@
       gap: 5px;
     }
 
-    /* 초기 모든 글자 보임 */
+    /* 모든 글자 기본 상태 */
     #hero-text span {
       opacity: 1;
-      transition: opacity 2s ease;
+      transition: opacity 5s ease; /* 여기 5초로 설정함!! */
     }
 
-    /* 흐려지면서 사라지게 */
+    /* 흐려지면서 천천히 사라짐 */
     .fade-out {
       opacity: 0;
     }
@@ -39,10 +39,10 @@
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
-    // eong과 ang만 천천히 흐려지게
+    // eong과 ang를 5초 동안 서서히 흐려지게
     document.getElementById('eong').classList.add('fade-out');
     document.getElementById('ang').classList.add('fade-out');
-  }, 2000); // 2초 후 실행
+  }, 2000); // 2초 기다렸다가 시작
 });
 </script>
 
