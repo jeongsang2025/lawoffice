@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JeongSang Law Office - Test</title>
+  <title>JeongSang Law Office - Final Test</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #000; color: white; height: 100vh; display: flex; justify-content: center; align-items: center; }
@@ -15,15 +15,40 @@
       gap: 5px;
     }
 
-    /* 모든 글자 기본 상태 */
+    /* 기본 글자 상태 */
     #hero-text span {
       opacity: 1;
-      transition: opacity 5s ease; /* 여기 5초로 설정함!! */
+      transition: opacity 5s ease, transform 2s ease;
     }
 
-    /* 흐려지면서 천천히 사라짐 */
+    /* 흐려지면서 사라짐 */
     .fade-out {
       opacity: 0;
+    }
+
+    /* 부드럽게 이동 */
+    .move-center {
+      transform: translateX(10px);
+    }
+
+    /* 숨겨진 글자 (처음엔 안보임) */
+    .hidden {
+      opacity: 0;
+    }
+
+    /* 부드럽게 등장하는 글자 */
+    .appear {
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+
+    /* 반짝이는 효과 */
+    .glow {
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #fff, 0 0 10px #00f, 0 0 20px #00f; }
+      100% { text-shadow: 0 0 10px #fff, 0 0 20px #00f, 0 0 30px #00f; }
     }
   </style>
 </head>
@@ -39,13 +64,60 @@
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
-    // eong과 ang를 5초 동안 서서히 흐려지게
+    // 1. eong, ang 흐려지게 시작
     document.getElementById('eong').classList.add('fade-out');
     document.getElementById('ang').classList.add('fade-out');
-  }, 2000); // 2초 기다렸다가 시작
+
+    // 5초동안 흐려지고 사라진 후
+    setTimeout(() => {
+      document.getElementById('eong').remove();
+      document.getElementById('ang').remove();
+
+      // 2. J, S 부드럽게 가운데로 이동
+      document.getElementById('J').classList.add('move-center');
+      document.getElementById('S').classList.add('move-center');
+
+      // 2초 동안 이동 후
+      setTimeout(() => {
+        // 3. I, P 추가
+        const heroText = document.getElementById('hero-text');
+
+        const i = document.createElement('span');
+        i.id = 'I';
+        i.className = 'hidden'; // 처음엔 숨김
+        i.innerText = 'I';
+        heroText.appendChild(i);
+
+        const p = document.createElement('span');
+        p.id = 'P';
+        p.className = 'hidden';
+        p.innerText = 'P';
+        heroText.appendChild(p);
+
+        // 4. I와 P 부드럽게 등장
+        setTimeout(() => {
+          document.getElementById('I').classList.add('appear');
+        }, 500); // I 먼저
+
+        setTimeout(() => {
+          document.getElementById('P').classList.add('appear');
+        }, 1000); // P 나중
+
+        // 5. I와 P 다 나오고 나서 JSIP 전체 반짝이기
+        setTimeout(() => {
+          document.getElementById('J').classList.add('glow');
+          document.getElementById('S').classList.add('glow');
+          document.getElementById('I').classList.add('glow');
+          document.getElementById('P').classList.add('glow');
+        }, 2000);
+
+      }, 2000); // J, S 이동하는 시간 후
+
+    }, 5000); // eong, ang 흐려지면서 사라지는 시간 후
+
+  }, 2000); // 전체 2초 대기 후 시작
 });
 </script>
 
 </body>
 </html>
-
