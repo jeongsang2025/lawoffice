@@ -1,587 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JeongSang Law Office</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-.hero {
-      position: relative;
-      height: 500px;
-      background-image: url('https://ipkorelaw.wordpress.com/wp-content/uploads/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #444;
-    }
-    .hero-overlay {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #fff; color: #333; scroll-behavior: smooth; }
+
+    /* 상단 고정 메뉴 */
+    header {
+      position: sticky;
+      top: 0;
+      background: #000;
+      padding: 10px 20px;
+      z-index: 1000;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      text-align: center;
-    }
-    .hero-overlay h1 {
-      color: white;
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 20px;
     }
     nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      margin-bottom: 10px;
-      flex-direction: row;
+      gap: 20px;
     }
-    .nav-link {
+    nav a {
       color: white;
-      border: 1px solid white;
-      padding: 8px 12px;
-      border-radius: 40px;
       text-decoration: none;
-      transition: background-color 0.3s ease;
-      font-size: 14px;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background 0.3s;
     }
-    .nav-link:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    nav a:hover { background: rgba(255, 255, 255, 0.2); }
+
+    /* Hero 이미지 */
+    .hero {
+      height: 90vh;
+      background: url('https://your-hero-image-url.com') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      background-color: #333;
     }
-    #language-select {
-      position: absolute;
-      right: 20px;
-      top: 520px;
-      z-index: 9999;
+    .hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 10px;
     }
-    section {
+
+    /* 회사 소개 */
+    #about {
       padding: 60px 20px;
       text-align: center;
       max-width: 900px;
       margin: auto;
-      scroll-margin-top: 120px;
     }
-    .services-section {
-      background-color: #f0f0f0;
-    }
-    .service-box {
-      width: 300px;
-      background: white;
-      padding: 20px;
-      margin: 20px auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .service-box:hover {
-      transform: scale(1.05);
-    }
-    .service-box img {
-      width: 50px;
-      margin-bottom: 10px;
-    }
-    .graph-container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-    }
-    .graph-item {
+
+    /* 그래프 섹션 */
+    #status {
+      padding: 60px 20px;
+      background: #f4f4f4;
       text-align: center;
-      position: relative;
     }
-    .graph-bar {
-      width: 100px;
-      height: 200px;
-      background-color: #ccc;
-      transition: height 0.4s ease, background-color 0.4s ease;
+    #status img {
+      max-width: 90%;
+      height: auto;
+    }
+
+    /* 이메일 폼 */
+    #form {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    form input, form textarea {
+      width: 90%;
+      max-width: 500px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    form button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
       border-radius: 6px;
     }
-    .graph-bar:hover {
-      background-color: #4CAF50;
+
+    /* 브랜드 슬라이더 */
+    .brand-slider {
+      background: #eee;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 40px 0;
     }
-    .bar1:hover { height: 20px; }
-    .bar2:hover { height: 20px; }
-    .bar3:hover { height: 80px; }
-    .bar4:hover { height: 100px; }
-    .bar5:hover { height: 120px; }
-    .label {
-      font-weight: bold;
-      margin-top: 10px;
+    .brand-slider img {
+      display: inline-block;
+      height: 50px;
+      margin: 0 30px;
+      animation: slide 30s linear infinite;
     }
-    .value-label {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #000;
-      color: white;
-      font-size: 12px;
-      padding: 3px 6px;
-      border-radius: 4px;
+    @keyframes slide {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
+
+    /* Footer */
     footer {
-      background-color: #222;
-      color: white;
-      padding: 30px 20px;
+      background: #111;
+      color: #ccc;
       text-align: center;
-    }
-    .legal-links {
-      margin-top: 10px;
-    }
-    footer a {
-      color: #4af;
-      margin: 0 10px;
-      text-decoration: none;
+      padding: 40px 20px;
       font-size: 14px;
     }
-    @media (max-width: 768px) {
-      nav {
-        gap: 4px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .nav-link {
-        font-size: 12px;
-        padding: 6px 10px;
-      }
-      #language-select {
-        position: fixed;
-        top: 12px;
-        right: 12px;
-        z-index: 9999;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 5px;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      }
-    }
-    .value-label {
-  display: none;
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #333;
-  color: #fff;
-  padding: 2px 6px;
-  font-size: 12px;
-  border-radius: 4px;
-  white-space: nowrap;
-  z-index: 3;
-}
-
-.graph-item {
-  position: relative;
-}
-
-.graph-item:hover .value-label {
-  display: block;
-}
-.cookie-banner {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0,0,0,0.8);
-  color: #fff;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  z-index: 9999;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#cookie-consent {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 9999;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-
-#cookie-consent button {
-  background: #4CAF50;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
-}
-
-#cookie-consent button:hover {
-  background: #45a049;
-}
-
-.hide {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-}
-
-
+    footer a { color: #4af; text-decoration: none; margin: 0 8px; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
+
 <body>
+
+<header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#status">Status</a>
+    <a href="#form">Message</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
 <div class="hero">
-  <div class="hero-overlay">
-    <h1 id="title">JeongSang Law Office</h1>
-    <nav>
-      <a class="nav-link" href="#about" id="nav-about">About</a>
-      <a class="nav-link" href="#services" id="nav-services">Services</a>
-      <a class="nav-link" href="#status" id="nav-status">Status</a>
-      <a class="nav-link" href="#form" id="nav-message">Message</a>
-      <a class="nav-link" href="#contact" id="nav-contact">Contact</a>
-    </nav>
-  </div>
-</div>
-<!-- Language Dropdown -->
-<div id="language-select">
- <select id="lang-selector" onchange="setLang(this.value)">
-    <option value="en">English</option>
-    <option value="kr">한국어</option>
-    <option value="jp">日本語</option>
-    <option value="zh">中文</option>
-    <option value="es">Español</option>
-    <option value="fr">Français</option>
-  </select>
+  <h1>Welcome to JeongSang Law Office</h1>
 </div>
 
-<!-- About Section -->
 <section id="about">
-  <h2 id="about-title">Your Trusted IP Law Partner in Korea</h2>
-  <p id="about-desc">We help clients with trademark and copyright protection in Korea.</p>
+  <h2>About Us</h2>
+  <p>We are your trusted IP law partner in Korea, providing expert services in trademark and copyright protection.</p>
 </section>
 
-<!-- Services Section -->
-<section class="services-section" id="services">
-  <h2 id="services-title">Our Key Services</h2>
-  <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/535/535234.png"/>
-    <h3 id="service1-title">Trademark Infringement</h3>
-    <p id="service1-desc">Stop violations in Korea's platforms.</p>
-  </div>
-  <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/2910/2910791.png"/>
-    <h3 id="service2-title">Copyright Protection</h3>
-    <p id="service2-desc">Protect your digital content rights.</p>
-  </div>
-  <div class="service-box">
-    <img src="https://cdn-icons-png.flaticon.com/512/10336/10336541.png"/>
-    <h3 id="service3-title">No Legal Fees</h3>
-    <p id="service3-desc">Start actions without upfront fees.</p>
-  </div>
-</section>
-  <section id="status">
-  <h2 id="status-title">Status Overview</h2>
-  <p id="status-desc">Hover over each bar to see activity reduction.</p>
-  <div class="graph-container">
-    <!-- 각 브랜드별 그래프 항목 -->
-    <div class="graph-item">
-      <div class="value-label">-90%</div> <!-- 마우스 오버 전에 보이는 수치 -->
-      <div class="graph-bar bar1"></div> <!-- 실제 막대 그래프 -->
-      <div class="label">ECCO</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-90%</div>
-      <div class="graph-bar bar2"></div>
-      <div class="label">DAIWA</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-60%</div>
-      <div class="graph-bar bar3"></div>
-      <div class="label">ARCTERYX</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-50%</div>
-      <div class="graph-bar bar4"></div>
-      <div class="label">MARK & LONA</div>
-    </div>
-    <div class="graph-item">
-      <div class="value-label">-40%</div>
-      <div class="graph-bar bar5"></div>
-      <div class="label">ETC</div>
-    </div>
-  </div>
+<section id="status">
+  <h2>Status Overview</h2>
+  <img src="https://your-graph-image-url.com" alt="Graph Overview">
 </section>
 
-<!-- Message Section -->
 <section id="form">
-  <h2 id="form-title">Send a Message</h2>
-  <form action="https://formspree.io/f/mldjkevj" method="POST">
-    <!-- 메일 수신자 지정 -->
-    <input type="hidden" name="_to" value="inchonsy@nate.com,soonmo0608@nate.com">
-    <!-- 사용자 입력 필드 -->
-    <input name="name" placeholder="Your Name" required style="width:100%;padding:10px;" type="text"/><br/><br/>
-    <input name="email" placeholder="Your Email" required style="width:100%;padding:10px;" type="email"/><br/><br/>
-    <textarea name="message" placeholder="Your Message" required rows="6" style="width:100%;padding:10px;"></textarea><br/><br/>
-    <button style="padding:10px 20px;" type="submit">Send</button>
+  <h2>Send a Message</h2>
+  <form action="https://formspree.io/f/your-form-id" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
+    <button type="submit">Send</button>
   </form>
 </section>
-<!-- Footer Section -->
+
+<section class="brand-slider">
+  <img src="https://your-brand-arc-logo.png" alt="Arc'teryx">
+  <img src="https://your-brand-ecco-logo.png" alt="ECCO">
+  <img src="https://your-brand-daiwa-logo.png" alt="DAIWA">
+  <img src="https://your-brand-columbia-logo.png" alt="Columbia">
+  <img src="https://your-brand-dainese-logo.png" alt="Dainese">
+  <img src="https://your-brand-fjallraven-logo.png" alt="Fjallraven">
+</section>
+
 <footer id="contact">
-  <h2 id="contact-title">Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
   <p><strong>Email:</strong> inchonsy@nate.com</p>
-<div class="legal-links">
-  <a href="privacy_ko.html" target="_blank" id="privacy-link">개인정보처리방침</a>
-  <a href="legal_ko.html" target="_blank" id="legal-link">법적 고지</a>
-
-  <a href="terms_ko.html" target="_blank" id="terms-link">이용약관</a>
-  <a href="terms_en.html" target="_blank" id="terms-link-en" style="display:none;">Terms of Use</a>
-
-  <a href="disclaimer_ko.html" target="_blank" id="disclaimer-link">면책조항</a>
-  <a href="disclaimer_en.html" target="_blank" id="disclaimer-link-en" style="display:none;">Disclaimer</a>
-
-  <a href="business-info.html" target="_blank">사업자 정보</a>
-  <a href="business-info_en.html" target="_blank">Business Info</a>
-
-
-  <a href="cookie_ko.html" target="_blank" id="cookie-link">쿠키정책</a>
-<a href="cookie_en.html" target="_blank">Cookie Policy</a>
-
-  <p style="font-size:12px; color:#888; margin-top:10px;">
-  Icons made by <a href="https://www.flaticon.com/authors/freepik" target="_blank" style="color:#4af;">Freepik</a> from <a href="https://www.flaticon.com/" target="_blank" style="color:#4af;">www.flaticon.com</a>
-</p>
-  
-<p style="font-size:12px; color:#888;">
-  일부 이미지 및 시각 자료는 AI 생성 콘텐츠를 기반으로 하며, 상업적 사용이 허용된 자료만을 사용합니다.
-</p>
-
-  <p style="font-size:12px; color:#888;">
-  Some images are AI-generated and used under commercially permitted licenses.
-</p>
-
-
-  
-</div>
-
-
-
-
-
+  <div class="legal">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Business Info</a>
   </div>
-  <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
+  <p style="margin-top:10px; font-size:12px; color:#888;">&copy; 2025 JeongSang Law Office. All rights reserved.</p>
 </footer>
-<script>
-  
-const translations = {
 
-  fr: {
-    title: "Cabinet juridique JeongSang",
-    "nav-about": "À propos",
-    "nav-services": "Services",
-    "nav-status": "Statut",
-    "nav-message": "Message",
-    "nav-contact": "Contact",
-    "about-title": "Votre partenaire de propriété intellectuelle en Corée",
-    "about-desc": "Nous aidons à protéger les marques et droits d’auteur en Corée.",
-    "services-title": "Nos Services Clés",
-    "service1-title": "Réponse à l'infraction de marque",
-    "service1-desc": "Stopper les infractions sur les plateformes coréennes.",
-    "service2-title": "Protection des droits d’auteur",
-    "service2-desc": "Protégez vos droits de contenu numérique.",
-    "service3-title": "Aucun frais juridique",
-    "service3-desc": "Actions sans frais juridiques initiaux.",
-    "status-title": "Aperçu du Statut",
-    "status-desc": "Survolez chaque barre pour voir la réduction.",
-    "form-title": "Envoyer un message",
-    "contact-title": "Contact"
-  },
-  zh: {
-    title: "正尚律师事务所",
-    "nav-about": "关于我们",
-    "nav-services": "服务",
-    "nav-status": "状态",
-    "nav-message": "留言",
-    "nav-contact": "联系方式",
-    "about-title": "您在韩国值得信赖的知识产权律师",
-    "about-desc": "我们帮助客户在韩国保护商标和版权。",
-    "services-title": "主要服务",
-    "service1-title": "商标侵权应对",
-    "service1-desc": "阻止在韩国平台上的侵权行为。",
-    "service2-title": "版权保护",
-    "service2-desc": "保护您的数字内容权利。",
-    "service3-title": "无需法律费用",
-    "service3-desc": "无需预付法律费用即可开始行动。",
-    "status-title": "状态概览",
-    "status-desc": "将鼠标悬停在柱形图上可查看减少情况。",
-    "form-title": "发送留言",
-    "contact-title": "联系方式"
-  },
-  es: {
-    title: "Oficina Legal JeongSang",
-    "nav-about": "Sobre nosotros",
-    "nav-services": "Servicios",
-    "nav-status": "Estado",
-    "nav-message": "Mensaje",
-    "nav-contact": "Contacto",
-    "about-title": "Su socio legal confiable en Corea",
-    "about-desc": "Ayudamos con la protección de marcas y derechos de autor en Corea.",
-    "services-title": "Nuestros Servicios",
-    "service1-title": "Respuesta a Infracción de Marca",
-    "service1-desc": "Detenga infracciones en plataformas de Corea.",
-    "service2-title": "Protección de Derechos de Autor",
-    "service2-desc": "Protegemos sus derechos de contenido digital.",
-    "service3-title": "Sin Honorarios Legales",
-    "service3-desc": "Actuamos sin tarifas legales iniciales.",
-    "status-title": "Resumen de Estado",
-    "status-desc": "Pase el mouse sobre cada barra para ver la reducción.",
-    "form-title": "Enviar un Mensaje",
-    "contact-title": "Contacto"
-  },
-  en: {
-    title: "JeongSang Law Office",
-    "nav-about": "About",
-    "nav-services": "Services",
-    "nav-status": "Status",
-    "nav-message": "Message",
-    "nav-contact": "Contact",
-    "about-title": "Your Trusted IP Law Partner in Korea",
-    "about-desc": "We help clients with trademark and copyright protection in Korea.",
-    "services-title": "Our Key Services",
-    "service1-title": "Trademark Infringement",
-    "service1-desc": "Stop violations in Korea's platforms.",
-    "service2-title": "Copyright Protection",
-    "service2-desc": "Protect your digital content rights.",
-    "service3-title": "No Legal Fees",
-    "service3-desc": "Start actions without upfront fees.",
-    "status-title": "Status Overview",
-    "status-desc": "Hover over each bar to see activity reduction.",
-    "form-title": "Send a Message",
-    "contact-title": "Contact"
-  },
-  kr: {
-    title: "정상 법률사무소",
-    "nav-about": "소개",
-    "nav-services": "서비스",
-    "nav-status": "현황",
-    "nav-message": "메시지",
-    "nav-contact": "연락처",
-    "about-title": "신뢰받는 지식재산권 법률 파트너",
-    "about-desc": "한국 내 상표권 및 저작권 보호를 도와드립니다.",
-    "services-title": "주요 서비스",
-    "service1-title": "상표 침해 대응",
-    "service1-desc": "한국 플랫폼 내 침해 대응을 합니다.",
-    "service2-title": "저작권 보호",
-    "service2-desc": "디지털 콘텐츠 권리를 보호합니다.",
-    "service3-title": "무료 법률 지원",
-    "service3-desc": "선착수 후 비용 청구 없이 진행합니다.",
-    "status-title": "진행 현황",
-    "status-desc": "막대에 마우스를 올리면 감소율이 나타납니다.",
-    "form-title": "문의 남기기",
-    "contact-title": "연락처"
-  },
-  jp: {
-    title: "ジョンサン法律事務所",
-    "nav-about": "紹介",
-    "nav-services": "サービス",
-    "nav-status": "状況",
-    "nav-message": "メッセージ",
-    "nav-contact": "連絡先",
-    "about-title": "韓国で信頼される知財法律パートナー",
-    "about-desc": "韓国での商標と著作権の保護を支援します。",
-    "services-title": "主なサービス",
-    "service1-title": "商標侵害対応",
-    "service1-desc": "韓国のプラットフォームでの侵害を阻止します。",
-    "service2-title": "著作権保護",
-    "service2-desc": "デジタルコンテンツの権利を守ります。",
-    "service3-title": "法的費用なし",
-    "service3-desc": "前払い費用なしで対応します。",
-    "status-title": "進行状況",
-    "status-desc": "バーにマウスを置くと減少率が表示されます。",
-    "form-title": "メッセージを送る",
-    "contact-title": "連絡先"
-  }
-};
-
-function setLang(lang) {
-  const t = translations[lang];
-  if (!t) return;
-  for (const key in t) {
-    const el = document.getElementById(key);
-    if (el) el.innerText = t[key];
-  }
-
-  const legal = document.getElementById("legal-link");
-  const privacy = document.getElementById("privacy-link");
-  const cookie = document.getElementById("cookie-link");
-
-  if (cookie) {
-    cookie.href = lang === 'kr' ? 'cookie_ko.html' : 'cookie_en.html';
-  }
-  if (legal && privacy) {
-    if (lang === 'kr') {
-      legal.href = 'legal_ko.html';
-      privacy.href = 'privacy_ko.html';
-    } else {
-      legal.href = 'legal_en.html';
-      privacy.href = 'privacy_en.html';
-    }
-    document.getElementById("terms-link").style.display = lang === 'kr' ? 'inline' : 'none';
-    document.getElementById("terms-link-en").style.display = lang === 'en' ? 'inline' : 'none';
-    document.getElementById("disclaimer-link").style.display = lang === 'kr' ? 'inline' : 'none';
-    document.getElementById("disclaimer-link-en").style.display = lang === 'en' ? 'inline' : 'none';
-    document.getElementById("cookie-link").style.display = lang === 'kr' ? 'inline' : 'none';
-    document.getElementById("cookie-link-en").style.display = lang === 'en' ? 'inline' : 'none';
-  }
-}
-</script>
-
-<!-- ✅ 쿠키 배너 HTML -->
-<div id="cookie-consent" class="cookie-banner">
-  <p id="cookie-text">We use cookies to improve your experience. / 우리는 쿠키를 사용합니다.</p>
-  <button onclick="acceptCookies()" id="accept-btn">Accept / 동의하기</button>
-</div>
-
-<!-- ✅ 페이지 이벤트 전체 통합 -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // 언어 선택기 이벤트 등록
-  const langSelect = document.querySelector('#lang-selector');
-  if (langSelect) {
-    langSelect.addEventListener('change', function () {
-      setLang(this.value);
-    });
-  }
-
-  // 쿠키 배너 수락 여부 확인
-  if (localStorage.getItem('cookieAccepted') === 'true') {
-    const banner = document.getElementById('cookie-consent');
-    if (banner) {
-      banner.style.display = 'none';
-    }
-  }
-});
-
-// 쿠키 수락 버튼 클릭 시
-function acceptCookies() {
-  localStorage.setItem('cookieAccepted', 'true');
-  const banner = document.getElementById('cookie-consent');
-  if (banner) {
-    banner.classList.add('hide');
-    setTimeout(() => { banner.style.display = 'none'; }, 600);
-  }
-}
-</script>
+</body>
 </html>
