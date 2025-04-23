@@ -33,28 +33,35 @@
       font-size: 20px;
       color: #003366;
       margin-bottom: 10px;
-      margin-top: 50px;
+      margin-top: 60px;
     }
     section ul {
-      margin: 10px 0 20px 20px;
+      margin: 10px 0 30px 20px;
     }
     section ul li {
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
     strong {
       color: #222;
     }
+    .lock-row {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 40px;
+    }
     .lock-container {
       position: relative;
       width: 60px;
-      margin-top: 10px;
-      margin-bottom: 20px;
+      height: 80px;
     }
     .lock-icon {
       width: 100%;
       height: auto;
       display: block;
       filter: grayscale(100%);
+      z-index: 2;
+      position: relative;
     }
     .lock-fill {
       position: absolute;
@@ -65,6 +72,7 @@
       background: #4CAF50;
       z-index: 1;
       transition: height 2s ease-in-out;
+      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
     }
     .lock-container:hover .lock-fill {
       height: 100%;
@@ -74,7 +82,7 @@
     }
     .graph-img {
       display: block;
-      margin: 20px auto;
+      margin: 30px auto;
       max-width: 100%;
       height: auto;
       transition: transform 0.3s ease;
@@ -99,19 +107,21 @@
   <section>
     <h2>1. Trademark Protection</h2>
     <p>Protect your brand identity in Korea.</p>
-    <div class="lock-container">
-      <div class="lock-fill"></div>
-      <img src="images/lock-icon.png" alt="Lock icon" class="lock-icon" />
-    </div>
 
     <h2>2. Our Firm</h2>
-    <ul>
-      <li>Over 10 years of exclusive focus on trademark and copyright enforcement.</li>
-      <li>Successfully shut down hundreds of counterfeit sales platforms in Korea.</li>
-      <li>Offers full one-stop service: investigation, evidence collection, and litigation.</li>
-      <li>Skilled professional staff work seamlessly with attorneys.</li>
-      <li>Trusted by many global brands.</li>
-    </ul>
+    <div class="lock-row">
+      <ul>
+        <li>Over 10 years of exclusive focus on trademark and copyright enforcement.</li>
+        <li>Successfully shut down hundreds of counterfeit sales platforms in Korea.</li>
+        <li>Offers full one-stop service: investigation, evidence collection, and litigation.</li>
+        <li>Skilled professional staff work seamlessly with attorneys.</li>
+        <li>Trusted by many global brands.</li>
+      </ul>
+      <div class="lock-container">
+        <div class="lock-fill"></div>
+        <img src="images/lock-icon.png" alt="Lock icon" class="lock-icon" />
+      </div>
+    </div>
 
     <h2>3. Why Choose Us</h2>
     <ul>
