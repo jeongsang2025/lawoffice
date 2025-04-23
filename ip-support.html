@@ -44,33 +44,38 @@
     ul li {
       margin-bottom: 10px;
     }
-    .svg-lock-container {
-      width: 60px;
-      height: 80px;
-      margin: 20px auto 0;
+    .lock-container {
       position: relative;
+      width: 80px;
+      height: 100px;
+      margin: 30px auto;
     }
-    .svg-lock-container svg {
+    svg {
       width: 100%;
       height: auto;
     }
     .fill-rect {
-      animation: fillLock 4s ease-in-out infinite;
+      animation: fillLock 4s ease-in-out forwards;
     }
     .lock-text {
       position: absolute;
-      top: 35%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 10px;
       color: white;
+      font-size: 14px;
       font-weight: bold;
-      pointer-events: none;
+      opacity: 0;
+      animation: fadeInText 4s ease-in-out forwards;
+      animation-delay: 4s;
     }
     @keyframes fillLock {
       0% { height: 0; }
-      50% { height: 100%; }
-      100% { height: 0; }
+      100% { height: 100%; }
+    }
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
     footer {
       background: #003366;
@@ -94,7 +99,7 @@
       we bear the risk — never the client.
     </p>
 
-    <div class="svg-lock-container">
+    <div class="lock-container">
       <svg viewBox="0 0 64 80">
         <defs>
           <clipPath id="lockMask">
