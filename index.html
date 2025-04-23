@@ -3,75 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Copyright Defense | JeongSang Law Office</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>JeongSang Law Office</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; line-height: 1.6; }
-    header { background-color: #003366; color: white; padding: 40px 20px; text-align: center; }
-    header h1 { font-size: 32px; }
-    section { padding: 60px 20px; text-align: center; max-width: 1000px; margin: auto; }
-    section h2 { color: #003366; margin-top: 80px; text-align: left; }
-    section ul { margin: 10px 0 30px 20px; text-align: left; }
-    section ul li { margin-bottom: 16px; }
-    #expertise-section { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
-    #expertise-section ul { flex: 1; text-align: left; }
-    #client-collaboration-section { display: flex; justify-content: space-between; align-items: center; gap: 40px; margin-top: 40px; }
-    #client-collaboration-section ul { flex: 1; text-align: left; }
-    .continent-icon {
-      width: 120px;
-      height: 120px;
-      background-color: #003366;
-      border-radius: 10px;
-      position: relative;
+    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; }
+    .hero { position: relative; height: 500px; background: url('https://ipkorelaw.wordpress.com/wp-content/uploads/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat; background-color: #444; }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .hero-overlay h1 { color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px; }
+    .menu-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 1001;
     }
-    .continent-icon svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .brand-slider {
-      overflow: hidden;
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
       background: #fff;
-      padding: 30px 0;
-      position: relative;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .brand-track-wrapper {
+    nav.active { display: flex; }
+    .nav-link { color: black; border: 1px solid #ccc; padding: 8px 12px; border-radius: 40px; text-decoration: none; font-size: 14px; background: white; }
+    .nav-link:hover { background-color: #eee; }
+    section { padding: 60px 20px; text-align: center; max-width: 900px; margin: auto; scroll-margin-top: 120px; }
+    .graph-buttons-wrapper {
+      background-color: #f3f3f3;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 60px auto 30px;
+    }
+    .graph-buttons {
       display: flex;
-      width: max-content;
-      animation: scroll-marquee 60s linear infinite;
+      flex-direction: column;
       align-items: center;
+      gap: 20px;
     }
-    .brand-track-wrapper .brand-track {
-      display: flex;
+    .graph-buttons .service-box {
+      width: 280px;
+      background-color: white;
+      color: black;
     }
-    .brand-track {
-      display: flex;
+    .service-box {
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
+      border-radius: 8px;
     }
-    .brand-track::after {
-      content: '';
-      display: flex;
+    .service-box:hover {
+      transform: scale(1.05);
     }
-    .brand-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 40px;
+    .service-box h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
-    .brand-item img {
-      height: 30px;
-      object-fit: contain;
-      max-width: 120px;
-      transition: transform 0.3s ease;
+    .service-box p {
+      font-size: 13px;
+      line-height: 1.4;
     }
-    .brand-item img:hover {
-      transform: scale(1.1);
-    }
+    .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
+    .brand-track-wrapper { display: flex; width: max-content; animation: scroll-marquee 60s linear infinite; align-items: center; }
+    .brand-track-wrapper .brand-track { display: flex; }
+    .brand-item { display: flex; align-items: center; justify-content: center; margin: 0 40px; }
+    .brand-item img { height: 30px; object-fit: contain; max-width: 120px; transition: transform 0.3s ease; }
+    .brand-item img:hover { transform: scale(1.1); }
     @keyframes scroll-marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
     }
-    footer { background-color: #003366; color: white; text-align: center; padding: 30px 20px; }
+    footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
     footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
     #cookie-banner {
@@ -97,82 +113,83 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    #cookie-banner.hide { opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
+    #cookie-banner.hide {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Copyright Defense</h1>
-  </header>
-
-  <section>
-    <h2>1. Our Copyright Expertise</h2>
-    <div id="expertise-section">
-      <ul>
-        <li>25+ years of legal experience, including major cases for software IP (Microsoft, Adobe, Autodesk).</li>
-        <li>Strong foundation in digital IP, online piracy, and unauthorized image/use protection.</li>
-      </ul>
-      <canvas id="expertiseGraph" width="200" height="150"></canvas>
+  <div class="hero">
+    <div class="hero-overlay">
+      <h1>JeongSang Law Office</h1>
     </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+      <a class="nav-link" href="about-us.html">About Us</a>
+      <a class="nav-link" href="ip-support.html">IP & Trademark Enforcement</a>
+      <a class="nav-link" href="copyright-defense.html">Copyright Defense</a>
+      <a class="nav-link" href="no-legal-fees.html">No Legal Fees</a>
+      <a class="nav-link" href="faq-enforcement.html">FAQ</a>
+    </nav>
+  </div>
 
-    <h2>2. Practical Enforcement Tactics</h2>
-    <ul>
-      <li>Evidence collection through screenshots, consumer disguise, mystery shopping.</li>
-      <li>Verification of purchased goods via local office or global HQ.</li>
-      <li>Three-step response system: warning → negotiation → litigation.</li>
-    </ul>
-
-    <h2>3. Civil Litigation as Primary Strategy</h2>
-    <ul>
-      <li>Korean police deprioritize IP cases; criminal sanctions are minimal.</li>
-      <li>Civil suits provide quicker resolution and monetary penalties.</li>
-      <li>Case-specific judgment on whether to use warnings, negotiation, civil/criminal suits.</li>
-    </ul>
-
-    <h2>4. Trained IP Staff</h2>
-    <ul>
-      <li>Investigators act as mystery buyers to collect detailed evidence.</li>
-      <li>Most IP enforcement depends on non-attorney staff execution.</li>
-      <li>Our internal team is highly experienced and thoroughly trained.</li>
-    </ul>
-
-    <h2>5. Common Scenarios Addressed</h2>
-    <ul>
-      <li>Fake product listings that mimic real pricing.</li>
-      <li>Listings without brand names/logos but intended to mislead consumers.</li>
-      <li>AI-assisted monitoring under consideration — not yet a substitute for human intel.</li>
-    </ul>
-
-    <h2>6. Global Client Collaboration</h2>
-    <div id="client-collaboration-section">
-      <ul>
-        <li>We bridge language, legal, and strategy gaps between local Korean courts and global HQs.</li>
-        <li>Participation in IP forums (e.g., INTA) for direct client interaction and trend updates.</li>
-      </ul>
-      <div class="continent-icon" aria-label="World continents illustration">
-        <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10,60 C30,20 70,40 90,10 C120,0 140,30 170,20 C190,30 180,60 150,70 C120,90 80,70 50,80 C30,90 20,70 10,60" fill="#ffffff" />
-        </svg>
+  <section class="graph-buttons-wrapper">
+    <div class="graph-buttons">
+      <div class="service-box" onclick="location.href='ip-support.html';">
+        <h3>Trademark Protection</h3>
+        <p>Protect your brand identity in Korea.</p>
       </div>
-    </div>
-
-    <div class="brand-slider">
-      <div class="brand-track-wrapper">
-        <div class="brand-track">
-          <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
-          <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
-          <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
-          <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
-          <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
-          <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
-          <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
-        </div>
+      <div class="service-box" onclick="location.href='copyright-defense.html';">
+        <h3>Copyright Defense</h3>
+        <p>Secure your intellectual property rights.</p>
+      </div>
+      <div class="service-box" onclick="location.href='no-legal-fees.html';">
+        <h3>No Legal Fees</h3>
+        <p>We only win when you do.</p>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 JeongSang Law Office. All rights reserved.</p>
+  <section class="brand-slider">
+    <div class="brand-track-wrapper">
+      <div class="brand-track">
+        <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
+        <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
+        <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
+        <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
+        <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
+        <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="form">
+    <h2>Send a Message</h2>
+    <form action="https://formspree.io/f/mldjkevj" method="POST">
+      <input type="hidden" name="_to" value="JS.KOREAIP@GMAIL.COM">
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
+      <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
+      <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
+      <button type="submit" style="padding:10px 20px;">Send</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    <h2>Contact</h2>
+    <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+    <p><strong>Email:</strong> JS.KOREAIP@GMAIL.COM</p>
+    <div class="legal-links">
+      <a href="privacy_ko.html" target="_blank">Privacy Policy</a>
+      <a href="legal_ko.html" target="_blank">Legal Notice</a>
+      <a href="terms_ko.html" target="_blank">Terms of Use</a>
+      <a href="disclaimer_ko.html" target="_blank">Disclaimer</a>
+      <a href="business-info.html" target="_blank">Business Info</a>
+      <a href="business-info_en.html" target="_blank">Business Info (English)</a>
+      <a href="cookie_en.html" target="_blank">Cookie Policy</a>
+    </div>
+    <p style="margin-top:10px; font-size:12px; color:#888;">© 2025 JeongSang Law Office. All rights reserved.</p>
   </footer>
 
   <div id="cookie-banner">
@@ -181,32 +198,15 @@
   </div>
 
   <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
     if (localStorage.getItem('cookieAccepted') === 'true') {
       document.getElementById('cookie-banner').classList.add('hide');
     }
     function acceptCookies() {
       localStorage.setItem('cookieAccepted', 'true');
       document.getElementById('cookie-banner').classList.add('hide');
-    }
-
-    const ctx = document.getElementById('expertiseGraph');
-    if (ctx) {
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Experience', 'Expertise'],
-          datasets: [{
-            label: 'Depth',
-            data: [100, 100],
-            backgroundColor: '#003366'
-          }]
-        },
-        options: {
-          responsive: false,
-          scales: { y: { beginAtZero: true, max: 100 } },
-          plugins: { legend: { display: false } }
-        }
-      });
     }
   </script>
 </body>
