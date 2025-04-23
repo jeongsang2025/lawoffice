@@ -70,12 +70,13 @@
       height: 100%;
       background: #4CAF50;
       clip-path: inset(100% 0 0 0);
-      animation: fill-lock-inset 2s ease-in-out forwards;
       z-index: 1;
+      animation: fill-lock-loop 4s ease-in-out infinite;
     }
-    @keyframes fill-lock-inset {
+    @keyframes fill-lock-loop {
       0% { clip-path: inset(100% 0 0 0); }
-      100% { clip-path: inset(0 0 0 0); }
+      50% { clip-path: inset(0 0 0 0); }
+      100% { clip-path: inset(100% 0 0 0); }
     }
     .graph-img {
       display: block;
