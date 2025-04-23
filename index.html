@@ -32,16 +32,27 @@
       border-bottom: 1px solid #ddd;
       z-index: 1000;
       position: absolute;
-      width: 100%;
+      top: 70px;
+      right: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     nav.active { display: flex; }
     .nav-link { color: black; border: 1px solid #ccc; padding: 8px 12px; border-radius: 40px; text-decoration: none; font-size: 14px; background: white; }
     .nav-link:hover { background-color: #eee; }
     section { padding: 60px 20px; text-align: center; max-width: 900px; margin: auto; scroll-margin-top: 120px; }
-    .service-box { width: 300px; background: white; padding: 20px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .service-box { width: 300px; background: white; padding: 20px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: transform 0.3s; cursor: pointer; }
     .service-box:hover { transform: scale(1.05); }
-    .service-box img { width: 50px; margin-bottom: 10px; }
-    .no-legal-fees-link { cursor: pointer; }
+    .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
+    .brand-track-wrapper { display: flex; width: max-content; animation: scroll-marquee 60s linear infinite; align-items: center; }
+    .brand-track-wrapper .brand-track { display: flex; }
+    .brand-item { display: flex; align-items: center; justify-content: center; margin: 0 40px; }
+    .brand-item img { height: 30px; object-fit: contain; max-width: 120px; }
+    @keyframes scroll-marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    #status img { display: block; margin: 20px auto; max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
     footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
@@ -80,17 +91,16 @@
     <div class="hero-overlay">
       <h1>JeongSang Law Office</h1>
     </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="main-nav">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#status">Status</a>
+      <a class="nav-link" href="#form">Message</a>
+      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-link" href="no-legal-fees.html">No Legal Fees – Only Results</a>
+    </nav>
   </div>
-
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav id="main-nav">
-    <a class="nav-link" href="#about">About</a>
-    <a class="nav-link" href="#services">Services</a>
-    <a class="nav-link" href="#status">Status</a>
-    <a class="nav-link" href="#form">Message</a>
-    <a class="nav-link" href="#contact">Contact</a>
-    <a class="nav-link" href="no-legal-fees.html">No Legal Fees – Only Results</a>
-  </nav>
 
   <section id="about">
     <h2>Your Trusted IP Law Partner in Korea</h2>
@@ -99,7 +109,7 @@
 
   <section class="services-section" id="services">
     <h2>Our Key Services</h2>
-    <div class="service-box no-legal-fees-link" onclick="location.href='no-legal-fees.html';">
+    <div class="service-box" onclick="location.href='no-legal-fees.html';">
       <h3>No Legal Fees</h3>
       <p>Start actions without upfront fees.</p>
     </div>
@@ -111,6 +121,41 @@
       <h3>Copyright Protection</h3>
       <p>Protect your digital content rights.</p>
     </div>
+  </section>
+
+  <section id="status">
+    <h2>Status Overview</h2>
+    <img src="images/KakaoTalk_20250422_112038323.png" alt="Graph Overview">
+  </section>
+
+  <section class="brand-slider">
+    <div class="brand-track-wrapper">
+      <div class="brand-track">
+        <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
+        <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
+        <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
+        <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
+        <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
+        <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
+        <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
+        <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
+        <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
+        <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
+        <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
+        <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="form">
+    <h2>Send a Message</h2>
+    <form action="https://formspree.io/f/mldjkevj" method="POST">
+      <input type="hidden" name="_to" value="JS.KOREAIP@GMAIL.COM">
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
+      <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
+      <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
+      <button type="submit" style="padding:10px 20px;">Send</button>
+    </form>
   </section>
 
   <footer id="contact">
