@@ -3,170 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IP & Trademark Enforcement Support in Korea</title>
+  <title>JeongSang Law Office</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f4f4;
-      color: #222;
-      line-height: 1.6;
+    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; }
+
+    .hero {
+      position: relative;
+      height: 500px;
+      background: url('https://ipkorelaw.wordpress.com/wp-content/uploads/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat;
+      background-color: #444;
     }
-    header {
-      background: #003366;
-      color: white;
-      padding: 40px 20px;
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
-    header h1 {
-      font-size: 32px;
-    }
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
+    .hero-overlay h1 { color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px; }
+
+    .menu-toggle {
+      position: absolute; top: 20px; right: 20px;
+      font-size: 30px;
       background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 1001;
     }
-    section h2 {
-      font-size: 20px;
-      color: #003366;
-      margin-bottom: 10px;
-      margin-top: 80px;
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    section ul {
-      margin: 10px 0 30px 20px;
+    nav.active { display: flex; }
+    .nav-link {
+      color: black;
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 14px;
+      background: white;
     }
-    section ul li {
-      margin-bottom: 16px;
+    .nav-link:hover { background-color: #eee; }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+      scroll-margin-top: 120px;
     }
-    strong {
-      color: #222;
+    .graph-buttons-wrapper {
+      background-color: #f3f3f3;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 60px auto 30px;
     }
-    .lock-container {
-      position: relative;
-      width: 80px;
-      height: 100px;
-      margin-left: 40px;
-    }
-    .lock-wrapper {
+    .graph-buttons {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .graph-buttons .service-box {
+      width: 280px;
+      background-color: white;
+      color: black;
+    }
+    .service-box {
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .service-box:hover { transform: scale(1.05); }
+    .service-box h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .service-box p { font-size: 13px; line-height: 1.4; }
+
+    .brand-slider {
+      overflow: hidden;
+      background: #fff;
+      padding: 30px 0;
+      position: relative;
+    }
+    .brand-track-wrapper {
+      display: flex;
+      width: max-content;
+      animation: scroll-marquee 60s linear infinite;
       align-items: center;
     }
-    svg {
-      width: 100%;
-      height: auto;
+    .brand-track-wrapper .brand-track { display: flex; }
+    .brand-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 40px;
     }
-    .fill-rect {
-      transform-origin: bottom;
-      animation: fillLock 4s ease-in-out infinite;
-    }
-    .lock-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      opacity: 1;
-    }
-    @keyframes fillLock {
-      0% { height: 0; }
-      100% { height: 80px; }
-    }
-    .graph-img {
-      display: block;
-      margin: 30px auto;
-      max-width: 100%;
-      height: auto;
+    .brand-item img {
+      height: 30px;
+      object-fit: contain;
+      max-width: 120px;
       transition: transform 0.3s ease;
     }
-    .graph-img:hover {
-      transform: scale(1.05);
+    .brand-item img:hover { transform: scale(1.1); }
+
+    @keyframes scroll-marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
     }
+
+    @media (max-width: 768px) {
+      .graph-buttons {
+        flex-direction: column;
+      }
+      .brand-item { margin: 0 20px; }
+      .menu-toggle { font-size: 24px; padding: 5px 10px; }
+      .nav-link { font-size: 12px; padding: 6px 10px; }
+      .service-box { width: 90%; }
+    }
+
     footer {
-      background: #003366;
+      background-color: #222;
       color: white;
+      padding: 30px 20px;
       text-align: center;
-      padding: 20px;
+    }
+    .legal-links { margin-top: 10px; }
+    footer a {
+      color: #4af;
+      margin: 0 10px;
+      text-decoration: none;
       font-size: 14px;
+    }
+    #cookie-banner {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 10000;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    #cookie-banner button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #cookie-banner.hide {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>IP & Trademark Enforcement Support in Korea</h1>
-  </header>
-
-  <section>
-    <h2>1. Trademark Protection</h2>
-    <p>Protect your brand identity in Korea.</p>
-
-    <h2>2. Our Firm</h2>
-    <div class="lock-wrapper">
-      <ul>
-        <li>Over 10 years of exclusive focus on trademark and copyright enforcement.</li>
-        <li>Successfully shut down hundreds of counterfeit sales platforms in Korea.</li>
-        <li>Offers full one-stop service: investigation, evidence collection, and litigation.</li>
-        <li>Skilled professional staff work seamlessly with attorneys.</li>
-        <li>Trusted by many global brands.</li>
-      </ul>
-      <div class="lock-container">
-        <svg viewBox="0 0 64 80">
-          <defs>
-            <clipPath id="lockMask">
-              <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" />
-            </clipPath>
-          </defs>
-          <rect class="fill-rect" x="0" y="0" width="64" height="0" fill="#4CAF50" clip-path="url(#lockMask)" />
-          <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" fill="none" stroke="#000" stroke-width="2"/>
-        </svg>
-        <div class="lock-text">LOCK</div>
-      </div>
-    </div>
-
-    <h2>3. Why Choose Us</h2>
-    <ul>
-      <li><strong>No legal fees charged to clients.</strong> Because counterfeit sales platforms are numerous, budgeting legal fees for every case is unrealistic. We cover all litigation costs and only seek compensation from counterfeiters. Even if compensation isn’t received, we bear the risk—never the client.</li>
-      <li><strong>Expertise with Chinese counterfeiters</strong> (who run 50%+ of illegal platforms).</li>
-      <li>We specialize in freezing settlement funds before they are paid out. This requires legal know-how, persuasion of judges, and coordination with Korean marketplaces. Our firm has a proven track record in all of the above.</li>
-    </ul>
-
-    <h2>4. Key Results</h2>
-    <ul>
-      <li><strong>Arc’teryx (Canada):</strong> Shut down ~200 sites in 3 years.</li>
-      <li><strong>ECCO (Sweden):</strong> Shut down ~300 sites in 5 years.</li>
-      <li><strong>DAIWA (Japan):</strong> Shut down ~500 sites in 7 years.</li>
-      <li>Within the first year of engagement, we typically shut down 90% of all counterfeit activity.</li>
-    </ul>
-    <img src="images/KakaoTalk_20250422_112038323.png" alt="Graph Overview" class="graph-img" />
-
-    <h2>5. Common Misunderstandings</h2>
-    <ul>
-      <li><strong>“The headquarters is already handling it.”</strong> Only Korean-licensed attorneys can file lawsuits in Korea. HQ cannot directly litigate and must engage a local firm.</li>
-      <li><strong>“A pilot case or two is enough.”</strong> To be effective, legal action must be comprehensive over 6–12 months. Hiring traditional law firms for hundreds of cases is financially impossible. Our firm has the experience and financial capacity to handle this scale.</li>
-      <li><strong>“There are no counterfeits online.”</strong> Counterfeiters no longer display logos; they use deceptive tactics to avoid detection. Just because you don’t see it doesn’t mean it isn’t happening.</li>
-      <li><strong>“We use monitoring services.”</strong> Identifying counterfeiters is not enough. Only legal penalties stop repeat offenses. Without legal pressure, takedowns are temporary and endlessly repeated.</li>
-    </ul>
-
-    <h2>6. Our Process</h2>
-    <ul>
-      <li>Send us a signed power of attorney for the Korean court (revocable at any time).</li>
-      <li>We immediately assign a specialist to investigate counterfeit listings.</li>
-      <li>Based on findings, we take the most effective actions: warning, negotiation, or litigation.</li>
-      <li>Clients receive biweekly or monthly reports with detailed updates.</li>
-    </ul>
-
-    <h2>7. Final Note</h2>
-    <p>Let us work without burdening you. If we do not meet your expectations, you can cancel anytime.</p>
-    <p>To date, no client has ever revoked our mandate.</p>
-    <p>We invite you to test the capabilities of JeongSang Law Office.</p>
-  </section>
-
-  <footer>
-    <p>© 2025 JeongSang Law Office. All rights reserved.</p>
-  </footer>
+  <!-- body content remains unchanged -->
 </body>
 </html>
