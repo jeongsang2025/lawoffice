@@ -33,7 +33,7 @@
       font-size: 20px;
       color: #003366;
       margin-bottom: 10px;
-      margin-top: 60px;
+      margin-top: 80px;
     }
     section ul {
       margin: 10px 0 30px 20px;
@@ -67,18 +67,16 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 0%;
+      height: 100%;
       width: 100%;
-      background: #4CAF50;
+      background: linear-gradient(to top, #4CAF50 0%, #4CAF50 70%, transparent 70%, transparent 100%);
       z-index: 1;
-      transition: height 2s ease-in-out;
+      animation: fill-lock 2s ease-in-out forwards;
       clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
     }
-    .lock-container:hover .lock-fill {
-      height: 100%;
-    }
-    .lock-container:hover .lock-icon {
-      filter: grayscale(0%);
+    @keyframes fill-lock {
+      0% { background-position: bottom; }
+      100% { background-position: top; }
     }
     .graph-img {
       display: block;
