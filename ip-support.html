@@ -33,6 +33,7 @@
       font-size: 20px;
       color: #003366;
       margin-bottom: 10px;
+      margin-top: 50px;
     }
     section ul {
       margin: 10px 0 20px 20px;
@@ -42,6 +43,44 @@
     }
     strong {
       color: #222;
+    }
+    .lock-container {
+      position: relative;
+      width: 60px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .lock-icon {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(100%);
+    }
+    .lock-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 0%;
+      width: 100%;
+      background: #4CAF50;
+      z-index: 1;
+      transition: height 2s ease-in-out;
+    }
+    .lock-container:hover .lock-fill {
+      height: 100%;
+    }
+    .lock-container:hover .lock-icon {
+      filter: grayscale(0%);
+    }
+    .graph-img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+    }
+    .graph-img:hover {
+      transform: scale(1.05);
     }
     footer {
       background: #003366;
@@ -60,6 +99,10 @@
   <section>
     <h2>1. Trademark Protection</h2>
     <p>Protect your brand identity in Korea.</p>
+    <div class="lock-container">
+      <div class="lock-fill"></div>
+      <img src="images/lock-icon.png" alt="Lock icon" class="lock-icon" />
+    </div>
 
     <h2>2. Our Firm</h2>
     <ul>
@@ -84,6 +127,7 @@
       <li><strong>DAIWA (Japan):</strong> Shut down ~500 sites in 7 years.</li>
       <li>Within the first year of engagement, we typically shut down 90% of all counterfeit activity.</li>
     </ul>
+    <img src="images/KakaoTalk_20250422_112038323.png" alt="Graph Overview" class="graph-img" />
 
     <h2>5. Common Misunderstandings</h2>
     <ul>
