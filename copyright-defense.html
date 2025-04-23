@@ -16,19 +16,14 @@
     section ul li { margin-bottom: 16px; }
     #expertise-section { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
     #expertise-section ul { flex: 1; text-align: left; }
-    #world-rotating-globe { display: flex; justify-content: flex-end; margin: 40px 0; }
-    .globe-container {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Earth_seen_from_Apollo_17.jpg/480px-The_Earth_seen_from_Apollo_17.jpg');
+    #client-collaboration-section { display: flex; justify-content: space-between; align-items: center; gap: 40px; margin-top: 40px; }
+    #client-collaboration-section ul { flex: 1; text-align: left; }
+    .continent-icon {
+      width: 120px;
+      height: 120px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/BlankMap-World6-Equirectangular.svg/512px-BlankMap-World6-Equirectangular.svg.png') no-repeat center center;
       background-size: cover;
-      background-position: center;
-      animation: spinGlobe 20s linear infinite;
-    }
-    @keyframes spinGlobe {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      border-radius: 10px;
     }
     footer { background-color: #003366; color: white; text-align: center; padding: 30px 20px; }
     .legal-links { margin-top: 10px; }
@@ -103,13 +98,12 @@
     </ul>
 
     <h2>6. Global Client Collaboration</h2>
-    <ul>
-      <li>We bridge language, legal, and strategy gaps between local Korean courts and global HQs.</li>
-      <li>Participation in IP forums (e.g., INTA) for direct client interaction and trend updates.</li>
-    </ul>
-
-    <div id="world-rotating-globe">
-      <div class="globe-container"></div>
+    <div id="client-collaboration-section">
+      <ul>
+        <li>We bridge language, legal, and strategy gaps between local Korean courts and global HQs.</li>
+        <li>Participation in IP forums (e.g., INTA) for direct client interaction and trend updates.</li>
+      </ul>
+      <div class="continent-icon" aria-label="World continents illustration"></div>
     </div>
   </section>
 
