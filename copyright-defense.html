@@ -17,7 +17,13 @@
     #expertise-section { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
     #expertise-section ul { flex: 1; text-align: left; }
     #world-rotating-globe { display: flex; justify-content: center; margin: 40px 0; }
-    svg#rotating-earth { width: 120px; animation: spin-earth 12s linear infinite; }
+    .globe-container {
+      width: 120px;
+      height: 120px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/ef/Rotating_earth_%28large%29.gif') center/cover no-repeat;
+      border-radius: 50%;
+      animation: spin-earth 10s linear infinite;
+    }
     @keyframes spin-earth {
       0% { transform: rotateY(0deg); }
       100% { transform: rotateY(360deg); }
@@ -101,10 +107,7 @@
     </ul>
 
     <div id="world-rotating-globe">
-      <svg id="rotating-earth" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="256" cy="256" r="256" fill="#0077be" />
-        <path fill="#fff" d="M256 112c-18 0-32 14-32 32s14 32 32 32 32-14 32-32-14-32-32-32zm-32 64c-18 0-32 14-32 32s14 32 32 32 32-14 32-32-14-32-32-32z"/>
-      </svg>
+      <div class="globe-container"></div>
     </div>
   </section>
 
