@@ -50,33 +50,21 @@
       margin-top: 20px;
       gap: 40px;
     }
-    .lock-container {
-      position: relative;
+    .svg-lock-container {
       width: 60px;
       height: 80px;
     }
-    .lock-icon {
+    svg {
       width: 100%;
       height: auto;
-      display: block;
-      z-index: 2;
-      position: relative;
     }
-    .lock-fill {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #4CAF50;
-      clip-path: inset(100% 0 0 0);
-      z-index: 1;
-      animation: fill-lock-loop 4s ease-in-out infinite;
+    .fill-rect {
+      animation: fillLock 4s ease-in-out infinite;
     }
-    @keyframes fill-lock-loop {
-      0% { clip-path: inset(100% 0 0 0); }
-      50% { clip-path: inset(0 0 0 0); }
-      100% { clip-path: inset(100% 0 0 0); }
+    @keyframes fillLock {
+      0% { height: 0; }
+      50% { height: 100%; }
+      100% { height: 0; }
     }
     .graph-img {
       display: block;
@@ -115,9 +103,16 @@
         <li>Skilled professional staff work seamlessly with attorneys.</li>
         <li>Trusted by many global brands.</li>
       </ul>
-      <div class="lock-container">
-        <div class="lock-fill"></div>
-        <img src="images/lock-icon.png" alt="Lock icon" class="lock-icon" />
+      <div class="svg-lock-container">
+        <svg viewBox="0 0 64 80">
+          <defs>
+            <clipPath id="lockMask">
+              <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" />
+            </clipPath>
+          </defs>
+          <rect class="fill-rect" x="0" y="0" width="64" height="80" fill="#4CAF50" clip-path="url(#lockMask)" />
+          <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" fill="none" stroke="#000" stroke-width="2"/>
+        </svg>
       </div>
     </div>
 
