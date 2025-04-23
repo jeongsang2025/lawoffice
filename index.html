@@ -17,10 +17,33 @@
     .services-section { background-color: #f0f0f0; }
     .service-box { width: 300px; background: white; padding: 20px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
     .service-box:hover { transform: scale(1.05); }
-    .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; }
-    .brand-track { display: flex; animation: slide-left 30s linear infinite; }
-    .brand-track img { width: 200px; height: auto; margin: 0 30px; }
-    @keyframes slide-left { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+    .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
+    .brand-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-marquee 40s linear infinite;
+      align-items: center;
+    }
+    .brand-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 40px;
+    }
+    .brand-item img {
+      width: 180px;
+      height: auto;
+    }
+    .brand-item span {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #333;
+    }
+    @keyframes scroll-marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
     #status img { display: block; margin: 20px auto; max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
@@ -62,12 +85,18 @@
 
 <section class="brand-slider">
   <div class="brand-track">
-    <img src="/mnt/data/아크테릭스 상표 로고.png" alt="Arc'teryx">
-    <img src="/mnt/data/다이와 상표 로고.png" alt="DAIWA">
-    <img src="/mnt/data/에코 상표 로고.png" alt="ECCO">
-    <img src="/mnt/data/컬럼비아 상표 로고.png" alt="Columbia">
-    <img src="/mnt/data/다이네즈 상표 로고.png" alt="Dainese">
-    <img src="/mnt/data/피엘라벤 상표 로고.png" alt="Fjallraven">
+    <div class="brand-item"><img src="/mnt/data/아크테릭스 상표 로고.png" alt="Arc'teryx"><span>Arc'teryx</span></div>
+    <div class="brand-item"><img src="/mnt/data/다이와 상표 로고.png" alt="DAIWA"><span>DAIWA</span></div>
+    <div class="brand-item"><img src="/mnt/data/에코 상표 로고.png" alt="ECCO"><span>ECCO</span></div>
+    <div class="brand-item"><img src="/mnt/data/컬럼비아 상표 로고.png" alt="Columbia"><span>Columbia</span></div>
+    <div class="brand-item"><img src="/mnt/data/다이네즈 상표 로고.png" alt="Dainese"><span>Dainese</span></div>
+    <div class="brand-item"><img src="/mnt/data/피엘라벤 상표 로고.png" alt="Fjallraven"><span>Fjällräven</span></div>
+    <div class="brand-item"><img src="/mnt/data/아크테릭스 상표 로고.png" alt="Arc'teryx Duplicate"><span>Arc'teryx</span></div>
+    <div class="brand-item"><img src="/mnt/data/다이와 상표 로고.png" alt="DAIWA Duplicate"><span>DAIWA</span></div>
+    <div class="brand-item"><img src="/mnt/data/에코 상표 로고.png" alt="ECCO Duplicate"><span>ECCO</span></div>
+    <div class="brand-item"><img src="/mnt/data/컬럼비아 상표 로고.png" alt="Columbia Duplicate"><span>Columbia</span></div>
+    <div class="brand-item"><img src="/mnt/data/다이네즈 상표 로고.png" alt="Dainese Duplicate"><span>Dainese</span></div>
+    <div class="brand-item"><img src="/mnt/data/피엘라벤 상표 로고.png" alt="Fjallraven Duplicate"><span>Fjällräven</span></div>
   </div>
 </section>
 
