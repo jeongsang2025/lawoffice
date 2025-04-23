@@ -22,37 +22,14 @@
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
     footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
-
-    .brand-slider {
-      overflow: hidden;
-      background: #fff;
-      padding: 30px 0;
-      position: relative;
-    }
-    .brand-track {
-      display: flex;
-      width: max-content;
-      animation: scroll-marquee 40s linear infinite;
-      align-items: center;
-    }
-    .brand-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 40px;
-    }
-    .brand-item img {
-      height: 60px;
-      object-fit: contain;
-    }
-    @keyframes scroll-marquee {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
-    }
+    .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
+    .brand-track { display: flex; width: max-content; animation: scroll-marquee 40s linear infinite; align-items: center; }
+    .brand-item { display: flex; align-items: center; justify-content: center; margin: 0 40px; }
+    .brand-item img { height: 30px; object-fit: contain; max-width: 120px; }
+    @keyframes scroll-marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
   </style>
 </head>
 <body>
-
 <div class="hero">
   <div class="hero-overlay">
     <h1>JeongSang Law Office</h1>
@@ -92,48 +69,13 @@
     <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
     <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
     <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
-    <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx Duplicate"></div>
-    <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA Duplicate"></div>
-    <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO Duplicate"></div>
-    <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia Duplicate"></div>
-    <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese Duplicate"></div>
-    <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven Duplicate"></div>
   </div>
 </section>
-<style>
-  .brand-slider {
-    overflow: hidden;
-    background: #fff;
-    padding: 30px 0;
-    position: relative;
-  }
-  .brand-track {
-    display: flex;
-    width: max-content;
-    animation: scroll-marquee 40s linear infinite;
-    align-items: center;
-  }
-  .brand-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 40px;
-  }
-  .brand-item img {
-    height: 30px;
-    object-fit: contain;
-    max-width: 120px;
-  }
-  @keyframes scroll-marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-  }
-</style>
 
 <section id="form">
   <h2>Send a Message</h2>
   <form action="https://formspree.io/f/mldjkevj" method="POST">
-    <input type="hidden" name="_to" value="inchonsy@nate.com,soonmo0608@nate.com">
+    <input type="hidden" name="_to" value="JS.KOREAIP@GMAIL.COM">
     <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
     <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
     <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
@@ -144,7 +86,7 @@
 <footer id="contact">
   <h2>Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-  <p><strong>Email:</strong> inchonsy@nate.com</p>
+  <p><strong>Email:</strong> JS.KOREAIP@GMAIL.COM</p>
   <div class="legal-links">
     <a href="privacy_ko.html" target="_blank">Privacy Policy</a>
     <a href="legal_ko.html" target="_blank">Legal Notice</a>
