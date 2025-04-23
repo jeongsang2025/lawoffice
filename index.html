@@ -22,11 +22,17 @@
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
     footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
+
     .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
-    .brand-track { display: flex; width: max-content; animation: scroll-marquee 40s linear infinite; align-items: center; }
+    .brand-track-wrapper { display: flex; width: max-content; animation: scroll-marquee 60s linear infinite; align-items: center; }
+    .brand-track-wrapper .brand-track { display: flex; }
     .brand-item { display: flex; align-items: center; justify-content: center; margin: 0 40px; }
     .brand-item img { height: 30px; object-fit: contain; max-width: 120px; }
-    @keyframes scroll-marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+
+    @keyframes scroll-marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
   </style>
 </head>
 <body>
@@ -62,13 +68,23 @@
 </section>
 
 <section class="brand-slider">
-  <div class="brand-track">
-    <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
-    <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
-    <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
-    <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
-    <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
-    <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
+  <div class="brand-track-wrapper">
+    <div class="brand-track">
+      <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
+      <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
+      <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
+      <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
+      <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
+      <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
+    </div>
+    <div class="brand-track">
+      <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
+      <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
+      <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
+      <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
+      <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
+      <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
+    </div>
   </div>
 </section>
 
