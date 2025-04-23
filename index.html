@@ -100,6 +100,35 @@
     <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven Duplicate"></div>
   </div>
 </section>
+<style>
+  .brand-slider {
+    overflow: hidden;
+    background: #fff;
+    padding: 30px 0;
+    position: relative;
+  }
+  .brand-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-marquee 40s linear infinite;
+    align-items: center;
+  }
+  .brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 40px;
+  }
+  .brand-item img {
+    height: 30px;
+    object-fit: contain;
+    max-width: 120px;
+  }
+  @keyframes scroll-marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
 
 <section id="form">
   <h2>Send a Message</h2>
