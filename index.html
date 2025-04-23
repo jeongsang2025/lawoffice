@@ -102,7 +102,23 @@
   </style>
 </head>
 <body>
-  <!-- 나머지 HTML 구조 동일 -->
+  <div class="hero">
+    <div class="hero-overlay">
+      <h1>JeongSang Law Office</h1>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#status">Status</a>
+      <a class="nav-link" href="#form">Message</a>
+      <a class="nav-link" href="#contact">Contact</a>
+      <a class="nav-link" href="no-legal-fees.html">Trademark</a>
+      <a class="nav-link" href="no-legal-fees.html">Copyright</a>
+      <a class="nav-link" href="no-legal-fees.html">No Legal Fees – Only Results</a>
+    </nav>
+  </div>
+
   <section id="status">
     <h2>Status Overview</h2>
     <div class="graph-container">
@@ -111,5 +127,23 @@
       <div class="graph-item"><div class="graph-bar" style="height: 500px;"></div><p>DAIWA</p></div>
     </div>
   </section>
+
+  <div id="cookie-banner">
+    <span>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</span>
+    <button onclick="acceptCookies()">Accept</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
+    if (localStorage.getItem('cookieAccepted') === 'true') {
+      document.getElementById('cookie-banner').classList.add('hide');
+    }
+    function acceptCookies() {
+      localStorage.setItem('cookieAccepted', 'true');
+      document.getElementById('cookie-banner').classList.add('hide');
+    }
+  </script>
 </body>
 </html>
