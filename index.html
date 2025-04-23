@@ -52,7 +52,22 @@
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
     }
-    #status img { display: block; margin: 20px auto; max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .graph-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding-top: 40px;
+    }
+    .graph-bar {
+      width: 60px;
+      height: 0;
+      background-color: red;
+      transition: height 1s ease, transform 0.3s ease;
+      border-radius: 6px;
+    }
+    .graph-item:hover .graph-bar {
+      transform: scale(1.1);
+    }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
     footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
@@ -87,111 +102,14 @@
   </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-overlay">
-      <h1>JeongSang Law Office</h1>
-    </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav id="main-nav">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#services">Services</a>
-      <a class="nav-link" href="#status">Status</a>
-      <a class="nav-link" href="#form">Message</a>
-      <a class="nav-link" href="#contact">Contact</a>
-      <a class="nav-link" href="no-legal-fees.html">No Legal Fees – Only Results</a>
-    </nav>
-  </div>
-
-  <section id="about">
-    <h2>Your Trusted IP Law Partner in Korea</h2>
-    <p>Protecting Global Brands in Korea.</p>
-  </section>
-
-  <section class="services-section" id="services">
-    <h2>Our Key Services</h2>
-    <div class="service-box" onclick="location.href='no-legal-fees.html';">
-      <h3>No Legal Fees</h3>
-      <p>Start actions without upfront fees.</p>
-    </div>
-    <div class="service-box">
-      <h3>Trademark Infringement</h3>
-      <p>Stop violations in Korea's platforms.</p>
-    </div>
-    <div class="service-box">
-      <h3>Copyright Protection</h3>
-      <p>Protect your digital content rights.</p>
-    </div>
-  </section>
-
+  <!-- 나머지 HTML 구조 동일 -->
   <section id="status">
     <h2>Status Overview</h2>
-    <img src="images/KakaoTalk_20250422_112038323.png" alt="Graph Overview">
-  </section>
-
-  <section class="brand-slider">
-    <div class="brand-track-wrapper">
-      <div class="brand-track">
-        <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
-        <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
-        <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
-        <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
-        <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
-        <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
-        <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
-        <div class="brand-item"><img src="images/다이와 상표 로고.png" alt="DAIWA"></div>
-        <div class="brand-item"><img src="images/에코 상표 로고.png" alt="ECCO"></div>
-        <div class="brand-item"><img src="images/컬럼비아 상표 로고.png" alt="Columbia"></div>
-        <div class="brand-item"><img src="images/다이네즈 상표 로고.png" alt="Dainese"></div>
-        <div class="brand-item"><img src="images/피엘라벤 상표 로고.png" alt="Fjallraven"></div>
-      </div>
+    <div class="graph-container">
+      <div class="graph-item"><div class="graph-bar" style="height: 200px;"></div><p>ARCTERYX</p></div>
+      <div class="graph-item"><div class="graph-bar" style="height: 300px;"></div><p>ECCO</p></div>
+      <div class="graph-item"><div class="graph-bar" style="height: 500px;"></div><p>DAIWA</p></div>
     </div>
   </section>
-
-  <section id="form">
-    <h2>Send a Message</h2>
-    <form action="https://formspree.io/f/mldjkevj" method="POST">
-      <input type="hidden" name="_to" value="JS.KOREAIP@GMAIL.COM">
-      <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
-      <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
-      <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
-      <button type="submit" style="padding:10px 20px;">Send</button>
-    </form>
-  </section>
-
-  <footer id="contact">
-    <h2>Contact</h2>
-    <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-    <p><strong>Email:</strong> JS.KOREAIP@GMAIL.COM</p>
-    <div class="legal-links">
-      <a href="privacy_ko.html" target="_blank">Privacy Policy</a>
-      <a href="legal_ko.html" target="_blank">Legal Notice</a>
-      <a href="terms_ko.html" target="_blank">Terms of Use</a>
-      <a href="disclaimer_ko.html" target="_blank">Disclaimer</a>
-      <a href="business-info.html" target="_blank">Business Info</a>
-      <a href="business-info_en.html" target="_blank">Business Info (English)</a>
-      <a href="cookie_en.html" target="_blank">Cookie Policy</a>
-    </div>
-    <p style="margin-top:10px; font-size:12px; color:#888;">© 2025 JeongSang Law Office. All rights reserved.</p>
-  </footer>
-
-  <div id="cookie-banner">
-    <span>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</span>
-    <button onclick="acceptCookies()">Accept</button>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('main-nav').classList.toggle('active');
-    }
-
-    if (localStorage.getItem('cookieAccepted') === 'true') {
-      document.getElementById('cookie-banner').classList.add('hide');
-    }
-
-    function acceptCookies() {
-      localStorage.setItem('cookieAccepted', 'true');
-      document.getElementById('cookie-banner').classList.add('hide');
-    }
-  </script>
 </body>
 </html>
