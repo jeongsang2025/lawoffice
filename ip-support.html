@@ -48,34 +48,38 @@
       position: relative;
       width: 80px;
       height: 100px;
-      margin: 30px auto;
+      margin-left: 40px;
+      animation: loopLock 8s ease-in-out infinite;
+    }
+    .lock-wrapper {
+      display: flex;
+      align-items: center;
     }
     svg {
       width: 100%;
       height: auto;
     }
     .fill-rect {
-      animation: fillLock 4s ease-in-out forwards;
+      animation: fillLock 4s ease-in-out infinite;
+      transform-origin: bottom;
     }
     .lock-text {
       position: absolute;
-      top: 52%;
+      top: 48%;
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
       font-size: 14px;
       font-weight: bold;
-      opacity: 0;
-      animation: fadeInText 4s ease-in-out forwards;
-      animation-delay: 4s;
+      opacity: 1;
     }
     @keyframes fillLock {
       0% { height: 0; }
       100% { height: 100%; }
     }
-    @keyframes fadeInText {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    @keyframes loopLock {
+      0% { transform: scale(1); }
+      100% { transform: scale(1); }
     }
     footer {
       background: #003366;
@@ -95,27 +99,28 @@
     <h2>1. Trademark Protection</h2>
     <p>Protect your brand identity in Korea.</p>
 
-    <div class="lock-container">
-      <svg viewBox="0 0 64 80">
-        <defs>
-          <clipPath id="lockMask">
-            <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" />
-          </clipPath>
-        </defs>
-        <rect class="fill-rect" x="0" y="0" width="64" height="80" fill="#4CAF50" clip-path="url(#lockMask)" />
-        <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" fill="none" stroke="#000" stroke-width="2"/>
-      </svg>
-      <div class="lock-text">LOCK</div>
-    </div>
-
     <h2>2. Our Firm</h2>
-    <ul>
-      <li>Over 10 years of exclusive focus on trademark and copyright enforcement.</li>
-      <li>Successfully shut down hundreds of counterfeit sales platforms in Korea.</li>
-      <li>Offers full one-stop service: investigation, evidence collection, and litigation.</li>
-      <li>Skilled professional staff work seamlessly with attorneys.</li>
-      <li>Trusted by many global brands.</li>
-    </ul>
+    <div class="lock-wrapper">
+      <ul>
+        <li>Over 10 years of exclusive focus on trademark and copyright enforcement.</li>
+        <li>Successfully shut down hundreds of counterfeit sales platforms in Korea.</li>
+        <li>Offers full one-stop service: investigation, evidence collection, and litigation.</li>
+        <li>Skilled professional staff work seamlessly with attorneys.</li>
+        <li>Trusted by many global brands.</li>
+      </ul>
+      <div class="lock-container">
+        <svg viewBox="0 0 64 80">
+          <defs>
+            <clipPath id="lockMask">
+              <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" />
+            </clipPath>
+          </defs>
+          <rect class="fill-rect" x="0" y="0" width="64" height="80" fill="#4CAF50" clip-path="url(#lockMask)" />
+          <path d="M48,28V20A16,16,0,0,0,16,20v8H10V70H54V28ZM20,20a12,12,0,0,1,24,0v8H20Z" fill="none" stroke="#000" stroke-width="2"/>
+        </svg>
+        <div class="lock-text">LOCK</div>
+      </div>
+    </div>
 
     <h2>3. Why Choose Us</h2>
     <ul>
