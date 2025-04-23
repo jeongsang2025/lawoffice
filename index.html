@@ -47,26 +47,23 @@
     .brand-track-wrapper { display: flex; width: max-content; animation: scroll-marquee 60s linear infinite; align-items: center; }
     .brand-track-wrapper .brand-track { display: flex; }
     .brand-item { display: flex; align-items: center; justify-content: center; margin: 0 40px; }
-    .brand-item img { height: 30px; object-fit: contain; max-width: 120px; }
+    .brand-item img { height: 30px; object-fit: contain; max-width: 120px; transition: transform 0.3s ease; }
+    .brand-item img:hover { transform: scale(1.1); }
     @keyframes scroll-marquee {
       0% { transform: translateX(0%); }
       100% { transform: translateX(-50%); }
     }
-    .graph-container {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding-top: 40px;
+    #status img {
+      display: block;
+      margin: 40px auto;
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
-    .graph-bar {
-      width: 60px;
-      height: 0;
-      background-color: red;
-      transition: height 1s ease, transform 0.3s ease;
-      border-radius: 6px;
-    }
-    .graph-item:hover .graph-bar {
-      transform: scale(1.1);
+    #status img:hover {
+      transform: scale(1.05);
     }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
@@ -121,11 +118,7 @@
 
   <section id="status">
     <h2>Status Overview</h2>
-    <div class="graph-container">
-      <div class="graph-item"><div class="graph-bar" style="height: 200px;"></div><p>ARCTERYX</p></div>
-      <div class="graph-item"><div class="graph-bar" style="height: 300px;"></div><p>ECCO</p></div>
-      <div class="graph-item"><div class="graph-bar" style="height: 500px;"></div><p>DAIWA</p></div>
-    </div>
+    <img src="images/KakaoTalk_20250422_112038323.png" alt="Graph Overview">
   </section>
 
   <div id="cookie-banner">
