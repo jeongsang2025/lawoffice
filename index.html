@@ -41,8 +41,6 @@
     .nav-link { color: black; border: 1px solid #ccc; padding: 8px 12px; border-radius: 40px; text-decoration: none; font-size: 14px; background: white; }
     .nav-link:hover { background-color: #eee; }
     section { padding: 60px 20px; text-align: center; max-width: 900px; margin: auto; scroll-margin-top: 120px; }
-    .service-box { width: 300px; background: url('https://cdn.pixabay.com/photo/2016/11/29/09/08/banner-1868613_960_720.jpg') center/cover no-repeat; padding: 20px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: transform 0.3s; cursor: pointer; color: white; }
-    .service-box:hover { transform: scale(1.05); }
     .graph-buttons {
       display: flex;
       justify-content: center;
@@ -52,6 +50,18 @@
     }
     .graph-buttons .service-box {
       width: 220px;
+      background-color: #f2f2f2;
+      color: black;
+    }
+    .service-box {
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .service-box:hover {
+      transform: scale(1.05);
     }
     .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
     .brand-track-wrapper { display: flex; width: max-content; animation: scroll-marquee 60s linear infinite; align-items: center; }
@@ -128,15 +138,15 @@
     <div class="graph-buttons">
       <div class="service-box" onclick="location.href='trademark.html';">
         <h3>Trademark Protection</h3>
-        <p>Safeguard your brand from imitation.</p>
+        <p>Protect your brand identity in Korea.</p>
       </div>
       <div class="service-box" onclick="location.href='copyright.html';">
         <h3>Copyright Defense</h3>
-        <p>Guard your intellectual creations globally.</p>
+        <p>Secure your intellectual property rights.</p>
       </div>
       <div class="service-box" onclick="location.href='no-legal-fees.html';">
         <h3>No Legal Fees</h3>
-        <p>Results-based enforcement without risk.</p>
+        <p>We only win when you do.</p>
       </div>
     </div>
     <h2>Status Overview</h2>
