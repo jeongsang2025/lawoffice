@@ -1,88 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JeongSang Law Office</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; }
-    .hero { position: relative; height: 500px; background: url('https://ipkorelaw.wordpress.com/wp-content/uploads/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat; background-color: #444; }
-    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-    .hero-overlay h1 { color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px; }
-    section { padding: 60px 20px; text-align: center; max-width: 900px; margin: auto; scroll-margin-top: 120px; }
-    nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 20px; }
-    .nav-link { color: black; border: 1px solid #ccc; padding: 8px 12px; border-radius: 40px; text-decoration: none; transition: background-color 0.3s; font-size: 14px; background: white; }
-    .nav-link:hover { background-color: #eee; }
-    .services-section { background-color: #f0f0f0; }
-    .service-box { width: 300px; background: white; padding: 20px; margin: 20px auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
-    .service-box:hover { transform: scale(1.05); }
-    .brand-slider { overflow: hidden; background: #fff; padding: 30px 0; position: relative; }
-    .brand-track {
-      display: flex;
-      width: max-content;
-      animation: scroll-marquee 40s linear infinite;
-      align-items: center;
-    }
-    .brand-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0 40px;
-    }
-    .brand-item img {
-      width: 180px;
-      height: auto;
-    }
-    .brand-item span {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #333;
-    }
-    @keyframes scroll-marquee {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
-    }
-    #status img { display: block; margin: 20px auto; max-width: 90%; height: auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
-    .legal-links { margin-top: 10px; }
-    footer a { color: #4af; margin: 0 10px; text-decoration: none; font-size: 14px; }
-  </style>
-</head>
-<body>
-
-<div class="hero">
-  <div class="hero-overlay">
-    <h1>JeongSang Law Office</h1>
-  </div>
-</div>
-
-<nav>
-  <a class="nav-link" href="#about">About</a>
-  <a class="nav-link" href="#services">Services</a>
-  <a class="nav-link" href="#status">Status</a>
-  <a class="nav-link" href="#form">Message</a>
-  <a class="nav-link" href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <h2>Your Trusted IP Law Partner in Korea</h2>
-  <p>Protecting Global Brands in Korea.</p>
-</section>
-
-<section class="services-section" id="services">
-  <h2>Our Key Services</h2>
-  <div class="service-box"><h3>Trademark Infringement</h3><p>Stop violations in Korea's platforms.</p></div>
-  <div class="service-box"><h3>Copyright Protection</h3><p>Protect your digital content rights.</p></div>
-  <div class="service-box"><h3>No Legal Fees</h3><p>Start actions without upfront fees.</p></div>
-</section>
-
-<section id="status">
-  <h2>Status Overview</h2>
-  <img src="images/KakaoTalk_20250422_112038323.png" alt="Graph Overview">
-</section>
-
 <section class="brand-slider">
   <div class="brand-track">
     <div class="brand-item"><img src="images/아크테릭스 상표 로고.png" alt="Arc'teryx"></div>
@@ -122,38 +37,13 @@
     height: 60px;
     object-fit: contain;
   }
+  .brand-item img[alt*="Fjallraven"] {
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
   @keyframes scroll-marquee {
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); }
   }
 </style>
-
-<section id="form">
-  <h2>Send a Message</h2>
-  <form action="https://formspree.io/f/mldjkevj" method="POST">
-    <input type="hidden" name="_to" value="inchonsy@nate.com,soonmo0608@nate.com">
-    <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
-    <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
-    <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
-    <button type="submit" style="padding:10px 20px;">Send</button>
-  </form>
-</section>
-
-<footer id="contact">
-  <h2>Contact</h2>
-  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-  <p><strong>Email:</strong> inchonsy@nate.com</p>
-  <div class="legal-links">
-    <a href="privacy_ko.html" target="_blank">Privacy Policy</a>
-    <a href="legal_ko.html" target="_blank">Legal Notice</a>
-    <a href="terms_ko.html" target="_blank">Terms of Use</a>
-    <a href="disclaimer_ko.html" target="_blank">Disclaimer</a>
-    <a href="business-info.html" target="_blank">Business Info</a>
-    <a href="business-info_en.html" target="_blank">Business Info (English)</a>
-    <a href="cookie_ko.html" target="_blank">Cookie Policy</a>
-  </div>
-  <p style="margin-top:10px; font-size:12px; color:#888;">© 2025 JeongSang Law Office. All rights reserved.</p>
-</footer>
-
-</body>
-</html>
