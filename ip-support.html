@@ -59,7 +59,6 @@
       width: 100%;
       height: auto;
       display: block;
-      filter: grayscale(100%);
       z-index: 2;
       position: relative;
     }
@@ -67,16 +66,16 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      height: 100%;
       width: 100%;
-      background: linear-gradient(to top, #4CAF50 0%, #4CAF50 70%, transparent 70%, transparent 100%);
+      height: 100%;
+      background: #4CAF50;
+      clip-path: inset(100% 0 0 0);
+      animation: fill-lock-inset 2s ease-in-out forwards;
       z-index: 1;
-      animation: fill-lock 2s ease-in-out forwards;
-      clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
     }
-    @keyframes fill-lock {
-      0% { background-position: bottom; }
-      100% { background-position: top; }
+    @keyframes fill-lock-inset {
+      0% { clip-path: inset(100% 0 0 0); }
+      100% { clip-path: inset(0 0 0 0); }
     }
     .graph-img {
       display: block;
