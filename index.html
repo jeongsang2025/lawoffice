@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JeongSang Law Firm</title>
+  <title>JeongSang Law Office</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #333; scroll-behavior: smooth; }
     .hero { position: relative; height: 500px; background: url('https://ipkorelaw.wordpress.com/wp-content/uploads/2025/04/ebafb8eab5adec9d98-ec9784ecb2ad-ed81aceab3a0-ec96b4eba788ebacb4ec8b9ced959c-ebb98ceb94a9ec9db4-eca690ebb984ed959c-eb8f84ec8b9cec9d98-ebaaa8ec8ab5.png') center/cover no-repeat; background-color: #444; }
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
     .hero-overlay h1 { color: white; font-size: 36px; font-weight: bold; margin-bottom: 20px; }
@@ -88,10 +88,16 @@
       max-width: 100%;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
     }
-    .graph-section img:hover {
-      transform: scale(1.05);
+    .client-label {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 40px;
+      padding: 10px 20px;
+      display: inline-block;
+      background-color: #f3f3f3;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
@@ -155,7 +161,8 @@
 
   <section class="graph-section">
     <img src="images/KakaoTalk_20250422_112038323.png" alt="Case Graph">
-    <img src="images/join.png" alt="Join PNG Preview" style="margin-top: 30px; max-width: 100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <div class="client-label">Client</div>
+    <img src="images/join.png" alt="Join PNG Preview" style="margin-top: 20px; max-width: 100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
   </section>
 
   <section id="form">
