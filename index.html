@@ -84,10 +84,14 @@
       padding: 0 20px;
       text-align: center;
     }
-    .graph-section img {
+    .graph-section img.graph-hover {
       max-width: 100%;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .graph-section img.graph-hover:hover {
+      transform: scale(1.05);
     }
     .client-label {
       font-size: 20px;
@@ -95,9 +99,9 @@
       margin-top: 40px;
       padding: 10px 20px;
       display: inline-block;
-      background-color: #f3f3f3;
+      background-color: #4CAF50;
+      color: white;
       border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     footer { background-color: #222; color: white; padding: 30px 20px; text-align: center; }
     .legal-links { margin-top: 10px; }
@@ -160,9 +164,9 @@
   </section>
 
   <section class="graph-section">
-    <img src="images/KakaoTalk_20250422_112038323.png" alt="Case Graph">
-    <div class="client-label">Client</div>
-    <img src="images/join.png" alt="Join PNG Preview" style="margin-top: 20px; max-width: 100%; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <img class="graph-hover" src="images/KakaoTalk_20250422_112038323.png" alt="Case Graph">
+    <img src="images/join.png" alt="Join PNG Preview" style="margin-top: 20px; max-width: 100%; border: none;">
+    <div class="client-label">CLIENTS</div>
   </section>
 
   <section id="form">
