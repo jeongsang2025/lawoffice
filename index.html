@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JeongSang Law Office</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #f9f9f9; color: #333; scroll-behavior: smooth; }
@@ -140,6 +141,7 @@
         <p>We only win when you do.</p>
       </div>
     </div>
+    <canvas id="overviewGraph" width="600" height="300" style="margin-top: 40px;"></canvas>
   </section>
 
   <section id="form">
@@ -184,6 +186,34 @@
     function acceptCookies() {
       localStorage.setItem('cookieAccepted', 'true');
       document.getElementById('cookie-banner').classList.add('hide');
+    }
+
+    const ctx = document.getElementById('overviewGraph');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Arc\'teryx', 'ECCO', 'DAIWA', 'Columbia', 'Dainese', 'Fjallraven'],
+          datasets: [{
+            label: 'Shut Down Cases',
+            data: [200, 300, 500, 180, 120, 90],
+            backgroundColor: '#003366'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+        }
+      });
     }
   </script>
 </body>
