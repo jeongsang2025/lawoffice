@@ -12,8 +12,6 @@
     .top-bar {
       height: 40px;
       background-color: #005B9F;
-      border-bottom-left-radius: 50% 100%;
-      border-bottom-right-radius: 50% 100%;
     }
 
     .hero {
@@ -57,8 +55,6 @@
     .bottom-bar {
       height: 40px;
       background-color: #005B9F;
-      border-top-left-radius: 50% 100%;
-      border-top-right-radius: 50% 100%;
     }
 
     .menu-toggle {
@@ -243,7 +239,7 @@
 </head>
 <body>
 
-  <!-- Hero 위 곡선 바 -->
+  <!-- 파란색 네모 바 (Hero 위) -->
   <div class="top-bar"></div>
 
   <div class="hero">
@@ -263,9 +259,71 @@
     </nav>
   </div>
 
-  <!-- Hero 아래 곡선 바 -->
+  <!-- 파란색 네모 바 (Hero 아래) -->
   <div class="bottom-bar"></div>
 
-  <!-- 이하 생략된 내용은 그대로 유지 -->
-  <!-- section, graph-section, form, footer 등 전부 동일 -->
+  <section class="graph-buttons-wrapper">
+    <div class="graph-buttons">
+      <div class="service-box" onclick="location.href='ip-support.html';">
+        <h3>Trademark Protection</h3>
+        <p>Protect your brand identity in Korea.</p>
+      </div>
+      <div class="service-box" onclick="location.href='no-legal-fees.html';">
+        <h3>No Legal Fees</h3>
+        <p>We only win when you do.</p>
+      </div>
+    </div>
+  </section>
 
+  <section class="graph-section">
+    <img class="graph-hover" src="images/KakaoTalk_20250422_112038323.png" alt="Case Graph">
+    <img class="join-img" src="images/join.png" alt="Join PNG Preview">
+    <div class="client-label">CLIENTS</div>
+  </section>
+
+  <section id="form">
+    <h2>Send a Message</h2>
+    <form action="https://formspree.io/f/mldjkevj" method="POST">
+      <input type="hidden" name="_to" value="JS.KOREAIP@GMAIL.COM">
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%;padding:10px;"><br><br>
+      <input type="email" name="email" placeholder="Your Email" required style="width:100%;padding:10px;"><br><br>
+      <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
+      <button type="submit" style="padding:10px 20px;">Send</button>
+    </form>
+  </section>
+
+  <footer id="contact">
+    <h2>Contact</h2>
+    <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+    <p><strong>Email:</strong> JS.KOREAIP@GMAIL.COM</p>
+    <div class="legal-links">
+      <a href="privacy_ko.html" target="_blank">Privacy Policy</a>
+      <a href="legal_ko.html" target="_blank">Legal Notice</a>
+      <a href="terms_ko.html" target="_blank">Terms of Use</a>
+      <a href="disclaimer_ko.html" target="_blank">Disclaimer</a>
+      <a href="business-info.html" target="_blank">Business Info</a>
+      <a href="business-info_en.html" target="_blank">Business Info (English)</a>
+      <a href="cookie_en.html" target="_blank">Cookie Policy</a>
+    </div>
+    <p style="margin-top:10px; font-size:12px; color:#888;">© 2025 JeongSang Law Office. All rights reserved.</p>
+  </footer>
+
+  <div id="cookie-banner">
+    <span>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</span>
+    <button onclick="acceptCookies()">Accept</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
+    if (localStorage.getItem('cookieAccepted') === 'true') {
+      document.getElementById('cookie-banner').classList.add('hide');
+    }
+    function acceptCookies() {
+      localStorage.setItem('cookieAccepted', 'true');
+      document.getElementById('cookie-banner').classList.add('hide');
+    }
+  </script>
+</body>
+</html>
