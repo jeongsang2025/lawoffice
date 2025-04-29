@@ -13,7 +13,6 @@
       scroll-behavior: smooth;
     }
 
-    /* 상단 영상 */
     .hero-wrapper {
       border-top: 2px solid #ccc;
       border-bottom: 2px solid #ccc;
@@ -129,17 +128,22 @@
     }
 
     .service-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: #fff;
-      padding: 18px 8px; /* 위아래 여백 키움, 좌우 줄임 */
-      flex: 1 1 22%;
+      padding: 18px 8px;
+      flex: 1 1 23%;
       border-radius: 12px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      font-size: 13px; /* 글씨 약간 줄임 */
+      font-size: 13px;
       font-weight: bold;
       transition: transform 0.3s;
       cursor: pointer;
       text-align: center;
-      word-break: keep-all;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .service-card:hover {
@@ -244,11 +248,26 @@
       .hero { height: 300px; }
       .hero-overlay h1 { font-size: 28px; }
       .hero-overlay p { font-size: 16px; }
-      .service-card { font-size: 12px; padding: 15px 6px; }
-      .message-section p { font-size: 14px; }
+
+      .service-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        padding: 14px 6px;
+        flex: 1 1 23%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .message-section p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <!-- 상단 Hero -->
