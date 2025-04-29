@@ -130,11 +130,11 @@
 
     .service-card {
       background: #fff;
-      padding: 15px;
+      padding: 18px 8px; /* 위아래 여백 키움, 좌우 줄임 */
       flex: 1 1 22%;
       border-radius: 12px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      font-size: 14px;
+      font-size: 13px; /* 글씨 약간 줄임 */
       font-weight: bold;
       transition: transform 0.3s;
       cursor: pointer;
@@ -241,46 +241,23 @@
 
     /* 모바일 최적화 */
     @media (max-width: 768px) {
-      .hero {
-        height: 300px;
-      }
-
-      .hero-overlay h1 {
-        font-size: 28px;
-      }
-
-      .hero-overlay p {
-        font-size: 16px;
-      }
-
-      .service-card {
-        font-size: 13px;
-        padding: 10px;
-      }
-
-      .message-section p {
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .service-card {
-        font-size: 12px;
-        padding: 8px;
-      }
+      .hero { height: 300px; }
+      .hero-overlay h1 { font-size: 28px; }
+      .hero-overlay p { font-size: 16px; }
+      .service-card { font-size: 12px; padding: 15px 6px; }
+      .message-section p { font-size: 14px; }
     }
   </style>
 </head>
 <body>
 
-<!-- 상단 영상 + 메뉴 -->
+<!-- 상단 Hero -->
 <div class="hero-wrapper">
   <div class="gradient-line"></div>
 
   <section class="hero">
     <video autoplay muted loop playsinline>
       <source src="videos/0424(2).mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
     <div class="hero-overlay">
       <h1>JeongSang Law Firm</h1>
