@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,281 +6,191 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #ffffff; color: #333; scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #333; scroll-behavior: smooth; }.hero {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
 
-    .top-bar {
-      height: 40px;
-      background-color: #005B9F;
-    }
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
 
-    .hero {
-      position: relative;
-      height: 500px;
-      overflow: hidden;
-    }
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
-    .hero video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
+.hero-overlay h1 {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-family: 'Georgia', serif;
+}
 
-    .hero-overlay {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+.hero-overlay p {
+  color: #ffffff;
+  margin-top: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
 
-    .hero-overlay h1 {
-      color: #ffffff;
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      font-family: 'Georgia', serif;
-    }
+.menu-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  z-index: 1001;
+}
 
-    .bottom-bar {
-      height: 40px;
-      background-color: #005B9F;
-    }
+nav {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  background: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  position: absolute;
+  top: 70px;
+  width: 100%;
+  border-radius: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-    .menu-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 6px 12px;
-      cursor: pointer;
-      z-index: 1001;
-    }
+nav.active { display: flex; }
 
-    nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      background: #fff;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-      z-index: 1000;
-      position: absolute;
-      top: 70px;
-      right: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+.nav-link {
+  color: black;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 14px;
+  background: white;
+}
 
-    nav.active { display: flex; }
+.nav-link:hover { background-color: #eee; }
 
-    .nav-link {
-      color: black;
-      border: 1px solid #ccc;
-      padding: 8px 12px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-size: 14px;
-      background: white;
-    }
+section {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+  scroll-margin-top: 120px;
+}
 
-    .nav-link:hover { background-color: #eee; }
+.graph-section img {
+  max-width: 100%;
+  margin: 20px 0;
+}
 
-    section {
-      padding: 60px 20px;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-      scroll-margin-top: 120px;
-    }
+.client-label {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 40px;
+  padding: 10px 20px;
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+}
 
-    .graph-buttons-wrapper {
-      background-color: #f3f3f3;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 60px auto 30px;
-    }
+footer {
+  background-color: #222;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+}
 
-    .graph-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
+.legal-links {
+  margin-top: 10px;
+}
 
-    .graph-buttons .service-box {
-      width: 280px;
-      background-color: white;
-      color: black;
-    }
+footer a {
+  color: #4af;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .service-box {
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-      cursor: pointer;
-      border-radius: 8px;
-    }
+#cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 10000;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
 
-    .service-box:hover {
-      transform: scale(1.05);
-    }
+#cookie-banner button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    .service-box h3 {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+#cookie-banner.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
 
-    .service-box p {
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    .graph-section {
-      margin: 40px auto;
-      max-width: 900px;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .graph-section img.graph-hover {
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      margin-bottom: 40px;
-    }
-
-    .graph-section img.graph-hover:hover {
-      transform: scale(1.05);
-    }
-
-    .graph-section img.join-img {
-      margin-top: 40px;
-      max-width: 100%;
-      border: none;
-    }
-
-    .client-label {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 40px;
-      padding: 10px 20px;
-      display: inline-block;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 8px;
-    }
-
-    footer {
-      background-color: #222;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    .legal-links {
-      margin-top: 10px;
-    }
-
-    footer a {
-      color: #4af;
-      margin: 0 10px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    #cookie-banner {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.85);
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      z-index: 10000;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    #cookie-banner button {
-      background: #4CAF50;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    #cookie-banner.hide {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.5s ease;
-    }
   </style>
 </head>
 <body>
-
-  <!-- 파란색 네모 바 (Hero 위) -->
-  <div class="top-bar"></div>
-
   <div class="hero">
     <video autoplay muted loop playsinline>
       <source src="videos/0424(2).mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="hero-overlay">
-      <h1>Korea IP Law Firm</h1>
+      <h1>jeongsang lawfirm</h1>
+      <p>Your ip, fully protected in korea</p>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav id="nav-menu">
       <a class="nav-link" href="about-us.html">About Us</a>
-      <a class="nav-link" href="ip-support.html">Trademark Protection</a>
-      <a class="nav-link" href="no-legal-fees.html">No Legal Fees</a>
-      <a class="nav-link" href="faq-enforcement.html">FAQ</a>
+      <a class="nav-link" href="no-legal-fees.html">No Legal Fee</a>
+      <a class="nav-link" href="ip-support.html">How to Handle</a>
+      <a class="nav-link" href="faq-enforcement.html">F&Q</a>
     </nav>
-  </div>
-
-  <!-- 파란색 네모 바 (Hero 아래) -->
-  <div class="bottom-bar"></div>
-
-  <section class="graph-buttons-wrapper">
-    <div class="graph-buttons">
-      <div class="service-box" onclick="location.href='ip-support.html';">
-        <h3>Trademark Protection</h3>
-        <p>Protect your brand identity in Korea.</p>
-      </div>
-      <div class="service-box" onclick="location.href='no-legal-fees.html';">
-        <h3>No Legal Fees</h3>
-        <p>We only win when you do.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="graph-section">
-    <img class="graph-hover" src="images/KakaoTalk_20250422_112038323.png" alt="Case Graph">
-    <img class="join-img" src="images/join.png" alt="Join PNG Preview">
-    <div class="client-label">CLIENTS</div>
-  </section>
-
-  <section id="form">
+  </div>  <section class="graph-section">
+    <img src="images/brand_graph.png" alt="Brand Popularity Graph">
+    <div class="client-label">Our Clients</div>
+    <img src="images/clients_logos.png" alt="Client Logos">
+  </section>  <section id="form">
     <h2>Send a Message</h2>
     <form action="https://formspree.io/f/mldjkevj" method="POST">
       <input type="hidden" name="_to" value="JS.KOREAIP@GMAIL.COM">
@@ -290,9 +199,8 @@
       <textarea name="message" placeholder="Your Message" rows="6" style="width:100%;padding:10px;" required></textarea><br><br>
       <button type="submit" style="padding:10px 20px;">Send</button>
     </form>
-  </section>
-
-  <footer id="contact">
+    <p style="margin-top:20px; color:red;">Our attorney is available to visit your office for an in-person meeting.</p>
+  </section>  <footer>
     <h2>Contact</h2>
     <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
     <p><strong>Email:</strong> JS.KOREAIP@GMAIL.COM</p>
@@ -306,14 +214,10 @@
       <a href="cookie_en.html" target="_blank">Cookie Policy</a>
     </div>
     <p style="margin-top:10px; font-size:12px; color:#888;">© 2025 JeongSang Law Office. All rights reserved.</p>
-  </footer>
-
-  <div id="cookie-banner">
+  </footer>  <div id="cookie-banner">
     <span>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</span>
     <button onclick="acceptCookies()">Accept</button>
-  </div>
-
-  <script>
+  </div>  <script>
     function toggleMenu() {
       document.getElementById('nav-menu').classList.toggle('active');
     }
@@ -324,6 +228,5 @@
       localStorage.setItem('cookieAccepted', 'true');
       document.getElementById('cookie-banner').classList.add('hide');
     }
-  </script>
-</body>
+  </script></body>
 </html>
