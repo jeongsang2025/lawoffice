@@ -1,80 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JeongSang Law Office</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #ffffff; color: #333; scroll-behavior: smooth; }
 
-    header {
-      background: transparent;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      font-size: 18px;
-      font-weight: bold;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 999;
-    }
-    header a {
-      color: white;
-      text-decoration: none;
-    }
-    header a:hover {
-      text-decoration: underline;
-    }
-
-    #language-select {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-    }
-
+    /* 상단 영상 스타일 */
     .hero {
       position: relative;
-      height: 100vh;
+      height: 500px;
       overflow: hidden;
+      border-bottom: 2px solid #ccc; /* 아래 라인 */
+      border-top: 2px solid #ccc; /* 위 라인 */
     }
+
     .hero video {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    .hero-text {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    }
-    .hero-text h1 {
-      font-size: 50px;
-      margin-bottom: 20px;
-    }
-    .hero-text p {
-      font-size: 24px;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
 
-    .service-section {
-      background: #eee;
-      padding: 50px 20px;
+    .hero-overlay {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
+
+    .hero-overlay h1 {
+      color: #ffffff;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Georgia', serif;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    .hero-overlay p {
+      color: #ffffff;
+      font-size: 22px;
+      font-family: 'Georgia', serif;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* 세로 메뉴 */
+    .menu-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      padding: 20px;
+      border-bottom: 1px solid #ddd;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav.active { display: flex; }
+
+    .nav-link {
+      color: black;
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 14px;
+      background: white;
+    }
+
+    .nav-link:hover { background-color: #eee; }
+
+    /* 서비스 영역 */
+    .service-section {
+      background: #eee;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
     .service-cards {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 40px;
-      margin-top: 0;
+      margin-top: 20px;
     }
+
     .service-card {
       background: #fff;
       padding: 20px;
@@ -84,70 +124,84 @@
       font-size: 18px;
       font-weight: bold;
       transition: transform 0.3s;
+      cursor: pointer;
     }
+
     .service-card:hover {
       transform: scale(1.05);
     }
 
+    /* 그래프 영역 */
     .graph-section {
-      padding: 50px 20px;
+      margin: 60px auto;
+      max-width: 900px;
+      padding: 0 20px;
       text-align: center;
-      background: #f9f9f9;
-    }
-    .graph-section img {
-      width: 90%;
-      max-width: 800px;
     }
 
+    .graph-section img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .graph-section img:hover {
+      transform: scale(1.05);
+    }
+
+    /* 클라이언트 섹션 */
     .client-section {
-      padding: 40px 20px;
-      background: #f9f9f9;
+      padding: 60px 20px;
       text-align: center;
-      position: relative;
+      background: #f9f9f9;
     }
+
     .client-section h2 {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      background: #333;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 20px;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
     }
+
     .client-section img {
-      max-width: 90%;
-      margin-top: 60px;
+      width: 90%;
+      max-width: 700px;
+      border-radius: 8px;
       transition: transform 0.3s;
     }
+
     .client-section img:hover {
       transform: scale(1.03);
     }
 
-    .attorney-section {
-      padding: 50px 20px;
-      background: #fff;
+    /* 메시지 폼 */
+    .message-section {
+      padding: 60px 20px;
       text-align: center;
     }
-    .attorney-section h2 {
+
+    .message-section h2 {
       margin-bottom: 20px;
       font-size: 28px;
     }
-    .message-form {
-      margin-top: 20px;
-    }
-    .message-form p {
+
+    .message-section p {
       margin-bottom: 20px;
       font-size: 18px;
       color: #555;
     }
-    .message-form input, .message-form textarea {
+
+    .message-section input, .message-section textarea {
       width: 90%;
       margin-bottom: 15px;
       padding: 10px;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
-    .message-form button {
+
+    .message-section button {
       padding: 10px 30px;
       font-size: 16px;
       background: #333;
@@ -157,70 +211,70 @@
       border-radius: 8px;
       transition: background 0.3s;
     }
-    .message-form button:hover {
+
+    .message-section button:hover {
       background: #555;
     }
 
     footer {
-      background: #222;
+      background-color: #222;
       color: #ccc;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
-      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-<!-- 언어 선택 -->
-<select id="language-select" onchange="changeLanguage()">
-  <option value="en">English</option>
-  <option value="ko">한국어</option>
-  <option value="jp">日本語</option>
-</select>
-
 <!-- 상단 영상 -->
 <section class="hero">
   <video autoplay muted loop playsinline>
-    <source src="0424(2).mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
+    <source src="videos/0424(2).mp4" type="video/mp4" />
+    Your browser does not support the video tag.
   </video>
-  <div class="hero-text">
+  <div class="hero-overlay">
     <h1>JeongSang Law Firm</h1>
     <p>Your IP, Fully Protected In Korea</p>
   </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav id="nav-menu">
+    <a class="nav-link" href="#about">About Us</a>
+    <a class="nav-link" href="#no-legal-fee">No Legal Fee</a>
+    <a class="nav-link" href="#how-to-handle">How to Handle</a>
+    <a class="nav-link" href="#faq">F&Q</a>
+  </nav>
 </section>
 
-<!-- 서비스 섹션 -->
+<!-- 서비스 영역 -->
 <section class="service-section" id="services">
   <div class="service-cards">
-    <div class="service-card">About Us</div>
-    <div class="service-card">No Legal Fee</div>
-    <div class="service-card">How to Handle</div>
-    <div class="service-card">F&Q</div>
+    <div class="service-card" onclick="location.href='about-us.html';">About Us</div>
+    <div class="service-card" onclick="location.href='no-legal-fees.html';">No Legal Fee</div>
+    <div class="service-card" onclick="location.href='how-to-handle.html';">How to Handle</div>
+    <div class="service-card" onclick="location.href='faq.html';">F&Q</div>
   </div>
 </section>
 
-<!-- 그래프 섹션 -->
-<section class="graph-section" id="graph">
-  <img src="grap.png" alt="Performance Graph">
+<!-- 그래프 영역 -->
+<section class="graph-section">
+  <img src="images/grap.png" alt="Performance Graph">
 </section>
 
-<!-- 클라이언트 섹션 -->
-<section class="client-section" id="clients">
+<!-- 클라이언트 영역 -->
+<section class="client-section">
   <h2>Our Clients</h2>
-  <img src="brand.png" alt="Our Clients">
+  <img src="images/brand.png" alt="Our Clients">
 </section>
 
-<!-- Attorney + 메시지 폼 -->
-<section class="attorney-section" id="form">
-  <h2>Our Attorney</h2>
-  <form class="message-form" action="https://formspree.io/f/manezyje" method="POST">
-    <p>Our attorney is available to visit your office for an in-person meeting.</p>
+<!-- 메시지 영역 -->
+<section class="message-section" id="form">
+  <h2>Send a Message</h2>
+  <p>Our attorney will start the meeting after reviewing your message.</p>
+  <form action="https://formspree.io/f/manezyje" method="POST">
     <input type="text" name="name" placeholder="Your Name" required><br>
     <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea><br>
-    <button type="submit">Send Message</button>
+    <textarea name="message" placeholder="Your Message" rows="6" required></textarea><br>
+    <button type="submit">Send a Message</button>
   </form>
 </section>
 
@@ -230,9 +284,8 @@
 </footer>
 
 <script>
-function changeLanguage() {
-  const lang = document.getElementById("language-select").value;
-  alert("Language switched to: " + lang);
+function toggleMenu() {
+  document.getElementById('nav-menu').classList.toggle('active');
 }
 </script>
 
