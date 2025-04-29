@@ -9,12 +9,15 @@
     body { font-family: Arial, sans-serif; background: #ffffff; color: #333; scroll-behavior: smooth; }
 
     /* 상단 영상 스타일 */
+    .hero-wrapper {
+      border-top: 2px solid #ccc;
+      border-bottom: 2px solid #ccc;
+    }
+
     .hero {
       position: relative;
       height: 500px;
       overflow: hidden;
-      border-bottom: 2px solid #ccc; /* 아래 라인 */
-      border-top: 2px solid #ccc; /* 위 라인 */
     }
 
     .hero video {
@@ -105,6 +108,7 @@
       background: #eee;
       padding: 60px 20px;
       text-align: center;
+      margin-top: 50px; /* 상단 영상과 거리 띄우기 */
     }
 
     .service-cards {
@@ -150,7 +154,7 @@
       transform: scale(1.05);
     }
 
-    /* 클라이언트 섹션 */
+    /* 클라이언트 영역 */
     .client-section {
       padding: 60px 20px;
       text-align: center;
@@ -175,7 +179,7 @@
       transform: scale(1.03);
     }
 
-    /* 메시지 폼 */
+    /* 메시지 영역 */
     .message-section {
       padding: 60px 20px;
       text-align: center;
@@ -226,32 +230,34 @@
 </head>
 <body>
 
-<!-- 상단 영상 -->
-<section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="videos/0424(2).mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-overlay">
-    <h1>JeongSang Law Firm</h1>
-    <p>Your IP, Fully Protected In Korea</p>
-  </div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav id="nav-menu">
-    <a class="nav-link" href="#about">About Us</a>
-    <a class="nav-link" href="#no-legal-fee">No Legal Fee</a>
-    <a class="nav-link" href="#how-to-handle">How to Handle</a>
-    <a class="nav-link" href="#faq">F&Q</a>
-  </nav>
-</section>
+<!-- 상단 영상 + 메뉴 -->
+<div class="hero-wrapper">
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="videos/0424(2).mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay">
+      <h1>JeongSang Law Firm</h1>
+      <p>Your IP, Fully Protected In Korea</p>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+      <a class="nav-link" href="#about">About Us</a>
+      <a class="nav-link" href="#no-legal-fee">No Legal Fee</a>
+      <a class="nav-link" href="#how-to-handle">How to Handle</a>
+      <a class="nav-link" href="#faq">F&Q</a>
+    </nav>
+  </section>
+</div>
 
 <!-- 서비스 영역 -->
 <section class="service-section" id="services">
   <div class="service-cards">
     <div class="service-card" onclick="location.href='about-us.html';">About Us</div>
     <div class="service-card" onclick="location.href='no-legal-fees.html';">No Legal Fee</div>
-    <div class="service-card" onclick="location.href='how-to-handle.html';">How to Handle</div>
-    <div class="service-card" onclick="location.href='faq.html';">F&Q</div>
+    <div class="service-card" onclick="location.href='ip-support.html';">How to Handle</div>
+    <div class="service-card" onclick="location.href='faq-enforcement.html';">F&Q</div>
   </div>
 </section>
 
