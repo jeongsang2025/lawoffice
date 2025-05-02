@@ -47,20 +47,19 @@
       text-align: center;
     }
 
-    .hero-overlay h1 {
+    .hero-overlay p.main-text {
       color: #ffffff;
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      font-family: 'Georgia', serif;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    }
-
-    .hero-overlay p {
-      color: #ffffff;
-      font-size: 22px;
+      font-size: 20px;
       font-family: 'Georgia', serif;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+      margin-bottom: 6px;
+    }
+
+    .hero-overlay p.sub-text {
+      color: #ffffff;
+      font-size: 14px;
+      font-family: 'Georgia', serif;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
 
     .gradient-line {
@@ -111,7 +110,6 @@
 
     .nav-link:hover { background-color: #eee; }
 
-    /* 서비스 영역 */
     .service-section {
       background: #eee;
       padding: 60px 20px;
@@ -150,7 +148,6 @@
       transform: scale(1.05);
     }
 
-    /* 그래프 영역 */
     .graph-section {
       margin: 60px auto;
       max-width: 900px;
@@ -169,7 +166,6 @@
       transform: scale(1.05);
     }
 
-    /* 클라이언트 영역 */
     .client-section {
       padding: 60px 20px;
       text-align: center;
@@ -194,7 +190,6 @@
       transform: scale(1.03);
     }
 
-    /* 메시지 영역 */
     .message-section {
       padding: 60px 20px;
       text-align: center;
@@ -243,24 +238,15 @@
       text-align: center;
     }
 
-    /* 모바일 최적화 */
     @media (max-width: 768px) {
       .hero { height: 300px; }
-      .hero-overlay h1 { font-size: 28px; }
-      .hero-overlay p { font-size: 16px; }
-
+      .hero-overlay p.main-text { font-size: 16px; }
+      .hero-overlay p.sub-text { font-size: 12px; }
       .service-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         font-size: 12px;
         padding: 14px 6px;
         flex: 1 1 23%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
       }
-
       .message-section p {
         font-size: 14px;
       }
@@ -279,8 +265,8 @@
       <source src="videos/0424(2).mp4" type="video/mp4" />
     </video>
     <div class="hero-overlay">
-      <h1>JeongSang Law Firm</h1>
-      <p>Your IP, Fully Protected In Korea</p>
+      <p class="main-text">Your IP, Fully Protected In Korea</p>
+      <p class="sub-text">JeongSang Law Firm</p>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav id="nav-menu">
