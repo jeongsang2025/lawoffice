@@ -96,7 +96,9 @@
       z-index: 1001;
     }
 
-    nav.active { display: flex; }
+    nav.active {
+      display: flex;
+    }
 
     .nav-link {
       color: black;
@@ -242,10 +244,25 @@
       .hero { height: 300px; }
       .hero-overlay p.main-text { font-size: 16px; }
       .hero-overlay p.sub-text { font-size: 12px; }
+
+      nav.active {
+        flex-direction: column;
+        width: 80%;
+        right: 10px;
+      }
+
+      .nav-link {
+        font-size: 12px;
+        padding: 6px 10px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+      }
+
       .service-card {
         font-size: 12px;
         padding: 14px 6px;
-        flex: 1 1 23%;
+        flex: 1 1 45%;
       }
       .message-section p {
         font-size: 14px;
@@ -255,8 +272,6 @@
 </head>
 
 <body>
-
-<!-- 상단 Hero -->
 <div class="hero-wrapper">
   <div class="gradient-line"></div>
   <section class="hero">
@@ -276,7 +291,6 @@
   <div class="gradient-line"></div>
 </div>
 
-<!-- 서비스 -->
 <section class="service-section" id="services">
   <div class="service-cards">
     <div class="service-card" onclick="location.href='about-us.html';">WHO WE ARE</div>
@@ -286,18 +300,15 @@
   </div>
 </section>
 
-<!-- 그래프 -->
 <section class="graph-section">
   <img src="images/graph.png" alt="Performance Graph">
 </section>
 
-<!-- 클라이언트 -->
 <section class="client-section">
   <h2>Our Clients</h2>
   <img src="images/brand.png" alt="Our Clients">
 </section>
 
-<!-- 메시지 -->
 <section class="message-section" id="form">
   <h2>Send a Message</h2>
   <p>Our attorney will start the meeting after reviewing your message.</p>
@@ -309,12 +320,10 @@
   </form>
 </section>
 
-<!-- 푸터 -->
 <footer>
   <h2>Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
   <p><strong>Email:</strong> js.koreaip@gmail.com</p>
-
   <div class="legal-links" style="margin-top: 20px;">
     <a href="privacy_en.html" target="_blank">Privacy Policy</a> |
     <a href="terms_en.html" target="_blank">Terms of Use</a> |
@@ -322,7 +331,6 @@
     <a href="cookie_en.html" target="_blank">Cookie Policy</a> |
     <a href="business-info_en.html" target="_blank">Business Info</a>
   </div>
-
   <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
 </footer>
 
