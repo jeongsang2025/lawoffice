@@ -182,24 +182,15 @@
       color: #003366;
     }
 
-    .client-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      align-items: center;
+    .client-section img {
+      width: 90%;
+      max-width: 700px;
+      border-radius: 8px;
+      transition: transform 0.3s;
     }
 
-    .client-logos img {
-      width: 120px;
-      height: auto;
-      transition: transform 0.3s ease;
-      filter: grayscale(100%);
-    }
-
-    .client-logos img:hover {
-      transform: scale(1.1);
-      filter: grayscale(0%);
+    .client-section img:hover {
+      transform: scale(1.03);
     }
 
     .message-section {
@@ -305,12 +296,7 @@
 <!-- 클라이언트 -->
 <section class="client-section">
   <h2 class="client-title">Our Clients</h2>
-  <div class="client-logos">
-    <img src="images/logo_arcteryx.png" alt="Arc'teryx">
-    <img src="images/logo_daiwa.png" alt="DAIWA">
-    <img src="images/logo_ecco.png" alt="ECCO">
-    <img src="images/logo_spyder.png" alt="Spyder">
-  </div>
+  <img src="images/brand.png" alt="Our Clients">
 </section>
 
 <!-- 메시지 -->
