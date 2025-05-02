@@ -96,9 +96,7 @@
       z-index: 1001;
     }
 
-    nav.active {
-      display: flex;
-    }
+    nav.active { display: flex; }
 
     .nav-link {
       color: black;
@@ -170,26 +168,38 @@
 
     .client-section {
       padding: 60px 20px;
+      background: #fafafa;
       text-align: center;
-      background: #f9f9f9;
     }
 
-    .client-section h2 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
+    .client-title {
+      font-size: 28px;
+      font-family: 'Georgia', serif;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #003366;
+      display: inline-block;
+      padding-bottom: 10px;
+      color: #003366;
     }
 
-    .client-section img {
-      width: 90%;
-      max-width: 700px;
-      border-radius: 8px;
-      transition: transform 0.3s;
+    .client-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      align-items: center;
     }
 
-    .client-section img:hover {
-      transform: scale(1.03);
+    .client-logos img {
+      width: 120px;
+      height: auto;
+      transition: transform 0.3s ease;
+      filter: grayscale(100%);
+    }
+
+    .client-logos img:hover {
+      transform: scale(1.1);
+      filter: grayscale(0%);
     }
 
     .message-section {
@@ -244,25 +254,10 @@
       .hero { height: 300px; }
       .hero-overlay p.main-text { font-size: 16px; }
       .hero-overlay p.sub-text { font-size: 12px; }
-
-      nav.active {
-        flex-direction: column;
-        width: 80%;
-        right: 10px;
-      }
-
-      .nav-link {
-        font-size: 12px;
-        padding: 6px 10px;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.4;
-      }
-
       .service-card {
         font-size: 12px;
         padding: 14px 6px;
-        flex: 1 1 45%;
+        flex: 1 1 23%;
       }
       .message-section p {
         font-size: 14px;
@@ -270,8 +265,9 @@
     }
   </style>
 </head>
-
 <body>
+
+<!-- 상단 Hero -->
 <div class="hero-wrapper">
   <div class="gradient-line"></div>
   <section class="hero">
@@ -291,6 +287,7 @@
   <div class="gradient-line"></div>
 </div>
 
+<!-- 서비스 -->
 <section class="service-section" id="services">
   <div class="service-cards">
     <div class="service-card" onclick="location.href='about-us.html';">WHO WE ARE</div>
@@ -300,15 +297,23 @@
   </div>
 </section>
 
+<!-- 그래프 -->
 <section class="graph-section">
   <img src="images/graph.png" alt="Performance Graph">
 </section>
 
+<!-- 클라이언트 -->
 <section class="client-section">
-  <h2>Our Clients</h2>
-  <img src="images/brand.png" alt="Our Clients">
+  <h2 class="client-title">Our Clients</h2>
+  <div class="client-logos">
+    <img src="images/logo_arcteryx.png" alt="Arc'teryx">
+    <img src="images/logo_daiwa.png" alt="DAIWA">
+    <img src="images/logo_ecco.png" alt="ECCO">
+    <img src="images/logo_spyder.png" alt="Spyder">
+  </div>
 </section>
 
+<!-- 메시지 -->
 <section class="message-section" id="form">
   <h2>Send a Message</h2>
   <p>Our attorney will start the meeting after reviewing your message.</p>
@@ -320,6 +325,7 @@
   </form>
 </section>
 
+<!-- 푸터 -->
 <footer>
   <h2>Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
