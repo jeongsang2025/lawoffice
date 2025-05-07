@@ -1,335 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <meta name="description" content="JeongSang Law Office provides expert IP enforcement services in South Korea for global clients.">
+  <meta name="keywords" content="Intellectual Property, Trademark Enforcement, Korea, Copyright, JeongSang Law Office">
+  <meta name="author" content="JeongSang Law Office">
+  <meta property="og:title" content="JeongSang Law Office – IP Enforcement in Korea">
+  <meta property="og:description" content="Protecting your trademarks and copyrights in South Korea with zero legal fees.">
+  <meta property="og:image" content="images/og-thumbnail.png">
+  <meta property="og:type" content="website">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JeongSang Law Office</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #333;
-      scroll-behavior: smooth;
-    }
+  <style>$1
+/* 고급스러운 느낌을 위한 색상 개선 */
+:root {
+  --primary-color: #1a2a6c;
+  --accent-color: #ffb400;
+  --light-bg: #f4f6f9;
+  --dark-text: #222;
+}
 
-    .hero-wrapper {
-      border-top: 2px solid #ccc;
-      border-bottom: 2px solid #ccc;
-    }
+body {
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+  color: var(--dark-text);
+}
 
-    .hero {
-      position: relative;
-      height: 500px;
-      overflow: hidden;
-    }
+header {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #eee;
+}
 
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+header a {
+  color: var(--primary-color);
+}
 
-    .hero-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      z-index: 1;
-    }
+.hero-overlay h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
-    .hero-overlay p.main-text {
-      color: #ffffff;
-      font-size: 32px;
-      font-weight: bold;
-      font-family: 'Georgia', serif;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      margin-bottom: 8px;
-    }
+.service-card {
+  border: none;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    .hero-overlay p.sub-text {
-      color: #ffffff;
-      font-size: 14px;
-      font-family: 'Georgia', serif;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
 
-    .gradient-line {
-      height: 4px;
-      background: linear-gradient(to right, #003366, #0055a5, #003366);
-    }
+.graph-section {
+  background: var(--light-bg);
+  border: 1px solid #e0e0e0;
+}
 
-    .menu-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      background: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 6px 12px;
-      cursor: pointer;
-      z-index: 1002;
-    }
+footer {
+  background: #101820;
+  color: #ccc;
+  font-size: 14px;
+}
 
-    nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      background: #fff;
-      padding: 20px;
-      border-bottom: 1px solid #ddd;
-      position: absolute;
-      top: 70px;
-      right: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      z-index: 1001;
-    }
+footer a {
+  color: var(--accent-color);
+}
 
-    nav.active { display: flex; }
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .nav-link {
-      color: black;
-      border: 1px solid #ccc;
-      padding: 8px 12px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-size: 14px;
-      background: white;
-    }
+button {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-    .nav-link:hover { background-color: #eee; }
+button:hover {
+  background: #142054;
+}
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-    .service-section {
-      background: #eee;
-      padding: 60px 20px;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    .service-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .service-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #fff;
-      padding: 18px 8px;
-      flex: 1 1 23%;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      font-size: 13px;
-      font-weight: bold;
-      transition: transform 0.3s;
-      cursor: pointer;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .service-card:hover {
-      transform: scale(1.05);
-    }
-
-    .graph-section {
-      margin: 60px auto;
-      max-width: 900px;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .graph-section img {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-    }
-
-    .graph-section img:hover {
-      transform: scale(1.05);
-    }
-
-    .client-section {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f9f9f9;
-    }
-
-    .client-section h2 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    .client-section img {
-      width: 90%;
-      max-width: 700px;
-      border-radius: 8px;
-      transition: transform 0.3s;
-    }
-
-    .client-section img:hover {
-      transform: scale(1.03);
-    }
-
-    .message-section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .message-section h2 {
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
-
-    .message-section p {
-      margin-bottom: 20px;
-      font-size: 18px;
-      color: #555;
-    }
-
-    .message-section input,
-    .message-section textarea {
-      width: 90%;
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    .message-section button {
-      padding: 10px 30px;
-      font-size: 16px;
-      background: #333;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-
-    .message-section button:hover {
-      background: #555;
-    }
-
-    footer {
-      background-color: #222;
-      color: #ccc;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .hero { height: 300px; }
-      .hero-overlay p.main-text { font-size: 16px; }
-      .hero-overlay p.sub-text { font-size: 12px; }
-      .service-card {
-        font-size: 12px;
-        padding: 14px 6px;
-        flex: 1 1 23%;
-      }
-      .message-section p {
-        font-size: 14px;
-      }
-    }
-  </style>
-</head>
-
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+</script>
+$1
 <body>
-
-<!-- 상단 Hero -->
-<div class="hero-wrapper">
-  <div class="gradient-line"></div>
+  <header>
+  <a href="about-us.html">WHO WE ARE</a>
+  <a href="no-legal-fees.html">No Legal Fee</a>
+  <a href="ip-support.html">How We Handle Counterfeiter</a>
+  <a href="faq-enforcement.html">FAQ</a>
+</header>
   <section class="hero">
-    <img src="images/good.png" alt="Hero Image">
+    <video autoplay muted loop playsinline>
+      <source src="video/0424(2).mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
     <div class="hero-overlay">
-      <p class="main-text">Your IP, Fully Protected In Korea</p>
-      <p class="sub-text">JeongSang Law Firm</p>
+      <h1><span id="typed-text"></span></h1>
+      <p>JeongSang Law Firm</p>
     </div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav id="nav-menu">
-      <a class="nav-link" href="about-us.html">WHO WE ARE</a>
-      <a class="nav-link" href="no-legal-fees.html">No Legal Fee</a>
-      <a class="nav-link" href="ip-support.html">How We Handle Counterfeiter</a>
-      <a class="nav-link" href="faq-enforcement.html">FAQ</a>
-    </nav>
   </section>
-  <div class="gradient-line"></div>
+  <section class="service-section fade-in" id="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+      <div class="service-card" onclick="location.href='about-us.html';">WHO WE ARE</div>
+      <div class="service-card" onclick="location.href='no-legal-fees.html';">No Legal Fee</div>
+      <div class="service-card" onclick="location.href='ip-support.html';">How We Handle Counterfeiter</div>
+      <div class="service-card" onclick="location.href='faq-enforcement.html';">FAQ</div>
+    </div>
+  </section>
+  <section class="client-section fade-in" id="clients">
+  <h2 style="text-align:center; font-size: 24px; margin-bottom: 40px; color: #003366;">Trusted By Global Clients</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; max-width: 900px; margin: 0 auto;">
+    <img src="images/아크테릭스 상표 로고.png" alt="ARC'TERYX" style="height: 50px; object-fit: contain;">
+    <img src="images/다이와 상표 로고.png" alt="Daiwa" style="height: 50px; object-fit: contain;">
+    <img src="images/에코 상표 로고.png" alt="ECCO" style="height: 50px; object-fit: contain;">
+    <img src="images/스파이더.png" alt="SPYDER" style="height: 50px; object-fit: contain;">
+  </div>
+</section>
+<section class="highlight-section fade-in" id="highlight" style="background: #003366; color: #fff; padding: 60px 20px; text-align: center;">
+  <h2 style="font-size: 26px; margin-bottom: 20px;">Why Choose Us</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1000px; margin: 0 auto;">
+    <div>
+      <img src="images/icon1.png" alt="Experience" style="height: 50px; margin-bottom: 12px;">
+      <h3 style="font-size: 18px; margin-bottom: 8px;">Years of Experience</h3>
+      <p style="font-size: 14px; line-height: 1.6;">Over a decade of exclusive focus on IP enforcement in Korea.</p>
+    </div>
+    <div>
+      <img src="images/icon2.png" alt="Network" style="height: 50px; margin-bottom: 12px;">
+      <h3 style="font-size: 18px; margin-bottom: 8px;">Global Client Network</h3>
+      <p style="font-size: 14px; line-height: 1.6;">Trusted by multinational brands and legal teams worldwide.</p>
+    </div>
+    <div>
+      <img src="images/icon3.png" alt="Results" style="height: 50px; margin-bottom: 12px;">
+      <h3 style="font-size: 18px; margin-bottom: 8px;">Proven Results</h3>
+      <p style="font-size: 14px; line-height: 1.6;">Hundreds of counterfeit platforms shut down with legal impact.</p>
+    </div>
+  </div>
+</section>
+
+$1
+  <div style="max-width: 900px; margin: 60px auto; padding: 0 20px; text-align: center;">
+    <h2 style="font-size: 26px; color: #003366; margin-bottom: 20px;">About JeongSang Law Office</h2>
+    <p style="font-size: 16px; color: #444; line-height: 1.6;">
+      With years of exclusive focus on trademark and copyright enforcement in South Korea,
+      JeongSang Law Office has successfully shut down numerous counterfeit platforms.
+      We provide comprehensive services ranging from investigation and evidence collection
+      to litigation — all without charging legal fees to rights holders. Our international clients
+      trust us to act swiftly and effectively against IP violations across online and offline platforms.
+    </p>
+  </div>
+</section>
+
+<section class="testimonial-section fade-in" id="testimonials" style="background: #f0f3f8; padding: 60px 20px; text-align: center;">
+  <h2 style="font-size: 26px; margin-bottom: 40px; color: #003366;">What Our Clients Say</h2>
+  <div style="display: flex; flex-direction: column; gap: 30px; max-width: 800px; margin: 0 auto;">
+    <div style="background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+      <p style="font-size: 16px; font-style: italic; color: #333;">
+        “JeongSang Law Office provided swift and reliable enforcement in Korea. Their responsiveness and results
+        exceeded our expectations.”
+      </p>
+      <p style="margin-top: 10px; font-weight: bold; color: #003366;">— Legal Counsel, Global Footwear Brand</p>
+    </div>
+    <div style="background: #fff; padding: 24px 20px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+      <p style="font-size: 16px; font-style: italic; color: #333;">
+        “The team at JeongSang handled every step professionally — from undercover purchase to litigation.”
+      </p>
+      <p style="margin-top: 10px; font-weight: bold; color: #003366;">— Head of IP, Consumer Electronics Company</p>
+    </div>
+  </div>
+</section>
+
+$1
+  <h3 style="text-align:center; margin-bottom: 30px; font-size: 18px; color: #222;">
+    The number of counterfeit sellers shut down through enforcement
+  </h3>
+  <div class="graph-row">
+    <img src="images/아크테릭스 상표 로고.png" alt="ARC'TERYX" class="brand-logo">
+    <div class="bar" style="width: 87.5%;"><span>700</span></div>
+  </div>
+  <div class="graph-row">
+    <img src="images/다이와 상표 로고.png" alt="Daiwa" class="brand-logo">
+    <div class="bar" style="width: 75%;"><span>600</span></div>
+  </div>
+  <div class="graph-row">
+    <img src="images/에코 상표 로고.png" alt="ECCO" class="brand-logo">
+    <div class="bar" style="width: 62.5%;"><span>500</span></div>
+  </div>
+  <div class="graph-row">
+    <img src="images/스파이더.png" alt="SPYDER" class="brand-logo">
+    <div class="bar" style="width: 37.5%;"><span>300</span></div>
+  </div>
+</section>
+  <section class="message-section fade-in" id="form">
+    <h2>Send a Message</h2>
+<p>Protecting your IP in Korea? Let's talk.</p>
+    <form action="https://formspree.io/f/movdevyy" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="email" name="email" placeholder="Your Email" required><br>
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea><br>
+      <button type="submit">Send a Message</button>
+    </form>
+  </section>
+  <footer>
+    <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
+    <p><strong>Email:</strong> js.koreaip@gmail.com</p>
+    <div class="legal-links" style="margin-top: 20px;">
+      <a href="privacy_en.html" target="_blank">Privacy Policy</a> |
+      <a href="terms_en.html" target="_blank">Terms of Use</a> |
+      <a href="disclaimer_en.html" target="_blank">Disclaimer</a> |
+      <a href="cookie_en.html" target="_blank">Cookie Policy</a> |
+      <a href="business-info_en.html" target="_blank">Business Info</a>
+    </div>
+    <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
+  </footer>
+<!-- Floating Contact Banner -->
+<div style="position: fixed; bottom: 0; left: 0; width: 100%; background: #1a2a6c; color: #fff; text-align: center; padding: 12px 10px; font-size: 14px; z-index: 999;">
+  Need help with IP enforcement in Korea?
+  <a href="#form" style="color: #ffb400; font-weight: bold; text-decoration: underline; margin-left: 10px;">Contact Us Now</a>
 </div>
 
-<!-- 서비스 -->
-<section class="service-section" id="services">
-  <div class="service-cards">
-    <div class="service-card" onclick="location.href='about-us.html';">WHO WE ARE</div>
-    <div class="service-card" onclick="location.href='no-legal-fees.html';">No Legal Fee</div>
-    <div class="service-card" onclick="location.href='ip-support.html';">How We Handle Counterfeiter</div>
-    <div class="service-card" onclick="location.href='faq-enforcement.html';">FAQ</div>
-  </div>
-</section>
-
-<!-- 그래프 -->
-<section class="graph-section">
-  <img src="images/graph.png" alt="Performance Graph">
-</section>
-
-<!-- 클라이언트 -->
-<section class="client-section">
-  <h2>Our Clients</h2>
-  <img src="images/brand.png" alt="Our Clients">
-</section>
-
-<!-- 메시지 -->
-<section class="message-section" id="form">
-  <h2>Send a Message</h2>
-  <p>Our attorney will start the meeting after reviewing your message.</p>
-  <form action="https://formspree.io/f/movdevyy" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" placeholder="Your Message" rows="6" required></textarea><br>
-    <button type="submit">Send a Message</button>
-  </form>
-</section>
-
-<!-- 푸터 -->
-<footer>
-  <h2>Contact</h2>
-  <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
-  <p><strong>Email:</strong> js.koreaip@gmail.com</p>
-
-  <div class="legal-links" style="margin-top: 20px;">
-    <a href="privacy_en.html" target="_blank">Privacy Policy</a> |
-    <a href="terms_en.html" target="_blank">Terms of Use</a> |
-    <a href="disclaimer_en.html" target="_blank">Disclaimer</a> |
-    <a href="cookie_en.html" target="_blank">Cookie Policy</a> |
-    <a href="business-info_en.html" target="_blank">Business Info</a>
-  </div>
-
-  <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
-</footer>
+<!-- Scroll to Top Button -->
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="position: fixed; bottom: 70px; right: 20px; background: #1a2a6c; color: #fff; border: none; border-radius: 50%; width: 42px; height: 42px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 999;">↑</button>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new Typed("#typed-text", {
+      strings: [
+        "Your IP, Fully Protected In Korea",
+        "We Shut Down Counterfeiters",
+        "One-Stop Legal Enforcement in Korea"
+      ],
+      typeSpeed: 40,
+      backSpeed: 25,
+      backDelay: 2000,
+      startDelay: 500,
+      loop: true,
+      showCursor: false
+    });
+  });
+</script>
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(0,0,0,0.85); color: #fff; padding: 14px 20px; font-size: 14px; text-align: center; z-index: 9999; display: none;">
+  This site uses cookies to improve your experience. By continuing to browse, you agree to our use of cookies.
+  <button onclick="acceptCookies()" style="margin-left: 16px; padding: 6px 14px; background: #ffb400; border: none; color: #000; font-weight: bold; border-radius: 4px; cursor: pointer;">Accept</button>
+</div>
 
 <script>
-function toggleMenu() {
-  document.getElementById('nav-menu').classList.toggle('active');
-}
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  window.addEventListener('load', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  });
 </script>
 
 </body>
