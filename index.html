@@ -24,11 +24,12 @@
       overflow: hidden;
     }
 
-    .hero img {
+    .hero video.hero-video {
+      position: absolute;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      z-index: 0;
     }
 
     .hero-overlay {
@@ -190,6 +191,29 @@
       transform: scale(1.03);
     }
 
+    .scrolling-logos {
+      overflow: hidden;
+      white-space: nowrap;
+      background: #fff;
+      padding: 20px 0;
+    }
+
+    .logo-track {
+      display: inline-block;
+      animation: scroll 30s linear infinite;
+    }
+
+    .logo-track img {
+      height: 50px;
+      margin: 0 30px;
+      vertical-align: middle;
+    }
+
+    @keyframes scroll {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
     .message-section {
       padding: 60px 20px;
       text-align: center;
@@ -245,7 +269,7 @@
       .service-card {
         font-size: 12px;
         padding: 14px 6px;
-        flex: 1 1 23%;
+        flex: 1 1 45%;
       }
       .message-section p {
         font-size: 14px;
@@ -256,11 +280,13 @@
 
 <body>
 
-<!-- 상단 Hero -->
+<!-- HERO SECTION -->
 <div class="hero-wrapper">
   <div class="gradient-line"></div>
   <section class="hero">
-    <img src="images/good.png" alt="Hero Image">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="video/0424.mp4" type="video/mp4" />
+    </video>
     <div class="hero-overlay">
       <p class="main-text">Your IP, Fully Protected In Korea</p>
       <p class="sub-text">JeongSang Law Firm</p>
@@ -276,7 +302,7 @@
   <div class="gradient-line"></div>
 </div>
 
-<!-- 서비스 -->
+<!-- SERVICES -->
 <section class="service-section" id="services">
   <div class="service-cards">
     <div class="service-card" onclick="location.href='about-us.html';">WHO WE ARE</div>
@@ -286,18 +312,29 @@
   </div>
 </section>
 
-<!-- 그래프 -->
+<!-- GRAPH -->
 <section class="graph-section">
   <img src="images/graph.png" alt="Performance Graph">
 </section>
 
-<!-- 클라이언트 -->
+<!-- CLIENT LOGO -->
 <section class="client-section">
   <h2>Our Clients</h2>
   <img src="images/brand.png" alt="Our Clients">
 </section>
 
-<!-- 메시지 -->
+<!-- SCROLLING LOGOS -->
+<div class="scrolling-logos">
+  <div class="logo-track">
+    <img src="images/ark.png" />
+    <img src="images/daiwa.png" />
+    <img src="images/ecco.png" />
+    <img src="images/spyder.png" />
+    <!-- 필요 시 더 추가 -->
+  </div>
+</div>
+
+<!-- MESSAGE FORM -->
 <section class="message-section" id="form">
   <h2>Send a Message</h2>
   <p>Our attorney will start the meeting after reviewing your message.</p>
@@ -309,12 +346,11 @@
   </form>
 </section>
 
-<!-- 푸터 -->
+<!-- FOOTER -->
 <footer>
   <h2>Contact</h2>
   <p><strong>Address:</strong> 10th Floor, Unit 10001-1, M City Tower, 195 Baengma-ro, Goyang-si, Gyeonggi-do, Korea</p>
   <p><strong>Email:</strong> js.koreaip@gmail.com</p>
-
   <div class="legal-links" style="margin-top: 20px;">
     <a href="privacy_en.html" target="_blank">Privacy Policy</a> |
     <a href="terms_en.html" target="_blank">Terms of Use</a> |
@@ -322,7 +358,6 @@
     <a href="cookie_en.html" target="_blank">Cookie Policy</a> |
     <a href="business-info_en.html" target="_blank">Business Info</a>
   </div>
-
   <p style="margin-top: 10px; font-size: 12px; color: #aaa;">© 2025 JeongSang Law Office. All rights reserved.</p>
 </footer>
 
